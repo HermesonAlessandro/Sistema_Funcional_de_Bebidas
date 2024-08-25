@@ -4,6 +4,8 @@
 
 package com.mycompany.sistema_funcional_de_bebidas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Hermeson Alessandro
@@ -11,10 +13,6 @@ package com.mycompany.sistema_funcional_de_bebidas;
 public class Sistema_Funcional_de_Bebidas {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        ddfd
-                
-                dfdfd
-                
+        JOptionPane.showMessageDialog(null, "Olá Mundo");
     }
 }
