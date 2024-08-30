@@ -11,6 +11,6 @@ package com.mycompany.sistema_funcional_de_bebidas;
 public class Sistema_Funcional_de_Bebidas {
 
     public static void main(String[] args) {
-        kdkfdfjj
+        System.out.println("ola mundo");
     }
 }
