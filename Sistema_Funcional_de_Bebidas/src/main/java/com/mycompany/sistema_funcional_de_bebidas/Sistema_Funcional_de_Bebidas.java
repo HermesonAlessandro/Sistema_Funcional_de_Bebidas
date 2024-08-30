@@ -4,6 +4,8 @@
 
 package com.mycompany.sistema_funcional_de_bebidas;
 
+import Visao.Tela_colaboradores;
+
 /**
  *
  * @author Hermeson Alessandro
@@ -11,6 +13,7 @@ package com.mycompany.sistema_funcional_de_bebidas;
 public class Sistema_Funcional_de_Bebidas {
 
     public static void main(String[] args) {
-        System.out.println("ola mundo");
+        Tela_colaboradores tc = new Tela_colaboradores();
+        tc.setVisible(true);
     }
 }

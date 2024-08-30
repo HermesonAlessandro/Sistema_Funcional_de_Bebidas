@@ -6,39 +6,25 @@ package DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hermeson Alessandro
  */
 public class ConexaoDAO {
-    private static final String URL = "jdbc:postgresql://localhost:5432/seuBancoDeDados";
-    private static final String USUARIO = "seuUsuario";
-    private static final String SENHA = "suaSenha";
-
-    public Connection conectar() throws SQLException {
+    private static final String URL = "jdbc:postgresql://localhost:5432/Sistema_Funcional_de_Bebidas";
+    private static final String USUARIO = "postgres";
+    private static final String SENHA = "Admin123@";
+    
+    public Connection conectar(){
         Connection conexao = null;
-        try {
-            // Carregar o driver do PostgreSQL
-            Class.forName("org.postgresql.Driver");
+        try{
             conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
-            System.out.println("Conexão estabelecida com sucesso!");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Driver do PostgreSQL não encontrado: " + e.getMessage());
-        } catch (SQLException e) {
-            System.out.println("Erro ao conectar ao banco de dados: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Conexão estabelecida com sucesso!");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao se conectar ao banco de dados: "+e.getMessage());
         }
         return conexao;
-    }
-
-    public void fecharConexao(Connection conexao) {
-        if (conexao != null) {
-            try {
-                conexao.close();
-                System.out.println("Conexão fechada com sucesso!");
-            } catch (SQLException e) {
-                System.out.println("Erro ao fechar a conexão: " + e.getMessage());
-            }
-        }
     }
 }
