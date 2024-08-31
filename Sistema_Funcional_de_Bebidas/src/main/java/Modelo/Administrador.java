@@ -17,8 +17,9 @@ public class Administrador {
     private String bairro;
     private String email;
     private String senha;
+    private String sexo;
 
-    public Administrador(int cod, String nome, String telefone, String categoria_tel, String endereco, String bairro, String email, String senha) {
+    public Administrador(int cod, String nome, String telefone, String categoria_tel, String endereco, String bairro, String email, String senha, String sexo) {
         this.cod = cod;
         this.nome = nome;
         this.telefone = telefone;
@@ -27,6 +28,7 @@ public class Administrador {
         this.bairro = bairro;
         this.email = email;
         this.senha = senha;
+        this.senha = sexo;
     }
 
     public int getCod() {
@@ -91,5 +93,13 @@ public class Administrador {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public String getSexo() {
+        return sexo;
+    }
+    
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 }

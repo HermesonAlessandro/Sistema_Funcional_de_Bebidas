@@ -17,7 +17,7 @@ public class ConexaoDAO {
     private static final String USUARIO = "postgres";
     private static final String SENHA = "Admin123@";
     
-    public Connection conectar(){
+    public static Connection getConnection(){
         Connection conexao = null;
         try{
             conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
