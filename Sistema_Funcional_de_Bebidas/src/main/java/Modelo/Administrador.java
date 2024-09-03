@@ -11,15 +11,19 @@ package Modelo;
 public class Administrador {
     private int cod;
     private String nome;
-    private String telefone;
+    private int telefone;
     private String categoria_tel;
     private String endereco;
     private String bairro;
     private String email;
     private String senha;
     private String sexo;
-
-    public Administrador(int cod, String nome, String telefone, String categoria_tel, String endereco, String bairro, String email, String senha, String sexo) {
+    
+    public Administrador(){
+        
+    }
+    
+    public Administrador(int cod, String nome, int telefone, String categoria_tel, String endereco, String bairro, String email, String senha, String sexo) {
         this.cod = cod;
         this.nome = nome;
         this.telefone = telefone;
@@ -28,7 +32,7 @@ public class Administrador {
         this.bairro = bairro;
         this.email = email;
         this.senha = senha;
-        this.senha = sexo;
+        this.sexo = sexo;
     }
 
     public int getCod() {
@@ -47,11 +51,11 @@ public class Administrador {
         this.nome = nome;
     }
 
-    public String getTelefone() {
+    public int getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
 

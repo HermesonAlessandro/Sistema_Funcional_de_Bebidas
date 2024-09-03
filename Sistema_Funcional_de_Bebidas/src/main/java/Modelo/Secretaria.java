@@ -18,8 +18,9 @@ public class Secretaria {
     private String telefone;
     private String email;
     private String senha;
+    private int fk_cod_adm;
 
-    public Secretaria(int rg, String nome, LocalDate d_nasc, String sexo, String endereco, String telefone, String email, String senha) {
+    public Secretaria(int rg, String nome, LocalDate d_nasc, String sexo, String endereco, String telefone, String email, String senha, int fk_cod_adm) {
         this.rg = rg;
         this.nome = nome;
         this.d_nasc = d_nasc;
@@ -28,6 +29,7 @@ public class Secretaria {
         this.telefone = telefone;
         this.email = email;
         this.senha = senha;
+        this.fk_cod_adm = fk_cod_adm;
     }
 
     public int getRg() {
@@ -92,5 +94,13 @@ public class Secretaria {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    public int fk_cod_adm(){
+        return fk_cod_adm;
+    }
+    
+    public void setFk_cod_adm(int fk_cod_adm){
+        this.fk_cod_adm = fk_cod_adm;
     }
 }
