@@ -91,9 +91,8 @@ public class Tela_apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tela_administrador ta = new Tela_administrador();
-        ta.setVisible(true);
-        dispose();
+        Tela_cadastro_administrador tca = new Tela_cadastro_administrador();
+        tca.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
