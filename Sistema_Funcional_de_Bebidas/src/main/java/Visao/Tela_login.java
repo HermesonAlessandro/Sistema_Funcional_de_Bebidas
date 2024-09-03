@@ -61,6 +61,11 @@ public class Tela_login extends javax.swing.JFrame {
         });
 
         jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,6 +125,10 @@ public class Tela_login extends javax.swing.JFrame {
         String email = jTextField1.getText();
         String senha = new String(jPasswordField1.getPassword());
         
+        if(email.isEmpty() || senha.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campos vazios!, preencha todos os campos");
+        }else{
+        
         AdministradorDTO dto = new AdministradorDTO();
         try{
             Administrador administrador = dto.VerificarAdministrador(email, senha);
@@ -132,8 +141,13 @@ public class Tela_login extends javax.swing.JFrame {
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro ao verificar login: " +e.getMessage());
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

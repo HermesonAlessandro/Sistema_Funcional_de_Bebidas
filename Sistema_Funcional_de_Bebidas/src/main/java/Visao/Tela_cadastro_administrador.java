@@ -228,6 +228,13 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() 
+                || jComboBox2.getSelectedItem() == null 
+                || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() 
+                || jTextField7.getText().isEmpty() || jPasswordField1.getPassword().length == 0 
+                ||jComboBox1.getSelectedItem()== null){
+            JOptionPane.showMessageDialog(null, "Campos Vazios!, por favor preencher todos os campos");
+        }else{
         Administrador administrador = new Administrador();
         administrador.setNome(jTextField2.getText());
         administrador.setTelefone(Integer.valueOf(jTextField3.getText()));
@@ -242,9 +249,13 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
         try{
             dao.CadastrarAdministrador(administrador);
             JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!");
+            Tela_login tl = new Tela_login();
+            tl.setVisible(true);
+            dispose();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar o administrador: " +e.getMessage());
         }
+      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
