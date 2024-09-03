@@ -88,6 +88,7 @@ public class Tela_inicial_administrador extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Tela_ajuste_administrador taa = new Tela_ajuste_administrador();
         taa.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
