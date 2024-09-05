@@ -4,10 +4,12 @@
  */
 package DAO;
 import Modelo.Administrador;
+import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,5 +38,30 @@ public class AdministradorDAO {
                 }
             }
         }
+    }
+    
+    public List<Administrador> ListarAdministrador(){
+        List<Administrador> administradores = new ArrayList<>();
+        String sql = "SELECT * FROM administrador";
+        try(Connection conn = ConexaoDAO.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery()){
+            while(rs.next()){
+                Administrador administrador = new Administrador();
+                administrador.setCod(rs.getInt("cod"));
+                administrador.setNome(rs.getString("nome"));
+                administrador.setTelefone(rs.getInt("telefone"));
+                administrador.setCategoria_tel(rs.getString("categoria_tel"));
+                administrador.setEndereco(rs.getString("endereco"));
+                administrador.setBairro(rs.getString("bairro"));
+                administrador.setEmail(rs.getString("email"));
+                administrador.setSenha(rs.getString("senha"));
+                administrador.setSexo(rs.getString("sexo"));
+                administradores.add(administrador);
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao listar o administrador: " +e.getMessage());
+        }
+        return administradores;
     }
 }

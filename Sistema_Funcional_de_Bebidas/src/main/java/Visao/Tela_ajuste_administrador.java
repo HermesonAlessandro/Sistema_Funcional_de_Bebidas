@@ -4,6 +4,10 @@
  */
 package Visao;
 import Visao.Tela_inicial_administrador;
+import Modelo.Administrador;
+import DAO.AdministradorDAO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Hermeson Alessandro
@@ -15,6 +19,7 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
      */
     public Tela_ajuste_administrador() {
         initComponents();
+        ListarAdministrador();
     }
 
     /**
@@ -127,6 +132,26 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ListarAdministrador(){
+        AdministradorDAO dao = new AdministradorDAO();
+        List<Administrador> administradores = dao.ListarAdministrador();
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+        model.setRowCount(0);
+        
+        for(Administrador administrador : administradores){
+            model.addRow(new Object[]{
+                administrador.getCod(),
+                administrador.getNome(),
+                administrador.getTelefone(),
+                administrador.getCategoria_tel(),
+                administrador.getEndereco(),
+                administrador.getBairro(),
+                administrador.getEmail(),
+                administrador.getSenha(),
+                administrador.getSexo(),
+            });
+        }
+    }
     /**
      * @param args the command line arguments
      */
