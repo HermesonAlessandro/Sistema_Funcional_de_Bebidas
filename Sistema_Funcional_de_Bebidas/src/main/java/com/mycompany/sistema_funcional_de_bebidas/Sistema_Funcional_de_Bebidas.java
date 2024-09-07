@@ -5,7 +5,6 @@
 package com.mycompany.sistema_funcional_de_bebidas;
 
 import Visao.Tela_colaboradores;
-
 /**
  *
  * @author Hermeson Alessandro

@@ -37,7 +37,7 @@ public class Tela_apresentacao extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Sistema Funcional de Bebidas");
 
-        jButton1.setText("Entrar/Cadastrar Administrador");
+        jButton1.setText("Entrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -88,9 +88,9 @@ public class Tela_apresentacao extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
                 .addGap(132, 132, 132))
         );
 
@@ -102,8 +102,8 @@ public class Tela_apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tela_cadastro_administrador tca = new Tela_cadastro_administrador();
-        tca.setVisible(true);
+        Tela_login tl = new Tela_login();
+        tl.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
