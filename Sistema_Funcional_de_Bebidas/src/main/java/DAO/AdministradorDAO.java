@@ -109,4 +109,15 @@ public class AdministradorDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public void ExcluirAdministrador(int cod) throws SQLException{
+        String sql = "DELETE FROM administrador WHERE cod = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setInt(1, cod);
+            pstmt.executeUpdate();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir administrador: " +e.getMessage());
+        }
+    }
 }

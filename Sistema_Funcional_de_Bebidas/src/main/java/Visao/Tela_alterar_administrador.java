@@ -12,8 +12,10 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
+
 public class Tela_alterar_administrador extends javax.swing.JFrame {
 private Administrador administrador;
+
     /**
      * Creates new form Tela_alterar_administrador
      */
@@ -27,16 +29,6 @@ private Administrador administrador;
         PreencherCampos();
     }
     
-    private void PreencherCampos(){
-        jTextField2.setText(administrador.getNome());
-        jTextField3.setText(String.valueOf(administrador.getTelefone()));
-        jComboBox2.setSelectedItem(administrador.getCategoria_tel());
-        jTextField5.setText(administrador.getEndereco());
-        jTextField6.setText(administrador.getBairro());
-        jTextField7.setText(administrador.getEmail());
-        jPasswordField1.setText(administrador.getSenha());
-        jComboBox1.setSelectedItem(administrador.getSexo());
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -253,7 +245,17 @@ private Administrador administrador;
         jPasswordField1.setText("");
         jComboBox1.setSelectedItem(0);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
+    private void PreencherCampos(){
+        jTextField2.setText(administrador.getNome());
+        jTextField3.setText(String.valueOf(administrador.getTelefone()));
+        jComboBox2.setSelectedItem(administrador.getCategoria_tel());
+        jTextField5.setText(administrador.getEndereco());
+        jTextField6.setText(administrador.getBairro());
+        jTextField7.setText(administrador.getEmail());
+        jPasswordField1.setText(administrador.getSenha());
+        jComboBox1.setSelectedItem(administrador.getSexo());
+    }
     /**
      * @param args the command line arguments
      */

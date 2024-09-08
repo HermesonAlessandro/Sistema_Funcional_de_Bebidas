@@ -4,6 +4,13 @@
  */
 package Visao;
 
+import DAO.AdministradorDAO;
+import Modelo.Administrador;
+import java.util.List;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hermeson Alessandro
@@ -15,6 +22,15 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
      */
     public Tela_excluir_administrador() {
         initComponents();
+        ListarAdministrador();
+        jTable2.getSelectionModel().addListSelectionListener(event ->{
+           if(!event.getValueIsAdjusting()){
+               int selectedRow = jTable2.getSelectedRow();
+               if(selectedRow != -1){
+                   CodSelecionado = (int) jTable2.getValueAt(selectedRow, 0);
+               }
+           } 
+        });
     }
 
     /**
@@ -72,6 +88,11 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +143,46 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(CodSelecionado != -1){
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir um administrador?", "Confirmação!", JOptionPane.YES_NO_OPTION);
+            if(confirmacao == JOptionPane.YES_NO_OPTION){
+                try{
+                    AdministradorDAO dao = new AdministradorDAO();
+                    dao.ExcluirAdministrador(CodSelecionado);
+                    JOptionPane.showMessageDialog(null, "Administrador excluído com sucesso!");
+                    ListarAdministrador();
+                }catch(SQLException e){
+                    JOptionPane.showMessageDialog(null, "Erro ao excluir um administrador: " +e.getMessage());
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum administrador selecionado!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ListarAdministrador(){
+        AdministradorDAO dao = new AdministradorDAO();
+        List<Administrador> administradores = dao.ListarAdministrador();
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+        model.setRowCount(0);
+        
+        for(Administrador administrador : administradores){
+            model.addRow(new Object[]{
+                administrador.getCod(),
+                administrador.getNome(),
+                administrador.getTelefone(),
+                administrador.getCategoria_tel(),
+                administrador.getEndereco(),
+                administrador.getBairro(),
+                administrador.getEmail(),
+                administrador.getSenha(),
+                administrador.getSexo(),
+            });
+        }
+    }
+    
+    private int CodSelecionado = -1;
     /**
      * @param args the command line arguments
      */
@@ -156,7 +217,7 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
