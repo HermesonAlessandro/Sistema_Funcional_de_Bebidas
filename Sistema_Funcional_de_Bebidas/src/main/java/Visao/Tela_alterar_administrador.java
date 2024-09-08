@@ -3,20 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import Modelo.Administrador;
+import DAO.AdministradorDAO;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hermeson Alessandro
  */
 public class Tela_alterar_administrador extends javax.swing.JFrame {
-
+private Administrador administrador;
     /**
      * Creates new form Tela_alterar_administrador
      */
     public Tela_alterar_administrador() {
         initComponents();
     }
-
+    
+    public Tela_alterar_administrador(Administrador administrador){
+        initComponents();
+        this.administrador = administrador;
+        PreencherCampos();
+    }
+    
+    private void PreencherCampos(){
+        jTextField2.setText(administrador.getNome());
+        jTextField3.setText(String.valueOf(administrador.getTelefone()));
+        jComboBox2.setSelectedItem(administrador.getCategoria_tel());
+        jTextField5.setText(administrador.getEndereco());
+        jTextField6.setText(administrador.getBairro());
+        jTextField7.setText(administrador.getEmail());
+        jPasswordField1.setText(administrador.getSenha());
+        jComboBox1.setSelectedItem(administrador.getSexo());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +63,6 @@ public class Tela_alterar_administrador extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -73,11 +92,19 @@ public class Tela_alterar_administrador extends javax.swing.JFrame {
 
         jLabel7.setText("bairro");
 
-        jButton1.setText("Carregar Campos");
-
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Limpar Campos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -132,9 +159,7 @@ public class Tela_alterar_administrador extends javax.swing.JFrame {
                                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jButton1)
-                        .addGap(34, 34, 34)
+                        .addGap(161, 161, 161)
                         .addComponent(jButton2)
                         .addGap(35, 35, 35)
                         .addComponent(jButton3)
@@ -179,13 +204,12 @@ public class Tela_alterar_administrador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addGap(52, 52, 52))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,6 +220,39 @@ public class Tela_alterar_administrador extends javax.swing.JFrame {
         taa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        administrador.setNome(jTextField2.getText());
+        administrador.setTelefone(Integer.parseInt(jTextField3.getText()));
+        administrador.setCategoria_tel((String)jComboBox2.getSelectedItem());
+        administrador.setEndereco(jTextField5.getText());
+        administrador.setBairro(jTextField6.getText());
+        administrador.setEmail(jTextField7.getText());
+        administrador.setSenha(new String(jPasswordField1.getPassword()));
+        administrador.setSexo((String)jComboBox1.getSelectedItem());
+        
+        AdministradorDAO dao = new AdministradorDAO();
+        try{
+            dao.AlterarAdministrador(administrador);
+            JOptionPane.showMessageDialog(null, "Administrador atualizado com sucesso!");
+            Tela_ajuste_administrador taa = new Tela_ajuste_administrador();
+            taa.setVisible(true);
+            dispose();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar um administrador: " +e.getMessage());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jComboBox2.setSelectedItem(0);
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jPasswordField1.setText("");
+        jComboBox1.setSelectedItem(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,7 +290,6 @@ public class Tela_alterar_administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

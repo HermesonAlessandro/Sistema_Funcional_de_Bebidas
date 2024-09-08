@@ -7,6 +7,7 @@ import Visao.Tela_inicial_administrador;
 import Modelo.Administrador;
 import DAO.AdministradorDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -35,6 +36,8 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -78,6 +81,11 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
                 "Cod", "Nome", "Telefone", "Categoria_tel", "Endereço", "Bairro", "Email", "Senha", "Sexo"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jButton1.setText("Voltar");
@@ -86,6 +94,10 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Para alterar administrador, selecione na tabela e clique em Alterar/ADM");
+
+        jLabel3.setText("Para excluir administrador vá para a aba chamada excluir em seguida clique em Excluir/ADM");
 
         jMenu1.setText("Alterar");
 
@@ -118,16 +130,25 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(68, 68, 68))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(139, 139, 139))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(161, 161, 161)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(301, 301, 301)
+                        .addGap(289, 289, 289)
                         .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -137,10 +158,14 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,9 +178,13 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       Tela_alterar_administrador taa = new Tela_alterar_administrador();
-       taa.setVisible(true);
-       dispose();
+        if(AdministradorSelecionado != null){
+            Tela_alterar_administrador taa = new Tela_alterar_administrador(AdministradorSelecionado);
+            taa.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um administrador para alterar.");
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -163,6 +192,20 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
         tea.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private Administrador AdministradorSelecionado;
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        int selectedRow = jTable2.getSelectedRow();
+        if(selectedRow != -1){
+            int cod = (int) jTable2.getValueAt(selectedRow, 0);
+            AdministradorDAO dao = new AdministradorDAO();
+            AdministradorSelecionado = dao.BuscarAdministradorPorCod(cod);
+            if(AdministradorSelecionado != null){
+                JOptionPane.showMessageDialog(null, "Administrador selecionado: "+AdministradorSelecionado.getNome());
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao selecionar o administrador");
+            }
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
 
     private void ListarAdministrador(){
         AdministradorDAO dao = new AdministradorDAO();
@@ -222,6 +265,8 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
