@@ -18,7 +18,7 @@ public class AdministradorDTO {
     public Administrador VerificarAdministrador(String email, String senha) throws SQLException{
         String sql = "SELECT * FROM administrador WHERE email = ? AND senha = ?";
         try(Connection conn = ConexaoDAO.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql)){
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
             pstmt.setString(1, email);
             pstmt.setString(2, senha);
             
@@ -27,7 +27,7 @@ public class AdministradorDTO {
                     Administrador administrador = new Administrador();
                     administrador.setCod(rs.getInt("cod"));
                     administrador.setNome(rs.getString("nome"));
-                    administrador.setTelefone(rs.getInt("telefone"));
+                    administrador.setTelefone(rs.getLong("telefone"));
                     administrador.setCategoria_tel(rs.getString("categoria_tel"));
                     administrador.setEndereco(rs.getString("endereco"));
                     administrador.setBairro(rs.getString("bairro"));

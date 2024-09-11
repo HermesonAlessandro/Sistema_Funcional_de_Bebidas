@@ -158,14 +158,13 @@ public class Tela_login extends javax.swing.JFrame {
         String senha = new String(jPasswordField1.getPassword());
         
         if(email.isEmpty() || senha.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Campos vazios!, preencha todos os campos");
+            JOptionPane.showMessageDialog(null, "Campos vazios, preencha todos os campos!");
         }else{
-        
         AdministradorDTO dto = new AdministradorDTO();
         try{
             Administrador administrador = dto.VerificarAdministrador(email, senha);
             if(administrador != null){
-                JOptionPane.showMessageDialog(null, "Login bem - sucedido!");
+                JOptionPane.showMessageDialog(null, "Login bem - sucedido, bem - vindo!");
                 new Tela_inicial_administrador().setVisible(true);
                 this.dispose();
             }else{

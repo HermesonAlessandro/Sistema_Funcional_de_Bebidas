@@ -22,7 +22,7 @@ public class AdministradorDAO {
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
             pstmt.setString(1, administrador.getNome());
-            pstmt.setInt(2, administrador.getTelefone());
+            pstmt.setLong(2, administrador.getTelefone());
             pstmt.setString(3, administrador.getCategoria_tel());
             pstmt.setString(4, administrador.getEndereco());
             pstmt.setString(5, administrador.getBairro());
@@ -50,7 +50,7 @@ public class AdministradorDAO {
                 Administrador administrador = new Administrador();
                 administrador.setCod(rs.getInt("cod"));
                 administrador.setNome(rs.getString("nome"));
-                administrador.setTelefone(rs.getInt("telefone"));
+                administrador.setTelefone(rs.getLong("telefone"));
                 administrador.setCategoria_tel(rs.getString("categoria_tel"));
                 administrador.setEndereco(rs.getString("endereco"));
                 administrador.setBairro(rs.getString("bairro"));
@@ -76,7 +76,7 @@ public class AdministradorDAO {
                     Administrador administrador = new Administrador();
                     administrador.setCod(rs.getInt("cod"));
                     administrador.setNome(rs.getString("nome"));
-                    administrador.setTelefone(rs.getInt("telefone"));
+                    administrador.setTelefone(rs.getLong("telefone"));
                     administrador.setCategoria_tel(rs.getString("categoria_tel"));
                     administrador.setEndereco(rs.getString("endereco"));
                     administrador.setBairro(rs.getString("bairro"));
@@ -97,7 +97,7 @@ public class AdministradorDAO {
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
             pstmt.setString(1, administrador.getNome());
-            pstmt.setInt(2, administrador.getTelefone());
+            pstmt.setLong(2, administrador.getTelefone());
             pstmt.setString(3, administrador.getCategoria_tel());
             pstmt.setString(4, administrador.getEndereco());
             pstmt.setString(5, administrador.getBairro());

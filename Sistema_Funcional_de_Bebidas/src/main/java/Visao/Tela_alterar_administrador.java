@@ -214,24 +214,39 @@ private Administrador administrador;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        administrador.setNome(jTextField2.getText());
-        administrador.setTelefone(Integer.parseInt(jTextField3.getText()));
-        administrador.setCategoria_tel((String)jComboBox2.getSelectedItem());
-        administrador.setEndereco(jTextField5.getText());
-        administrador.setBairro(jTextField6.getText());
-        administrador.setEmail(jTextField7.getText());
-        administrador.setSenha(new String(jPasswordField1.getPassword()));
-        administrador.setSexo((String)jComboBox1.getSelectedItem());
-        
-        AdministradorDAO dao = new AdministradorDAO();
-        try{
-            dao.AlterarAdministrador(administrador);
-            JOptionPane.showMessageDialog(null, "Administrador atualizado com sucesso!");
-            Tela_ajuste_administrador taa = new Tela_ajuste_administrador();
-            taa.setVisible(true);
-            dispose();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar um administrador: " +e.getMessage());
+        if(jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() 
+                || jComboBox2 == null || jTextField5.getText().isEmpty() 
+                || jTextField6.getText().isEmpty() || jTextField7.getText().isEmpty() 
+                || jPasswordField1.getPassword().length == 0 || jComboBox1 == null){
+            JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
+        }else{
+            try{
+                String telefone = jTextField3.getText();
+                if(!telefone.matches("\\d+")){
+                    throw new NumberFormatException("Numero deve conter apenas digitos!");
+                }
+                administrador.setNome(jTextField2.getText());
+                administrador.setTelefone(Long.parseLong(telefone));
+                administrador.setCategoria_tel((String)jComboBox2.getSelectedItem());
+                administrador.setEndereco(jTextField5.getText());
+                administrador.setBairro(jTextField6.getText());
+                administrador.setEmail(jTextField7.getText());
+                administrador.setSenha(new String(jPasswordField1.getPassword()));
+                administrador.setSexo((String)jComboBox1.getSelectedItem());
+
+                AdministradorDAO dao = new AdministradorDAO();
+                dao.AlterarAdministrador(administrador);
+                JOptionPane.showMessageDialog(null, "Administrador atualizado com sucesso!");
+                Tela_ajuste_administrador taa = new Tela_ajuste_administrador();
+                taa.setVisible(true);
+                dispose();
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());   
+                    }catch(SQLException e){
+                        JOptionPane.showMessageDialog(null, "Erro ao atualizar o administrador: " +e.getMessage());
+                        }catch(Exception e){
+                            JOptionPane.showMessageDialog(null, "Erro inesperado: " +e.getMessage());
+                            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -224,29 +224,37 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
                 || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() 
                 || jTextField7.getText().isEmpty() || jPasswordField1.getPassword().length == 0 
                 ||jComboBox1.getSelectedItem()== null){
-            JOptionPane.showMessageDialog(null, "Campos Vazios!, por favor preencher todos os campos");
+            JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
         }else{
-        Administrador administrador = new Administrador();
-        administrador.setNome(jTextField2.getText());
-        administrador.setTelefone(Integer.valueOf(jTextField3.getText()));
-        administrador.setCategoria_tel(jComboBox2.getSelectedItem().toString());
-        administrador.setEndereco(jTextField5.getText());
-        administrador.setBairro(jTextField6.getText());
-        administrador.setEmail(jTextField7.getText());
-        administrador.setSenha(new String(jPasswordField1.getPassword()));
-        administrador.setSexo(jComboBox1.getSelectedItem().toString());
+            try{
+                String telefone = jTextField3.getText();
+                if(!telefone.matches("\\d+")){
+                    throw new NumberFormatException("Numero deve conter apenas digitos!");
+                }
+                Administrador administrador = new Administrador();
+                administrador.setNome(jTextField2.getText());
+                administrador.setTelefone(Long.parseLong(telefone));
+                administrador.setCategoria_tel(jComboBox2.getSelectedItem().toString());
+                administrador.setEndereco(jTextField5.getText());
+                administrador.setBairro(jTextField6.getText());
+                administrador.setEmail(jTextField7.getText());
+                administrador.setSenha(new String(jPasswordField1.getPassword()));
+                administrador.setSexo(jComboBox1.getSelectedItem().toString());
 
-        AdministradorDAO dao = new AdministradorDAO();
-        try{
-            dao.CadastrarAdministrador(administrador);
-            JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!");
-            Tela_login tl = new Tela_login();
-            tl.setVisible(true);
-            dispose();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar o administrador: " +e.getMessage());
+                AdministradorDAO dao = new AdministradorDAO();
+                dao.CadastrarAdministrador(administrador);
+                JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!");
+                Tela_login tl = new Tela_login();
+                tl.setVisible(true);
+                dispose();
+                }catch(NumberFormatException e ){
+                    JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());
+                    }catch(SQLException e){
+                        JOptionPane.showMessageDialog(null, "Erro ao cadastrar o administrador: " +e.getMessage());
+                        }catch(Exception e){
+                            JOptionPane.showMessageDialog(null, "Erro inesperado: " +e.getMessage());
+                            }
         }
-      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

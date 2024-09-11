@@ -11,7 +11,7 @@ package Modelo;
 public class Administrador {
     private int cod;
     private String nome;
-    private int telefone;
+    private long telefone;
     private String categoria_tel;
     private String endereco;
     private String bairro;
@@ -23,7 +23,7 @@ public class Administrador {
         
     }
     
-    public Administrador(int cod, String nome, int telefone, String categoria_tel, String endereco, String bairro, String email, String senha, String sexo) {
+    public Administrador(int cod, String nome, long telefone, String categoria_tel, String endereco, String bairro, String email, String senha, String sexo) {
         this.cod = cod;
         this.nome = nome;
         this.telefone = telefone;
@@ -51,11 +51,11 @@ public class Administrador {
         this.nome = nome;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
@@ -88,10 +88,16 @@ public class Administrador {
     }
 
     public void setEmail(String email) {
+        if(email == null || !email.contains("@")){
+            throw new IllegalArgumentException("Email inválido!");
+        }
         this.email = email;
     }
 
     public String getSenha() {
+        if(senha == null || senha.length() < 8){
+            throw new IllegalArgumentException("Senha deve ter no mínimo 8 caracteres!");
+        }
         return senha;
     }
 

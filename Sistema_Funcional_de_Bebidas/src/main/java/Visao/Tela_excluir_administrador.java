@@ -152,6 +152,13 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
                     dao.ExcluirAdministrador(CodSelecionado);
                     JOptionPane.showMessageDialog(null, "Administrador excluído com sucesso!");
                     ListarAdministrador();
+                    List<Administrador> administradores = dao.ListarAdministrador();
+                    if(administradores.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Nenhum administrador restante, você será deslogado!");
+                        Tela_login tl = new Tela_login();
+                        tl.setVisible(true);
+                        dispose();
+                    }
                 }catch(SQLException e){
                     JOptionPane.showMessageDialog(null, "Erro ao excluir um administrador: " +e.getMessage());
                 }

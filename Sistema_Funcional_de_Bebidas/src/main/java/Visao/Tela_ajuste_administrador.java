@@ -96,9 +96,9 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Para alterar administrador, selecione na tabela e clique em Alterar/ADM");
+        jLabel2.setText("Para alterar administrador, selecione na tabela e clique em \"Alterar/ADM\"");
 
-        jLabel3.setText("Para excluir administrador vá para a aba chamada excluir em seguida clique em Excluir/ADM");
+        jLabel3.setText("Para excluir administrador vá para a aba chamada \"Excluir\" em seguida clique em \"Excluir/ADM\"");
 
         jMenu1.setText("Alterar");
 
@@ -184,7 +184,7 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
             taa.setVisible(true);
             dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "Por favor, selecione um administrador para alterar.");
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um administrador para alterar!");
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -203,7 +203,7 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
             if(AdministradorSelecionado != null){
                 JOptionPane.showMessageDialog(null, "Administrador selecionado: "+AdministradorSelecionado.getNome());
             }else{
-                JOptionPane.showMessageDialog(null, "Erro ao selecionar o administrador");
+                JOptionPane.showMessageDialog(null, "Erro ao selecionar o administrador!");
             }
         }
     }//GEN-LAST:event_jTable2MouseClicked

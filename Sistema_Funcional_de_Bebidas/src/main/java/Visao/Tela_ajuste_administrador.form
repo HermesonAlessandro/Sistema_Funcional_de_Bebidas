@@ -159,12 +159,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Para alterar administrador, selecione na tabela e clique em Alterar/ADM"/>
+        <Property name="text" type="java.lang.String" value="Para alterar administrador, selecione na tabela e clique em &quot;Alterar/ADM&quot;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Para excluir administrador v&#xe1; para a aba chamada excluir em seguida clique em Excluir/ADM"/>
+        <Property name="text" type="java.lang.String" value="Para excluir administrador v&#xe1; para a aba chamada &quot;Excluir&quot; em seguida clique em &quot;Excluir/ADM&quot;"/>
       </Properties>
     </Component>
   </SubComponents>
