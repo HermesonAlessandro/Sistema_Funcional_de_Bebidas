@@ -81,7 +81,7 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Cadastro Administrador");
+        jLabel1.setText("Cadastrar Administrador");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Telefone Residencial ", "Celular" }));
 
@@ -113,7 +113,7 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+                .addContainerGap(142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,11 +160,11 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
                         .addGap(88, 88, 88))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(58, 58, 58)
-                        .addComponent(jButton3)
-                        .addGap(54, 54, 54)
-                        .addComponent(jButton4)
-                        .addGap(204, 204, 204))))
+                        .addGap(49, 49, 49)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(198, 198, 198))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,9 +209,9 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton1))
+                    .addComponent(jButton4))
                 .addGap(43, 43, 43))
         );
 
