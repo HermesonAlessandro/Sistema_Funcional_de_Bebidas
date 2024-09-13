@@ -5,7 +5,7 @@
 package com.mycompany.sistema_funcional_de_bebidas;
 
 import Visao.Tela_colaboradores;
-import Visao.Tela_cadastrar_secretaria;
+
 /**
  *
  * @author Hermeson Alessandro
@@ -13,9 +13,7 @@ import Visao.Tela_cadastrar_secretaria;
 public class Sistema_Funcional_de_Bebidas {
 
     public static void main(String[] args) {
-        Tela_cadastrar_secretaria tcs = new Tela_cadastrar_secretaria();
-        tcs.setVisible(true);
-        //Tela_colaboradores tc = new Tela_colaboradores();
-        //tc.setVisible(true);
+        Tela_colaboradores tc = new Tela_colaboradores();
+        tc.setVisible(true);
     }
 }

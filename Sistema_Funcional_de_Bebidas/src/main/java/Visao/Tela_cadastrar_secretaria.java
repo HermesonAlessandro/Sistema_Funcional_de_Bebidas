@@ -235,20 +235,20 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
                 jTextField7.getText().isEmpty() || jPasswordField2.getPassword().length == 0
                 || jTextField8.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
-        } else {
-            try {
+        }else{
+            try{
                 String telefone = jTextField6.getText();
                 if(!telefone.matches("\\d+")){
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
                 }
                 
-                String dataTexto = jTextField4.getText();
-                if (dataTexto.isEmpty()) {
-                    throw new DateTimeParseException("Data vazia", dataTexto, 0);
+                String datatexto = jTextField4.getText();
+                if (datatexto.isEmpty()) {
+                    throw new DateTimeParseException("Data vazia!", datatexto, 0);
                 }
                 
                 DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate datanascimento = LocalDate.parse(dataTexto, formatar);
+                LocalDate datanascimento = LocalDate.parse(jTextField4.getText(),formatar);
                 
                 Secretaria secretaria = new Secretaria();
                 secretaria.setRg(Long.parseLong(jTextField2.getText()));
@@ -267,17 +267,15 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
                 Tela_login tl = new Tela_login();
                 tl.setVisible(true);
                 dispose();
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Erro de formatação: " + e.getMessage());
-            } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(null, "Erro de formatação da data: " + e.getMessage());
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Erro ao cadastrar uma secretaria: " + e.getMessage());
-                e.printStackTrace(); // Adicione esta linha para imprimir o stack trace
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getMessage());
-                e.printStackTrace(); // Adicione esta linha para imprimir o stack trace
-            }
+                }catch(NumberFormatException e ){
+                    JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());
+                    }catch(DateTimeParseException e){
+                        JOptionPane.showMessageDialog(null, "Erro de formatação da data: " +e.getMessage());
+                        }catch(SQLException e){
+                            JOptionPane.showMessageDialog(null, "Erro ao cadastrar uma secretaria: " +e.getMessage());
+                            }catch(Exception e){
+                                JOptionPane.showMessageDialog(null, "Erro inesperado: " +e.getMessage());
+                                }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

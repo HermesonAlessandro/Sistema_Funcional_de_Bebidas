@@ -89,10 +89,16 @@ public class Secretaria {
     }
 
     public void setEmail(String email) {
+        if(email == null || !email.contains("@")){
+            throw new IllegalArgumentException("Email inválido!");
+        }
         this.email = email;
     }
 
     public String getSenha() {
+        if(senha == null || senha.length() < 8){
+            throw new IllegalArgumentException("Senha deve ter no mínimo 8 caracteres!");
+        }
         return senha;
     }
 
