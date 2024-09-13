@@ -3,6 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import DAO.SecretariaDAO;
+import Modelo.Secretaria;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -86,8 +93,18 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", "Outros", " " }));
 
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,6 +221,65 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Tela_inicial_administrador tia = new Tela_inicial_administrador();
+        tia.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() 
+                || jTextField4.getText().isEmpty() || jComboBox1.getSelectedItem() == null
+                || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() ||
+                jTextField7.getText().isEmpty() || jPasswordField2.getPassword().length == 0
+                || jTextField8.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
+        } else {
+            try {
+                String telefone = jTextField6.getText();
+                if(!telefone.matches("\\d+")){
+                    throw new NumberFormatException("Numero deve conter apenas digitos!");
+                }
+                
+                String dataTexto = jTextField4.getText();
+                if (dataTexto.isEmpty()) {
+                    throw new DateTimeParseException("Data vazia", dataTexto, 0);
+                }
+                
+                DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate datanascimento = LocalDate.parse(dataTexto, formatar);
+                
+                Secretaria secretaria = new Secretaria();
+                secretaria.setRg(Long.parseLong(jTextField2.getText()));
+                secretaria.setNome(jTextField3.getText());
+                secretaria.setD_nasc(datanascimento);
+                secretaria.setSexo(jComboBox1.getSelectedItem().toString());
+                secretaria.setEndereco(jTextField5.getText());
+                secretaria.setTelefone(Long.parseLong(telefone));
+                secretaria.setEmail(jTextField7.getText());
+                secretaria.setSenha(new String(jPasswordField2.getPassword()));
+                secretaria.setFk_cod_adm(Integer.parseInt(jTextField8.getText()));
+                
+                SecretariaDAO dao = new SecretariaDAO();
+                dao.CadastrarSecretaria(secretaria);
+                JOptionPane.showMessageDialog(null, "Secretaria cadastrada com sucesso!");
+                Tela_login tl = new Tela_login();
+                tl.setVisible(true);
+                dispose();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Erro de formatação: " + e.getMessage());
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(null, "Erro de formatação da data: " + e.getMessage());
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar uma secretaria: " + e.getMessage());
+                e.printStackTrace(); // Adicione esta linha para imprimir o stack trace
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getMessage());
+                e.printStackTrace(); // Adicione esta linha para imprimir o stack trace
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
