@@ -184,7 +184,7 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
             taa.setVisible(true);
             dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "Por favor, selecione um administrador para alterar!");
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um administrador(a) para alterar!");
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -201,9 +201,9 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
             AdministradorDAO dao = new AdministradorDAO();
             AdministradorSelecionado = dao.BuscarAdministradorPorCod(cod);
             if(AdministradorSelecionado != null){
-                JOptionPane.showMessageDialog(null, "Administrador selecionado: "+AdministradorSelecionado.getNome());
+                JOptionPane.showMessageDialog(null, "Administrador(a) selecionado: "+AdministradorSelecionado.getNome());
             }else{
-                JOptionPane.showMessageDialog(null, "Erro ao selecionar o administrador!");
+                JOptionPane.showMessageDialog(null, "Erro ao selecionar o administrador(a)!");
             }
         }
     }//GEN-LAST:event_jTable2MouseClicked

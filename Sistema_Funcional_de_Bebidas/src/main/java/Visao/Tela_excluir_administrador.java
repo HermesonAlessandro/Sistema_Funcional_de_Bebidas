@@ -51,7 +51,7 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Excluir Administrador");
+        jLabel1.setText("Excluir Administrador(a)");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,12 +105,9 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(96, 96, 96))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -118,14 +115,17 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28))))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(74, 74, 74))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -145,26 +145,26 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(CodSelecionado != -1){
-            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir um administrador?", "Confirmação!", JOptionPane.YES_NO_OPTION);
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir um administrador(a)?", "Confirmação!", JOptionPane.YES_NO_OPTION);
             if(confirmacao == JOptionPane.YES_NO_OPTION){
                 try{
                     AdministradorDAO dao = new AdministradorDAO();
                     dao.ExcluirAdministrador(CodSelecionado);
-                    JOptionPane.showMessageDialog(null, "Administrador excluído com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Administrador(a) excluído com sucesso!");
                     ListarAdministrador();
                     List<Administrador> administradores = dao.ListarAdministrador();
                     if(administradores.isEmpty()){
-                        JOptionPane.showMessageDialog(null, "Nenhum administrador restante, você será deslogado!");
+                        JOptionPane.showMessageDialog(null, "Nenhum administrador(a) restante, você será deslogado!");
                         Tela_login tl = new Tela_login();
                         tl.setVisible(true);
                         dispose();
                     }
                 }catch(SQLException e){
-                    JOptionPane.showMessageDialog(null, "Erro ao excluir um administrador: " +e.getMessage());
+                    JOptionPane.showMessageDialog(null, "Erro ao excluir um administrador(a): " +e.getMessage());
                 }
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Nenhum administrador selecionado!");
+            JOptionPane.showMessageDialog(null, "Nenhum administrador(a) selecionado!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

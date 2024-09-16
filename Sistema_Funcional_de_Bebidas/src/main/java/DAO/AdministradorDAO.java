@@ -60,7 +60,7 @@ public class AdministradorDAO {
                 administradores.add(administrador);
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao listar o administrador: " +e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao listar o administrador(a): " +e.getMessage());
         }
         return administradores;
     }
@@ -87,7 +87,7 @@ public class AdministradorDAO {
                 }
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao buscar administrador: " +e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao buscar administrador(a): " +e.getMessage());
         }
         return null;
     }
@@ -117,7 +117,7 @@ public class AdministradorDAO {
             pstmt.setInt(1, cod);
             pstmt.executeUpdate();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao excluir administrador: " +e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao excluir administrador(a): " +e.getMessage());
         }
     }
 }

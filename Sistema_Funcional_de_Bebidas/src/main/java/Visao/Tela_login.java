@@ -5,7 +5,9 @@
 package Visao;
 import DTO.AdministradorDTO;
 import DTO.AdministradorDTO;
+import DTO.SecretariaDTO;
 import Modelo.Administrador;
+import Modelo.Secretaria;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -54,7 +56,7 @@ public class Tela_login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Senha:\n");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Secretaria", "Cliente" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador(a)", "Secretaria(o)", "Cliente" }));
 
         jButton1.setText("Entrar\n");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -160,18 +162,26 @@ public class Tela_login extends javax.swing.JFrame {
         if(email.isEmpty() || senha.isEmpty()){
             JOptionPane.showMessageDialog(null, "Campos vazios, preencha todos os campos!");
         }else{
-        AdministradorDTO dto = new AdministradorDTO();
-        try{
-            Administrador administrador = dto.VerificarAdministrador(email, senha);
-            if(administrador != null){
-                JOptionPane.showMessageDialog(null, "Login bem - sucedido, bem - vindo!");
-                new Tela_inicial_administrador().setVisible(true);
-                this.dispose();
-            }else{
-                JOptionPane.showMessageDialog(null, "Email ou senha incorreto!");
-            }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao verificar login: " +e.getMessage());
+            try{
+                AdministradorDTO admindto = new AdministradorDTO();
+                SecretariaDTO secdto = new SecretariaDTO();
+                
+                Administrador administrador = admindto.VerificarAdministrador(email, senha);
+                Secretaria secretaria = secdto.VerificarSecretaria(email, senha);
+                
+                if(administrador != null){
+                    JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vindo administrador(a)!");
+                    new Tela_inicial_administrador().setVisible(true);
+                    dispose();
+                }else if(secretaria != null){
+                    JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vinda secretário(a)!");
+                    new Tela_inicial_secretaria().setVisible(true);
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Email ou senha incorreto!");
+                }
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "Erro na solicitação de login: " +e.getMessage());
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
