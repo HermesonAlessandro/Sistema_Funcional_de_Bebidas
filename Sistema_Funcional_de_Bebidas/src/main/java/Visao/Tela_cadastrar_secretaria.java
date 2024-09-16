@@ -241,14 +241,29 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
                 if(!telefone.matches("\\d+")){
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
                 }
-                
+                if(telefone.length() != 11){
+                    throw new IllegalArgumentException("Numero deve conter exatamente 11 dígitos");
+                }
                 String datatexto = jTextField4.getText();
                 if (datatexto.isEmpty()) {
                     throw new DateTimeParseException("Data vazia!", datatexto, 0);
                 }
                 
+                if(datatexto.matches("\\d{8}")){
+                    datatexto = datatexto.substring(0, 2) + "/" + datatexto.substring(2, 4) + "/" + datatexto.substring(4, 8);
+                }
+                
+                String rg = jTextField2.getText();
+                if(!rg.matches("\\d+")){
+                    throw new NumberFormatException("Rg deve ser apenas digitos!");
+                }
+                
+                if(rg.length() != 11){
+                    throw new IllegalArgumentException("Rg deve conter exatamente 11 digitos!");
+                }
+                
                 DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate datanascimento = LocalDate.parse(jTextField4.getText(),formatar);
+                LocalDate datanascimento = LocalDate.parse(datatexto,formatar);
                 
                 Secretaria secretaria = new Secretaria();
                 secretaria.setRg(Long.parseLong(jTextField2.getText()));

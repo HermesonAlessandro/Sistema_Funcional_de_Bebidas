@@ -231,6 +231,9 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
                 if(!telefone.matches("\\d+")){
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
                 }
+                if(telefone.length() != 11){
+                    throw new IllegalArgumentException("Numero deve conter exatamente 11 dígitos");
+                }
                 Administrador administrador = new Administrador();
                 administrador.setNome(jTextField2.getText());
                 administrador.setTelefone(Long.parseLong(telefone));
