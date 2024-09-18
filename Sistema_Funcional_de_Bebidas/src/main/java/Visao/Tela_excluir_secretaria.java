@@ -4,6 +4,13 @@
  */
 package Visao;
 
+import DAO.SecretariaDAO;
+import Modelo.Secretaria;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hermeson Alessandro
@@ -15,6 +22,15 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
      */
     public Tela_excluir_secretaria() {
         initComponents();
+        ListarSecretaria();
+        jTable2.getSelectionModel().addListSelectionListener(event ->{
+           if(!event.getValueIsAdjusting()){
+               int selectedRow = jTable2.getSelectedRow();
+               if(selectedRow != -1){
+                  RgSelecionado = (int) jTable2.getValueAt(selectedRow, 0);
+               }
+           } 
+        });
     }
 
     /**
@@ -26,22 +42,149 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setText("Excluir Secretaria(o)");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Rg", "Nome", "D_nasc", "Sexo", "Endereço", "Telefone", "Email", "Senha", "Fk_cod_adm"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(147, 147, 147))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();
+        tas.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(RgSelecionado != -1){
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir uma secretaria(0)?", "Confirmação!", JOptionPane.YES_NO_OPTION);
+            if(confirmacao == JOptionPane.YES_NO_OPTION){
+                try{
+                    SecretariaDAO dao = new SecretariaDAO();
+                    dao.ExcluirSecretaria(RgSelecionado);
+                    JOptionPane.showMessageDialog(null, "Secretaria(o) excluída com sucesso!");
+                    ListarSecretaria();
+                    List<Secretaria> secretarias = dao.ListarSecretaria();
+                    if(secretarias.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) restante, você será deslogado!");
+                        Tela_login tl = new Tela_login();
+                        tl.setVisible(true);
+                        dispose();
+                    }
+                }catch(SQLException e){
+                    JOptionPane.showMessageDialog(null, "Erro ao excluir uma secretaria(o): " +e.getMessage());
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) selecionada!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void ListarSecretaria(){
+        SecretariaDAO dao = new SecretariaDAO();
+        List<Secretaria> secretarias = dao.ListarSecretaria();
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+        model.setRowCount(0);
+        
+        for(Secretaria secretaria : secretarias){
+            model.addRow(new Object[]{
+                secretaria.getRg(),
+                secretaria.getNome(),
+                secretaria.getD_nasc(),
+                secretaria.getSexo(),
+                secretaria.getEndereco(),
+                secretaria.getTelefone(),
+                secretaria.getEmail(),
+                secretaria.getSenha(),
+                secretaria.getFk_cod_adm(),
+            });
+        }
+    }
+    
+    private int RgSelecionado = -1;
     /**
      * @param args the command line arguments
      */
@@ -78,5 +221,12 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

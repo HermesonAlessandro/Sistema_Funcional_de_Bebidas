@@ -5,7 +5,7 @@
 package com.mycompany.sistema_funcional_de_bebidas;
 
 import Visao.Tela_colaboradores;
-import Visao.Tela_ajuste_secretaria;
+import Visao.Tela_excluir_secretaria;
 
 /**
  *
@@ -18,7 +18,7 @@ public class Sistema_Funcional_de_Bebidas {
         //Tela_colaboradores tc = new Tela_colaboradores();
         //tc.setVisible(true);
         
-        Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();
-        tas.setVisible(true);
+        Tela_excluir_secretaria tes = new Tela_excluir_secretaria();
+        tes.setVisible(true);
     }
 }

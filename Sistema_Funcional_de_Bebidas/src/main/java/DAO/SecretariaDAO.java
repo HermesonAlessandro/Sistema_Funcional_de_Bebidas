@@ -106,4 +106,15 @@ public class SecretariaDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public void ExcluirSecretaria(long rg) throws SQLException{
+        String sql = "DELETE FROM secretaria WHERE rg = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setLong(1, rg);
+            pstmt.executeUpdate();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir secretaria(o): " +e.getMessage());
+        }
+    }
 }

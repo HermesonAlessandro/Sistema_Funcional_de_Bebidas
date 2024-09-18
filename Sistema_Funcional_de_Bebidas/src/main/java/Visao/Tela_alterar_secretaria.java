@@ -306,8 +306,8 @@ private Secretaria secretaria;
                 SecretariaDAO dao = new SecretariaDAO();
                 dao.AlterarSecretaria(secretaria);
                 JOptionPane.showMessageDialog(null, "Secretaria(a) atualizada com sucesso!");
-                Tela_login tl = new Tela_login();
-                tl.setVisible(true);
+                Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();
+                tas.setVisible(true);
                 dispose();
                 }catch(NumberFormatException e ){
                     JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());
@@ -322,9 +322,10 @@ private Secretaria secretaria;
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void PreencherCampos(){
+        DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         jTextField2.setText(String.valueOf(secretaria.getRg()));
         jTextField3.setText(secretaria.getNome());
-        jTextField4.setText(secretaria.getD_nasc().format(DateTimeFormatter.ISO_DATE));
+        jTextField4.setText(secretaria.getD_nasc().format(formatar));
         jComboBox1.setSelectedItem(secretaria.getSexo());
         jTextField5.setText(secretaria.getEndereco());
         jTextField6.setText(String.valueOf(secretaria.getTelefone()));
