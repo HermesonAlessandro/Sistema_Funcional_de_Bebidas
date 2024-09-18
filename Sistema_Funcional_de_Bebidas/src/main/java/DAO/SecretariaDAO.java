@@ -7,7 +7,12 @@ import Modelo.Secretaria;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,5 +35,75 @@ public class SecretariaDAO {
             
             pstmt.execute();
         }
-    } 
+    }
+    
+    public List<Secretaria> ListarSecretaria(){
+        List<Secretaria> secretarias = new ArrayList<>();
+        String sql = "SELECT * FROM secretaria";
+        try(Connection conn = ConexaoDAO.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery()){
+            while(rs.next()){
+                Secretaria secretaria = new Secretaria();
+                secretaria.setRg(rs.getLong("rg"));
+                secretaria.setNome(rs.getString("nome"));
+                secretaria.setD_nasc(rs.getDate("d_nasc").toLocalDate());
+                secretaria.setSexo(rs.getString("sexo"));
+                secretaria.setEndereco(rs.getString("endereco"));
+                secretaria.setTelefone(rs.getLong("telefone"));
+                secretaria.setEmail(rs.getString("email"));
+                secretaria.setSenha(rs.getString("senha"));
+                secretaria.setFk_cod_adm(rs.getInt("fk_cod_adm"));
+                secretarias.add(secretaria);
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao listar a secretaria(o): " +e.getMessage());
+        }
+        return secretarias;
+    }
+    
+    public Secretaria BuscarSecretariaPorRg(long rg){
+        String sql = "SELECT * FROM secretaria WHERE rg = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setLong(1, rg);
+            
+            try(ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                    Secretaria secretaria = new Secretaria();
+                    secretaria.setRg(rs.getLong("rg"));
+                    secretaria.setNome(rs.getString("nome"));
+                    secretaria.setD_nasc(rs.getDate("d_nasc").toLocalDate());
+                    secretaria.setSexo(rs.getString("sexo"));
+                    secretaria.setEndereco(rs.getString("endereco"));
+                    secretaria.setTelefone(rs.getLong("telefone"));
+                    secretaria.setEmail(rs.getString("email"));
+                    secretaria.setSenha(rs.getString("senha"));
+                    secretaria.setFk_cod_adm(rs.getInt("fk_cod_adm"));
+                    return secretaria;
+                }
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao buscar secretaria(o): " +e.getMessage());
+        }
+        return null;
+    }
+    
+    public void AlterarSecretaria(Secretaria secretaria) throws SQLException{
+        String sql = "UPDATE secretaria SET nome = ?, d_nasc = ?, sexo = ?, endereco = ?, telefone = ?, email = ?, senha = ?, fk_cod_adm = ? WHERE rg = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1, secretaria.getNome());
+            pstmt.setDate(2, java.sql.Date.valueOf(secretaria.getD_nasc()));
+            pstmt.setString(3, secretaria.getSexo());
+            pstmt.setString(4, secretaria.getEndereco());
+            pstmt.setLong(5, secretaria.getTelefone());
+            pstmt.setString(6, secretaria.getEmail());
+            pstmt.setString(7, secretaria.getSenha());
+            pstmt.setInt(8, secretaria.getFk_cod_adm());
+            pstmt.setLong(9, secretaria.getRg());
+            
+            pstmt.executeUpdate();
+        }
+    }
 }

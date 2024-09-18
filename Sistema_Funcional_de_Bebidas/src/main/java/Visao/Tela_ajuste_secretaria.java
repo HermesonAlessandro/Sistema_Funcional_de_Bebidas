@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import Modelo.Secretaria;
+import DAO.SecretariaDAO;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +20,7 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
      */
     public Tela_ajuste_secretaria() {
         initComponents();
+        ListarSecretaria();
     }
 
     /**
@@ -70,6 +76,11 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
                 "Rg", "Nome", "D_nasc", "Sexo", "Endereço", "Telefone", "Email", "Senha", "Fk_cod_adm"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setText("Para alterar secretaria, selecione na tabela e clique em \"Alterar/SEC\"");
@@ -156,9 +167,13 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Tela_alterar_secretaria tas = new Tela_alterar_secretaria();
-        tas.setVisible(true);
-        dispose();
+        if(SecretariaSelecionada != null){
+            Tela_alterar_secretaria tas = new Tela_alterar_secretaria(SecretariaSelecionada);
+            tas.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, selecione uma secretaria(o) para alterar!");
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -172,7 +187,41 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
         tis.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+    private Secretaria SecretariaSelecionada;
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int selectedRow = jTable1.getSelectedRow();
+        if(selectedRow != -1){
+            long rg = (long) jTable1.getValueAt(selectedRow, 0);
+            SecretariaDAO dao = new SecretariaDAO();
+            SecretariaSelecionada = dao.BuscarSecretariaPorRg(rg);
+            if(SecretariaSelecionada != null){
+                JOptionPane.showMessageDialog(null, "Secretaria(o) selecionada: "+SecretariaSelecionada.getNome());
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao selecionar a secretaria(o)!");
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
+    private void ListarSecretaria(){
+        SecretariaDAO dao = new SecretariaDAO();
+        List<Secretaria> secretarias = dao.ListarSecretaria();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        model.setRowCount(0);
+        
+        for(Secretaria secretaria : secretarias){
+            model.addRow(new Object[]{
+                secretaria.getRg(),
+                secretaria.getNome(),
+                secretaria.getD_nasc(),
+                secretaria.getSexo(),
+                secretaria.getEndereco(),
+                secretaria.getTelefone(),
+                secretaria.getEmail(),
+                secretaria.getSenha(),
+                secretaria.getFk_cod_adm(),
+            });
+        }
+    }
     /**
      * @param args the command line arguments
      */
