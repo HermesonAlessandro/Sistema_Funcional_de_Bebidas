@@ -305,7 +305,7 @@ private Secretaria secretaria;
                 
                 SecretariaDAO dao = new SecretariaDAO();
                 dao.AlterarSecretaria(secretaria);
-                JOptionPane.showMessageDialog(null, "Secretaria(a) atualizada com sucesso!");
+                JOptionPane.showMessageDialog(null, "Secretaria(o) atualizada com sucesso!");
                 Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();
                 tas.setVisible(true);
                 dispose();

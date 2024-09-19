@@ -27,7 +27,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
            if(!event.getValueIsAdjusting()){
                int selectedRow = jTable2.getSelectedRow();
                if(selectedRow != -1){
-                  RgSelecionado = (int) jTable2.getValueAt(selectedRow, 0);
+                  RgSelecionado = (long) jTable2.getValueAt(selectedRow, 0);
                }
            } 
         });
@@ -140,7 +140,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(RgSelecionado != -1){
-            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir uma secretaria(0)?", "Confirmação!", JOptionPane.YES_NO_OPTION);
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir uma secretaria(o)?", "Confirmação!", JOptionPane.YES_NO_OPTION);
             if(confirmacao == JOptionPane.YES_NO_OPTION){
                 try{
                     SecretariaDAO dao = new SecretariaDAO();
@@ -184,7 +184,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
         }
     }
     
-    private int RgSelecionado = -1;
+    private long RgSelecionado = -1;
     /**
      * @param args the command line arguments
      */
