@@ -174,7 +174,7 @@ public class Tela_login extends javax.swing.JFrame {
                     new Tela_inicial_administrador().setVisible(true);
                     dispose();
                 }else if(secretaria != null){
-                    JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vinda secretário(a)!");
+                    JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vinda secretaria(o)!");
                     new Tela_inicial_secretaria().setVisible(true);
                     dispose();
                 }else{
