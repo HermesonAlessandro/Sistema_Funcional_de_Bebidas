@@ -10,6 +10,7 @@ import Modelo.Administrador;
 import Modelo.Secretaria;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import Modelo.Saudacao;
 
 /**
  *
@@ -193,7 +194,11 @@ public class Tela_login extends javax.swing.JFrame {
 
                 if(administrador != null){
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vindo administrador(a)!");
-                    new Tela_inicial_administrador().setVisible(true);
+                    String cumprimento = Saudacao.getCumprimento(administrador.getNome());
+                    String dataHora = Saudacao.getDataHoraAtual();
+                    Tela_inicial_administrador tia = new Tela_inicial_administrador();
+                    tia.setSaudacao(cumprimento, dataHora);
+                    tia.setVisible(true);
                     dispose();
                 }else if(secretaria != null){
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vinda secretaria(o)!");

@@ -13,15 +13,15 @@ import java.time.format.DateTimeFormatter;
 public class Saudacao {
     public static String getCumprimento(String nomeUsuario){
         LocalDateTime agora = LocalDateTime.now();
-        String comprimento;
+        String cumprimento;
         if(agora.getHour() < 12){
-            comprimento = "Bom dia";
+            cumprimento = "Bom dia";
         }else if(agora.getHour() < 18){
-            comprimento = "Boa tarde";
+            cumprimento = "Boa tarde";
         }else{
-            comprimento = "Boa noite";
+            cumprimento = "Boa noite";
         }
-        return comprimento + ", " + nomeUsuario;
+        return cumprimento + ", " + nomeUsuario;
     }
     
     public static String getDataHoraAtual(){
