@@ -11,6 +11,7 @@ import Modelo.Secretaria;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import Modelo.Saudacao;
+import Modelo.Sessao;
 
 /**
  *
@@ -196,13 +197,25 @@ public class Tela_login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vindo administrador(a)!");
                     String cumprimento = Saudacao.getCumprimento(administrador.getNome());
                     String dataHora = Saudacao.getDataHoraAtual();
+                    Sessao.setNomeUsuario(administrador.getNome());
+                    Sessao.setCumprimento(cumprimento);
+                    Sessao.setDataHoraEntrada(dataHora);
+                    Sessao.setTipoUsuario("Administrador(a)");
                     Tela_inicial_administrador tia = new Tela_inicial_administrador();
                     tia.setSaudacao(cumprimento, dataHora);
                     tia.setVisible(true);
                     dispose();
                 }else if(secretaria != null){
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vinda secretaria(o)!");
-                    new Tela_inicial_secretaria().setVisible(true);
+                    String cumprimento = Saudacao.getCumprimento(secretaria.getNome());
+                    String dataHora = Saudacao.getDataHoraAtual();
+                    Sessao.setNomeUsuario(secretaria.getNome());
+                    Sessao.setDataHoraEntrada(cumprimento);
+                    Sessao.setDataHoraEntrada(dataHora);
+                    Sessao.setTipoUsuario("Secretaria(o)");
+                    Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
+                    tis.setSaudacao(cumprimento, dataHora);
+                    tis.setVisible(true);
                     dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Email ou senha incorreto!");
