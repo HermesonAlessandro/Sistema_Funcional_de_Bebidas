@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -12,11 +12,11 @@ import java.time.format.DateTimeFormatter;
  */
 public class Saudacao {
     public static String getCumprimento(String nomeUsuario){
-        LocalTime agora = LocalTime.now();
+        LocalDateTime agora = LocalDateTime.now();
         String comprimento;
-        if(agora.isBefore(LocalTime.NOON)){
+        if(agora.getHour() < 12){
             comprimento = "Bom dia";
-        }else if(agora.isBefore(LocalTime.of(18, 0))){
+        }else if(agora.getHour() < 18){
             comprimento = "Boa tarde";
         }else{
             comprimento = "Boa noite";
@@ -25,7 +25,7 @@ public class Saudacao {
     }
     
     public static String getDataHoraAtual(){
-        LocalTime agora = LocalTime.now();
+        LocalDateTime agora = LocalDateTime.now();
         DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         return agora.format(formatar);
     }
