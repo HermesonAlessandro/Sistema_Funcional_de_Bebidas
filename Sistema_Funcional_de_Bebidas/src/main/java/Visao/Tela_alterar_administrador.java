@@ -22,17 +22,17 @@ private Administrador administrador;
      */
     public Tela_alterar_administrador() {
         initComponents();
-        setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
     }
     
     public Tela_alterar_administrador(Administrador administrador){
         initComponents();
         this.administrador = administrador;
         PreencherCampos();
+        setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
     }
     
-    public void setSaudacao(String cumprimento, String dataHora) {
-        jLabel2.setText(cumprimento + " - " + dataHora);
+    public void setSaudacao(String saudacao, String dataHora) {
+        jLabel2.setText(saudacao + " - " + dataHora);
     }
     
     /**
