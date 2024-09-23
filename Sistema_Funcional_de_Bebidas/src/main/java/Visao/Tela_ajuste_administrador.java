@@ -23,7 +23,7 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
     public Tela_ajuste_administrador() {
         initComponents();
         ListarAdministrador();
-        setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
     }
     
     public void setSaudacao(String saudacao, String dataHora) {
@@ -229,7 +229,7 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Tela_inicial_administrador tia = new Tela_inicial_administrador();
-        tia.setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
+        tia.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         tia.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

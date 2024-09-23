@@ -5,6 +5,8 @@
 package Visao;
 import Modelo.Secretaria;
 import DAO.SecretariaDAO;
+import Visao.Tela_ajuste_secretaria;
+import Modelo.Sessao;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +23,11 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
     public Tela_ajuste_secretaria() {
         initComponents();
         ListarSecretaria();
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+    }
+    
+    public void setSaudacao(String saudacao, String dataHora) {
+        jLabel4.setText(saudacao + " - " + dataHora);
     }
 
     /**
@@ -39,6 +46,7 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -95,6 +103,8 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
 
         jLabel2.setText("Para alterar secretaria vá para a aba chamada \"Alterar\" em seguida clique em \"Alterar/SEC\"");
 
+        jLabel4.setText("jLabel4");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,6 +127,9 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
                         .addGap(331, 331, 331)
                         .addComponent(jButton1)))
                 .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +144,9 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addContainerGap())
         );
 
         jMenu1.setText("Alterar");
@@ -192,6 +207,7 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
+        tis.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         tis.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -270,6 +286,7 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

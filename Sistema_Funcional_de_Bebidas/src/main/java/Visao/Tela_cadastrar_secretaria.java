@@ -23,7 +23,7 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
      */
     public Tela_cadastrar_secretaria() {
         initComponents();
-        setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
     }
     
     public void setSaudacao(String saudacao, String dataHora) {

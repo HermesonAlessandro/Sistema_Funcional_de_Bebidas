@@ -23,7 +23,7 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {
      */
     public Tela_excluir_administrador() {
         initComponents();
-        setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         ListarAdministrador();
         jTable2.getSelectionModel().addListSelectionListener(event ->{
            if(!event.getValueIsAdjusting()){

@@ -13,7 +13,7 @@ public class Sessao {
     private static String cumprimento;
     private static String dataHoraEntrada;
     private static String tipoUsuario;
-
+     
     public static String getNomeUsuario() {
         return nomeUsuario;
     }

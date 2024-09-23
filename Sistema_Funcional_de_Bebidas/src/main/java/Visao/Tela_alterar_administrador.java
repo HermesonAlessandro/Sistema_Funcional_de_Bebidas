@@ -28,7 +28,7 @@ private Administrador administrador;
         initComponents();
         this.administrador = administrador;
         PreencherCampos();
-        setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
     }
     
     public void setSaudacao(String saudacao, String dataHora) {
