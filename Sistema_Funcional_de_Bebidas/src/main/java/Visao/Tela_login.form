@@ -124,7 +124,7 @@
               <StringArray count="3">
                 <StringItem index="0" value="Administrador(a)"/>
                 <StringItem index="1" value="Secretaria(o)"/>
-                <StringItem index="2" value="Cliente"/>
+                <StringItem index="2" value="Prefiro n&#xe3;o dizer"/>
               </StringArray>
             </Property>
           </Properties>
