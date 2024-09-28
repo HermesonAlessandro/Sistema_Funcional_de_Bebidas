@@ -76,6 +76,7 @@ private Secretaria secretaria;
 
         jLabel4.setText("D_nasc");
 
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -128,6 +129,8 @@ private Secretaria secretaria;
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", "Outros", " " }));
+
+        jTextField8.setEditable(false);
 
         jLabel2.setText("Rg");
 
