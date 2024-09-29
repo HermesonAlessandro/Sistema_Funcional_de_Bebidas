@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * @author Hermeson Alessandro
  */
 public class Cliente {
-    private long cpf;
+    private String cpf;
     private String nome;
     private LocalDate d_nasc;
     private String sexo;
@@ -18,13 +18,13 @@ public class Cliente {
     private long telefone;
     private String email;
     private String senha;
-    private long fk_rg_sec;
+    private String fk_rg_sec;
     
     public Cliente(){
         
     }
 
-    public Cliente(long cpf, String nome, LocalDate d_nasc, String sexo, String endereco, long telefone, String email, String senha, long fk_rg_sec) {
+    public Cliente(String cpf, String nome, LocalDate d_nasc, String sexo, String endereco, long telefone, String email, String senha, String fk_rg_sec) {
         this.cpf = cpf;
         this.nome = nome;
         this.d_nasc = d_nasc;
@@ -36,11 +36,11 @@ public class Cliente {
         this.fk_rg_sec = fk_rg_sec;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -100,11 +100,11 @@ public class Cliente {
         this.senha = senha;
     }
 
-    public long getFk_rg_sec() {
+    public String getFk_rg_sec() {
         return fk_rg_sec;
     }
 
-    public void setFk_rg_sec(long fk_rg_sec) {
+    public void setFk_rg_sec(String fk_rg_sec) {
         this.fk_rg_sec = fk_rg_sec;
     }
 }

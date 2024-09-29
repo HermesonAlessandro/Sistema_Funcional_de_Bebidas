@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * @author Hermeson Alessandro
  */
 public class Secretaria {
-    private long rg;
+    private String rg;
     private String nome;
     private LocalDate d_nasc;
     private String sexo;
@@ -24,7 +24,7 @@ public class Secretaria {
         
     }
 
-    public Secretaria(long rg, String nome, LocalDate d_nasc, String sexo, String endereco, long telefone, String email, String senha, int fk_cod_adm) {
+    public Secretaria(String rg, String nome, LocalDate d_nasc, String sexo, String endereco, long telefone, String email, String senha, int fk_cod_adm) {
         this.rg = rg;
         this.nome = nome;
         this.d_nasc = d_nasc;
@@ -36,11 +36,11 @@ public class Secretaria {
         this.fk_cod_adm = fk_cod_adm;
     }
 
-    public long getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(long rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 

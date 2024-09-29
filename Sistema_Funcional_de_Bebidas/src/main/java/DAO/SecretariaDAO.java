@@ -23,7 +23,7 @@ public class SecretariaDAO {
         String sql = "INSERT INTO secretaria (rg, nome, d_nasc, sexo, endereco, telefone, email, senha, fk_cod_adm) VALUES (?, ?, ?, ?, ?, ?, ?, ? ,?)";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareCall(sql)){
-            pstmt.setLong(1, secretaria.getRg());
+            pstmt.setString(1, secretaria.getRg());
             pstmt.setString(2, secretaria.getNome());
             pstmt.setDate(3, Date.valueOf(secretaria.getD_nasc()));
             pstmt.setString(4, secretaria.getSexo());
@@ -45,7 +45,7 @@ public class SecretariaDAO {
                 ResultSet rs = pstmt.executeQuery()){
             while(rs.next()){
                 Secretaria secretaria = new Secretaria();
-                secretaria.setRg(rs.getLong("rg"));
+                secretaria.setRg(rs.getString("rg"));
                 secretaria.setNome(rs.getString("nome"));
                 secretaria.setD_nasc(rs.getDate("d_nasc").toLocalDate());
                 secretaria.setSexo(rs.getString("sexo"));
@@ -62,16 +62,16 @@ public class SecretariaDAO {
         return secretarias;
     }
     
-    public Secretaria BuscarSecretariaPorRg(long rg){
+    public Secretaria BuscarSecretariaPorRg(String rg){
         String sql = "SELECT * FROM secretaria WHERE rg = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setLong(1, rg);
+            pstmt.setString(1, rg);
             
             try(ResultSet rs = pstmt.executeQuery()){
                 if(rs.next()){
                     Secretaria secretaria = new Secretaria();
-                    secretaria.setRg(rs.getLong("rg"));
+                    secretaria.setRg(rs.getString("rg"));
                     secretaria.setNome(rs.getString("nome"));
                     secretaria.setD_nasc(rs.getDate("d_nasc").toLocalDate());
                     secretaria.setSexo(rs.getString("sexo"));
@@ -101,7 +101,7 @@ public class SecretariaDAO {
             pstmt.setString(6, secretaria.getEmail());
             pstmt.setString(7, secretaria.getSenha());
             pstmt.setInt(8, secretaria.getFk_cod_adm());
-            pstmt.setLong(9, secretaria.getRg());
+            pstmt.setString(9, secretaria.getRg());
             
             pstmt.executeUpdate();
         }

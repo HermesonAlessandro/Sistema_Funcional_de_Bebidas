@@ -266,19 +266,17 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
                 }
 
                 String rg = jTextField2.getText();
-                if(!rg.matches("\\d+")){
-                    throw new NumberFormatException("Rg deve ser apenas digitos!");
+                if(!rg.matches("\\d{11}") && !rg.matches("\\d{10}-\\d")){
+                    throw new IllegalArgumentException("Rg deve ser no formato 99999999999 ou 9999999999-9!");
                 }
-
-                if(rg.length() != 11){
-                    throw new IllegalArgumentException("Rg deve conter exatamente 11 digitos!");
-                }
-
+                
+                rg = rg.replace("-", "");
+                
                 DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate datanascimento = LocalDate.parse(datatexto,formatar);
 
                 Secretaria secretaria = new Secretaria();
-                secretaria.setRg(Long.parseLong(jTextField2.getText()));
+                secretaria.setRg(jTextField2.getText());
                 secretaria.setNome(jTextField3.getText());
                 secretaria.setD_nasc(datanascimento);
                 secretaria.setSexo(jComboBox1.getSelectedItem().toString());

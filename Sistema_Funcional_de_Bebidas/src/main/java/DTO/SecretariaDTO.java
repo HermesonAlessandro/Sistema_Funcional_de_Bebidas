@@ -25,7 +25,7 @@ public class SecretariaDTO {
             try(ResultSet rs = pstmt.executeQuery()){
                 if(rs.next()){
                     Secretaria secretaria = new Secretaria();
-                    secretaria.setRg(rs.getLong("rg"));
+                    secretaria.setRg(rs.getString("rg"));
                     secretaria.setNome(rs.getString("nome"));
                     secretaria.setD_nasc(rs.getDate("d_nasc").toLocalDate());
                     secretaria.setSexo(rs.getString("sexo"));

@@ -215,7 +215,7 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int selectedRow = jTable1.getSelectedRow();
         if(selectedRow != -1){
-            long rg = (long) jTable1.getValueAt(selectedRow, 0);
+            String rg = (String) jTable1.getValueAt(selectedRow, 0);
             SecretariaDAO dao = new SecretariaDAO();
             SecretariaSelecionada = dao.BuscarSecretariaPorRg(rg);
             if(SecretariaSelecionada != null){
