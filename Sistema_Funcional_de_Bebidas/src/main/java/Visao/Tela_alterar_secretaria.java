@@ -330,9 +330,9 @@ private Secretaria secretaria;
                 tas.setVisible(true);
                 dispose();
             }catch(NumberFormatException e ){
-                JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro de formataçao: " +e.getMessage());
             }catch(DateTimeParseException e){
-                JOptionPane.showMessageDialog(null, "Erro de formatação da data: " +e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro de formataçao da data: " +e.getMessage());
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "Erro ao atualizar a secretaria(o): " +e.getMessage());
             }catch(Exception e){

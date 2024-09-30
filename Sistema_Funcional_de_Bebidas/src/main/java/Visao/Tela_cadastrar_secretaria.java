@@ -293,9 +293,9 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
                 tl.setVisible(true);
                 dispose();
             }catch(NumberFormatException e ){
-                JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro de formataçao: " +e.getMessage());
             }catch(DateTimeParseException e){
-                JOptionPane.showMessageDialog(null, "Erro de formatação da data: " +e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro de formataçao da data: " +e.getMessage());
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "Erro ao cadastrar uma secretaria(o): " +e.getMessage());
             }catch(Exception e){

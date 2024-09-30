@@ -21,7 +21,7 @@ public class ConexaoDAO {
         Connection conexao = null;
         try{
             conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
-            JOptionPane.showMessageDialog(null, "Conexão estabelecida com sucesso!");
+            JOptionPane.showMessageDialog(null, "Conexao estabelecida com sucesso!");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro ao se conectar ao banco de dados: "+e.getMessage());
         }

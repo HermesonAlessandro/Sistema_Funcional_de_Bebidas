@@ -13,6 +13,9 @@ public class Sessao {
     private static String cumprimento;
     private static String dataHoraEntrada;
     private static String tipoUsuario;
+    private static int codUsuarioAdm;
+    private static String rgUsuarioSec;
+    private static String cpfUsuarioCli;
      
     public static String getNomeUsuario() {
         return nomeUsuario;
@@ -45,11 +48,38 @@ public class Sessao {
     public static void setTipoUsuario(String tipoUsuario) {
         Sessao.tipoUsuario = tipoUsuario;
     }
+
+    public static int getCodUsuarioAdm() {
+        return codUsuarioAdm;
+    }
+
+    public static void setCodUsuarioAdm(int codUsuarioAdm) {
+        Sessao.codUsuarioAdm = codUsuarioAdm;
+    }
+
+    public static String getRgUsuarioSec() {
+        return rgUsuarioSec;
+    }
+
+    public static void setRgUsuarioSec(String rgUsuarioSec) {
+        Sessao.rgUsuarioSec = rgUsuarioSec;
+    }
+
+    public static String getCpfUsuarioCli() {
+        return cpfUsuarioCli;
+    }
+
+    public static void setCpfUsuarioCli(String cpfUsuarioCli) {
+        Sessao.cpfUsuarioCli = cpfUsuarioCli;
+    }
     
     public static void LimparSessao(){
         nomeUsuario = null;
         cumprimento = null;
         dataHoraEntrada = null;
         tipoUsuario = null;
+        codUsuarioAdm = 0;
+        rgUsuarioSec = null;
+        cpfUsuarioCli = null;
     }
 }

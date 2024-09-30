@@ -266,7 +266,7 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {
                 tl.setVisible(true);
                 dispose();
             }catch(NumberFormatException e ){
-                JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro de formataçao: " +e.getMessage());
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "Erro ao cadastrar o administrador(a): " +e.getMessage());
             }catch(Exception e){

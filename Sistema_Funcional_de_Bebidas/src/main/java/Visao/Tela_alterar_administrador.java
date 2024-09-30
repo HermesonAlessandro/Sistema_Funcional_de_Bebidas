@@ -260,7 +260,7 @@ private Administrador administrador;
                 taa.setVisible(true);
                 dispose();
             }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(null, "Erro de formatação: " +e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro de formataçao: " +e.getMessage());
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "Erro ao atualizar o administrador(a): " +e.getMessage());
             }catch(Exception e){

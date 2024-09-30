@@ -159,23 +159,31 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(RgSelecionado != "-1"){
-            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir uma secretaria(o)?", "Confirmação!", JOptionPane.YES_NO_OPTION);
+        if(!RgSelecionado.equals("-1")){
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir uma secretaria(o)?", "Confirmaçao!", JOptionPane.YES_NO_OPTION);
             if(confirmacao == JOptionPane.YES_NO_OPTION){
                 try{
                     SecretariaDAO dao = new SecretariaDAO();
                     dao.ExcluirSecretaria(RgSelecionado);
-                    JOptionPane.showMessageDialog(null, "Secretaria(o) excluída com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Secretaria(o) excluida com sucesso!");
+                    if(Sessao.getRgUsuarioSec().equals(RgSelecionado)){
+                        JOptionPane.showMessageDialog(null, "Voce se autoexcluiu e sera redirecionado para a tela de login!");
+                        Sessao.LimparSessao();
+                        Tela_login tl = new Tela_login();
+                        tl.setVisible(true);
+                        dispose();
+                        return;
+                    }
                     ListarSecretaria();
                     List<Secretaria> secretarias = dao.ListarSecretaria();
                     if(secretarias.isEmpty()){
-                        JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) restante, você será deslogado!");
+                        JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) restante, voce sera deslogado!");
                         Tela_login tl = new Tela_login();
                         tl.setVisible(true);
                         dispose();
                     }
                 }catch(SQLException e){
-                    JOptionPane.showMessageDialog(null, "Erro ao excluir uma secretaria(o): " +e.getMessage());
+                    JOptionPane.showMessageDialog(null, "Erro ao excluir uma secretaria(o): " + e.getMessage());
                 }
             }
         }else{
@@ -211,7 +219,6 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
     }
     
     private String RgSelecionado = "-1";
-    private Secretaria secretariaLogada;
     /**
      * @param args the command line arguments
      */

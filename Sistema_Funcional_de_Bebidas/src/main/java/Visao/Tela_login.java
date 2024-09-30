@@ -50,7 +50,7 @@ public class Tela_login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador(a)", "Secretaria(o)", "Prefiro não dizer" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador(a)", "Secretaria(o)", "Cliente", " " }));
 
         jButton3.setText("Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +182,7 @@ public class Tela_login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String email = jTextField1.getText();
         String senha = new String(jPasswordField1.getPassword());
+        String tipoUsuario = (String) jComboBox1.getSelectedItem();
 
         if(email.isEmpty() || senha.isEmpty()){
             JOptionPane.showMessageDialog(null, "Campos vazios, preencha todos os campos!");
@@ -193,11 +194,12 @@ public class Tela_login extends javax.swing.JFrame {
                 Administrador administrador = admindto.VerificarAdministrador(email, senha);
                 Secretaria secretaria = secdto.VerificarSecretaria(email, senha);
 
-                if(administrador != null){
+                if(administrador != null && "Administrador(a)".equals(tipoUsuario)){
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vindo administrador(a)!");
                     String cumprimento = Saudacao.getCumprimento(administrador.getNome());
                     String dataHora = Saudacao.getDataHoraAtual();
                     Sessao.setNomeUsuario(administrador.getNome());
+                    Sessao.setCodUsuarioAdm(administrador.getCod());
                     Sessao.setCumprimento(cumprimento);
                     Sessao.setDataHoraEntrada(dataHora);
                     Sessao.setTipoUsuario("Administrador(a)");
@@ -205,11 +207,12 @@ public class Tela_login extends javax.swing.JFrame {
                     tia.setSaudacao(cumprimento, dataHora);
                     tia.setVisible(true);
                     dispose();
-                }else if(secretaria != null){
+                }else if(secretaria != null && "Secretaria(o)".equals(tipoUsuario)){
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vinda secretaria(o)!");
                     String cumprimento = Saudacao.getCumprimento(secretaria.getNome());
                     String dataHora = Saudacao.getDataHoraAtual();
                     Sessao.setNomeUsuario(secretaria.getNome());
+                    Sessao.setRgUsuarioSec(secretaria.getRg());
                     Sessao.setDataHoraEntrada(cumprimento);
                     Sessao.setDataHoraEntrada(dataHora);
                     Sessao.setTipoUsuario("Secretaria(o)");
@@ -218,10 +221,10 @@ public class Tela_login extends javax.swing.JFrame {
                     tis.setVisible(true);
                     dispose();
                 }else{
-                    JOptionPane.showMessageDialog(null, "Email ou senha incorreto!");
+                    JOptionPane.showMessageDialog(null, "Email, senha ou usuario selecionado incorretamente!");
                 }
             }catch(SQLException e){
-                JOptionPane.showMessageDialog(null, "Erro na solicitação de login: " +e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro na solicitaçao de login: " +e.getMessage());
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
