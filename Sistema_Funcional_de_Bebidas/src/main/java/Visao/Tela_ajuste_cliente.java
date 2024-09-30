@@ -136,6 +136,11 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
         jMenu1.setText("Alterar");
 
         jMenuItem1.setText("Alterar/CLI");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -143,6 +148,11 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
         jMenu2.setText("Excluir");
 
         jMenuItem2.setText("Excluir/CLI");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -164,8 +174,22 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Tela_inicial_cliente tic = new Tela_inicial_cliente();
+        tic.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Tela_alterar_cliente tac = new Tela_alterar_cliente();
+        tac.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Tela_excluir_cliente tec = new Tela_excluir_cliente();
+        tec.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -79,6 +79,11 @@ public class Tela_alterar_cliente extends javax.swing.JFrame {
         jLabel6.setText("Endereço");
 
         jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Senha");
 
@@ -217,6 +222,12 @@ public class Tela_alterar_cliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Tela_ajuste_cliente tac = new Tela_ajuste_cliente();
+        tac.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
