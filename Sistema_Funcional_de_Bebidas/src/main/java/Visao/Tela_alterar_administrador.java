@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-
 public class Tela_alterar_administrador extends javax.swing.JFrame {
 private Administrador administrador;
 

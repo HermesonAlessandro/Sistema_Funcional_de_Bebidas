@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
-
 import DAO.SecretariaDAO;
 import Modelo.Secretaria;
 import Modelo.Sessao;
@@ -17,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Hermeson Alessandro
  */
 public class Tela_excluir_secretaria extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Tela_excluir_secretaria
      */
@@ -29,16 +28,16 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
            if(!event.getValueIsAdjusting()){
                int selectedRow = jTable2.getSelectedRow();
                if(selectedRow != -1){
-                  RgSelecionado = (long) jTable2.getValueAt(selectedRow, 0);
+                  RgSelecionado = (String) jTable2.getValueAt(selectedRow, 0);
                }
-           } 
+           }
         });
     }
-    
+     
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -160,7 +159,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(RgSelecionado != -1){
+        if(RgSelecionado != "-1"){
             int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir uma secretaria(o)?", "Confirmação!", JOptionPane.YES_NO_OPTION);
             if(confirmacao == JOptionPane.YES_NO_OPTION){
                 try{
@@ -185,7 +184,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();
+        Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();  
         tas.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -211,7 +210,8 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
         }
     }
     
-    private long RgSelecionado = -1;
+    private String RgSelecionado = "-1";
+    private Secretaria secretariaLogada;
     /**
      * @param args the command line arguments
      */

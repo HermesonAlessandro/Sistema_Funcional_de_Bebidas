@@ -92,7 +92,7 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
         jLabel6.setText("Endereço");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Cadastrar Secretária(o)");
+        jLabel1.setText("Cadastrar Secretaria(o)");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

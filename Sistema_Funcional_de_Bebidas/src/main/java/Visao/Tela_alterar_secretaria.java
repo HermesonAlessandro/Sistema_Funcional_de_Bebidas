@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
-
 import DAO.SecretariaDAO;
 import Modelo.Secretaria;
 import Modelo.Sessao;
