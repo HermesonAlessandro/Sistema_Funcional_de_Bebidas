@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import DAO.ClienteDAO;
+import Modelo.Cliente;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +19,7 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
      */
     public Tela_ajuste_cliente() {
         initComponents();
+        ListarCliente();
     }
 
     /**
@@ -190,7 +195,27 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
         tec.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
+    
+    private void ListarCliente(){
+        ClienteDAO dao = new ClienteDAO();
+        List<Cliente> clientes = dao.ListarCliente();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        model.setRowCount(0);
+        
+        for(Cliente cliente : clientes){
+            model.addRow(new Object[]{
+                cliente.getCpf(),
+                cliente.getNome(),
+                cliente.getD_nasc(),
+                cliente.getSexo(),
+                cliente.getEndereco(),
+                cliente.getTelefone(),
+                cliente.getEmail(),
+                cliente.getSenha(),
+                cliente.getFk_rg_sec(),
+            });
+        }
+    }
     /**
      * @param args the command line arguments
      */
