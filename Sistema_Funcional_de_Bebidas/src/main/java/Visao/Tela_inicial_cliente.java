@@ -11,12 +11,20 @@ import Modelo.Sessao;
  * @author Hermeson Alessandro
  */
 public class Tela_inicial_cliente extends javax.swing.JFrame {
+private String cumprimento;
+private String dataHora;
 
     /**
      * Creates new form Tela_inicial_cliente
      */
     public Tela_inicial_cliente() {
         initComponents();
+    }
+    
+    public void setSaudacao(String cumprimento, String dataHora){
+        this.cumprimento = cumprimento;
+        this.dataHora = dataHora;
+        jLabel2.setText(cumprimento + " - " + dataHora);
     }
 
     /**

@@ -5,8 +5,10 @@
 package Visao;
 import DTO.AdministradorDTO;
 import DTO.AdministradorDTO;
+import DTO.ClienteDTO;
 import DTO.SecretariaDTO;
 import Modelo.Administrador;
+import Modelo.Cliente;
 import Modelo.Secretaria;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -50,7 +52,7 @@ public class Tela_login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador(a)", "Secretaria(o)", "Cliente", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador(a)", "Secretaria(o)", "Cliente" }));
 
         jButton3.setText("Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -190,9 +192,11 @@ public class Tela_login extends javax.swing.JFrame {
             try{
                 AdministradorDTO admindto = new AdministradorDTO();
                 SecretariaDTO secdto = new SecretariaDTO();
+                ClienteDTO clidto = new ClienteDTO();
 
                 Administrador administrador = admindto.VerificarAdministrador(email, senha);
                 Secretaria secretaria = secdto.VerificarSecretaria(email, senha);
+                Cliente cliente = clidto.VerificarCliente(email, senha);
 
                 if(administrador != null && "Administrador(a)".equals(tipoUsuario)){
                     JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vindo administrador(a)!");
@@ -219,6 +223,19 @@ public class Tela_login extends javax.swing.JFrame {
                     Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
                     tis.setSaudacao(cumprimento, dataHora);
                     tis.setVisible(true);
+                    dispose();
+                }else if(cliente != null && "Cliente".equals(tipoUsuario)){
+                    JOptionPane.showMessageDialog(null, "Login bem-sucedido, bem-vindo cliente!");
+                    String cumprimento = Saudacao.getCumprimento(cliente.getNome());
+                    String dataHora = Saudacao.getDataHoraAtual();
+                    Sessao.setNomeUsuario(cliente.getNome());
+                    Sessao.setCpfUsuarioCli(cliente.getCpf());
+                    Sessao.setDataHoraEntrada(cumprimento);
+                    Sessao.setDataHoraEntrada(dataHora);
+                    Sessao.setTipoUsuario("Cliente");
+                    Tela_inicial_cliente tic = new Tela_inicial_cliente();
+                    tic.setSaudacao(cumprimento, dataHora);
+                    tic.setVisible(true);
                     dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Email, senha ou usuario selecionado incorretamente!");
