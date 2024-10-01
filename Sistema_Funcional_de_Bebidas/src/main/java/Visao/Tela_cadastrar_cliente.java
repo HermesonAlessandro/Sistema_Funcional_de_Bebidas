@@ -3,6 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import DAO.ClienteDAO;
+import Modelo.Cliente;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,7 +35,6 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -48,6 +54,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +76,11 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", "Outros" }));
 
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Endereço");
 
@@ -91,7 +103,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField7))
+                                    .addComponent(jPasswordField1))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -168,10 +180,10 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -179,7 +191,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton4))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -195,6 +207,70 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() 
+           || jComboBox1.getSelectedItem() == null || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()
+           || jTextField6.getText().isEmpty() || jPasswordField1.getPassword().length == 0 || jTextField8.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
+        }else{
+            try{
+                String telefone = jTextField5.getText();
+                if(!telefone.matches("\\d+")){
+                    throw new NumberFormatException("Numero deve conter apenas digitos!");
+                }
+                if(telefone.length() != 11){
+                    throw new IllegalArgumentException("Numero deve conter exatamente 11 digitos");
+                }
+                String datatexto = jTextField3.getText();
+                if (datatexto.isEmpty()) {
+                    throw new DateTimeParseException("Data vazia!", datatexto, 0);
+                }
+
+                if(datatexto.matches("\\d{8}")){
+                    datatexto = datatexto.substring(0, 2) + "/" + datatexto.substring(2, 4) + "/" + datatexto.substring(4, 8);
+                }
+                
+                String cpf = jTextField1.getText();
+                if(cpf.isEmpty()){
+                    throw new IllegalArgumentException("Cpf vazio!");
+                }
+                String cpfNumerico = cpf.replaceAll("\\D", "");
+                if(cpfNumerico.length() != 11){
+                    throw new IllegalArgumentException("Cpf deve conter exatamente 11 digitos!");
+                }
+                
+                DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate datanascimento = LocalDate.parse(datatexto,formatar);
+                
+                Cliente cliente = new Cliente();
+                cliente.setCpf(jTextField1.getText());
+                cliente.setNome(jTextField2.getText());
+                cliente.setD_nasc(datanascimento);
+                cliente.setSexo(jComboBox1.getSelectedItem().toString());
+                cliente.setEndereco(jTextField4.getText());
+                cliente.setTelefone(Long.parseLong(telefone));
+                cliente.setEmail(jTextField6.getText());
+                cliente.setSenha(new String(jPasswordField1.getPassword()));
+                cliente.setFk_rg_sec(jTextField8.getText());
+                
+                ClienteDAO dao = new ClienteDAO();
+                dao.CadastrarCliente(cliente);
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+                Tela_login tl = new Tela_login();
+                tl.setVisible(true);
+                dispose();
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, "Erro de formataçao: " +e.getMessage());
+            }catch(DateTimeParseException e){
+                JOptionPane.showMessageDialog(null, "Erro de formataçao da data: " +e.getMessage());
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar um cliente: " +e.getMessage());
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Erro inesperado: " +e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,13 +322,13 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
