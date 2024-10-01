@@ -60,4 +60,49 @@ public class ClienteDAO {
         }
         return clientes;
     }
+    
+    public Cliente BuscarClientePorCpf(String cpf){
+        String sql = "SELECT * FROM cliente WHERE cpf = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1, cpf);
+            
+            try(ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                    Cliente cliente = new Cliente();
+                    cliente.setCpf(rs.getString("cpf"));
+                    cliente.setNome(rs.getString("nome"));
+                    cliente.setD_nasc(rs.getDate("d_nasc").toLocalDate());
+                    cliente.setSexo(rs.getString("sexo"));
+                    cliente.setEndereco(rs.getString("endereco"));
+                    cliente.setTelefone(rs.getLong("telefone"));
+                    cliente.setEmail(rs.getString("email"));
+                    cliente.setSenha(rs.getString("senha"));
+                    cliente.setFk_rg_sec(rs.getString("fk_rg_sec"));
+                    return cliente;
+                }
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente: " +e.getMessage());
+        }
+        return null;
+    }
+    
+    public void AlterarCliente(Cliente cliente) throws SQLException{
+        String sql = "UPDATE cliente SET nome = ?, d_nasc = ?, sexo = ?, endereco = ?, telefone = ?, email = ?, senha = ?, fk_rg_sec = ? WHERE cpf = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1, cliente.getNome());
+            pstmt.setDate(2, java.sql.Date.valueOf(cliente.getD_nasc()));
+            pstmt.setString(3, cliente.getSexo());
+            pstmt.setString(4, cliente.getEndereco());
+            pstmt.setLong(5, cliente.getTelefone());
+            pstmt.setString(6, cliente.getEmail());
+            pstmt.setString(7, cliente.getSenha());
+            pstmt.setString(8, cliente.getFk_rg_sec());
+            pstmt.setString(9, cliente.getCpf());
+            
+            pstmt.executeUpdate();
+        }
+    }
 }

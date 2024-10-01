@@ -6,6 +6,7 @@ package Visao;
 import DAO.ClienteDAO;
 import Modelo.Cliente;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -83,6 +84,11 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
                 "Cpf", "Nome", "D_nasc", "Sexo", "Endereço", "Telefone", "Email", "Senha", "Fk_rg_sec"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Voltar");
@@ -185,9 +191,13 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Tela_alterar_cliente tac = new Tela_alterar_cliente();
-        tac.setVisible(true);
-        dispose();
+        if(ClienteSelecionado != null){
+            Tela_alterar_cliente tac = new Tela_alterar_cliente(ClienteSelecionado);
+            tac.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um cliente para alterar!");
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -195,7 +205,21 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
         tec.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-    
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int selectedRow = jTable1.getSelectedRow();
+        if(selectedRow != -1){
+            String cpf = (String) jTable1.getValueAt(selectedRow, 0);
+            ClienteDAO dao = new ClienteDAO();
+            ClienteSelecionado = dao.BuscarClientePorCpf(cpf);
+            if(ClienteSelecionado != null){
+                JOptionPane.showMessageDialog(null, "Cliente selecionado: "+ClienteSelecionado.getNome());
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao selecionar o cliente!");
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+    private Cliente ClienteSelecionado;
     private void ListarCliente(){
         ClienteDAO dao = new ClienteDAO();
         List<Cliente> clientes = dao.ListarCliente();
