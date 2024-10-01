@@ -4,6 +4,14 @@
  */
 package Visao;
 
+import DAO.ClienteDAO;
+import Modelo.Cliente;
+import Modelo.Sessao;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hermeson Alessandro
@@ -15,6 +23,15 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {
      */
     public Tela_excluir_cliente() {
         initComponents();
+        ListarCliente();
+        jTable1.getSelectionModel().addListSelectionListener(event ->{
+           if(!event.getValueIsAdjusting()){
+               int selectedRow = jTable1.getSelectedRow();
+               if(selectedRow != -1){
+                  CpfSelecionado = (String) jTable1.getValueAt(selectedRow, 0);
+               }
+           }
+        });
     }
 
     /**
@@ -136,7 +153,36 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if(!CpfSelecionado.equals("-1")){
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir um cliente?", "Confirmaçao!", JOptionPane.YES_NO_OPTION);
+            if(confirmacao == JOptionPane.YES_NO_OPTION){
+                try{
+                    ClienteDAO dao = new ClienteDAO();
+                    dao.ExcluirCliente(CpfSelecionado);
+                    JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso!");
+                    if(Sessao.getCpfUsuarioCli().equals(CpfSelecionado)){
+                        JOptionPane.showMessageDialog(null, "Voce se autoexcluiu e sera redirecionado para a tela de login!");
+                        Sessao.LimparSessao();
+                        Tela_login tl = new Tela_login();
+                        tl.setVisible(true);
+                        dispose();
+                        return;
+                    }
+                    ListarCliente();
+                    List<Cliente> clientes = dao.ListarCliente();
+                    if(clientes.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Nenhum cliente restante, voce sera deslogado!");
+                        Tela_login tl = new Tela_login();
+                        tl.setVisible(true);
+                        dispose();
+                    }
+                }catch(SQLException e){
+                    JOptionPane.showMessageDialog(null, "Erro ao excluir um cliente: " + e.getMessage());
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) selecionada!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -145,6 +191,28 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void ListarCliente(){
+        ClienteDAO dao = new ClienteDAO();
+        List<Cliente> clientes = dao.ListarCliente();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        model.setRowCount(0);
+        
+        for(Cliente cliente : clientes){
+            model.addRow(new Object[]{
+                cliente.getCpf(),
+                cliente.getNome(),
+                cliente.getD_nasc(),
+                cliente.getSexo(),
+                cliente.getEndereco(),
+                cliente.getTelefone(),
+                cliente.getEmail(),
+                cliente.getSenha(),
+                cliente.getFk_rg_sec(),
+            });
+        }
+    }
+    
+    private String CpfSelecionado = "-1";
     /**
      * @param args the command line arguments
      */

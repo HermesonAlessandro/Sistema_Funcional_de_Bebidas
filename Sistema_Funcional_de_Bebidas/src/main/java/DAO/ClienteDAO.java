@@ -105,4 +105,15 @@ public class ClienteDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public void ExcluirCliente(String cpf) throws SQLException{
+        String sql = "DELETE FROM cliente WHERE cpf = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1, cpf);
+            pstmt.executeUpdate();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir cliente: " +e.getMessage());
+        }
+    }
 }
