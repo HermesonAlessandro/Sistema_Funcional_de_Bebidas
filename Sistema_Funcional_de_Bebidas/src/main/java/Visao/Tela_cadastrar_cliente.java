@@ -5,6 +5,7 @@
 package Visao;
 import DAO.ClienteDAO;
 import Modelo.Cliente;
+import Modelo.Sessao;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,6 +23,11 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
      */
     public Tela_cadastrar_cliente() {
         initComponents();
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+    }
+    
+    public void setSaudacao(String saudacao, String dataHora) {
+        jLabel11.setText(saudacao + " - " + dataHora);
     }
 
     /**
@@ -55,6 +61,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +96,8 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
         jLabel9.setText("Senha");
 
         jLabel4.setText("D_nasc");
+
+        jLabel11.setText("jLabel11");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,6 +154,9 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
                         .addGap(168, 168, 168)
                         .addComponent(jLabel1)))
                 .addContainerGap(59, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +203,9 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton4))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,6 +327,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

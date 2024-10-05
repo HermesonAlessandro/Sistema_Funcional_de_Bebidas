@@ -5,6 +5,7 @@
 package Visao;
 import DAO.ClienteDAO;
 import Modelo.Cliente;
+import Modelo.Sessao;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,11 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
     public Tela_ajuste_cliente() {
         initComponents();
         ListarCliente();
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+    }
+    
+    public void setSaudacao(String saudacao, String dataHora) {
+        jLabel4.setText(saudacao + " - " + dataHora);
     }
 
     /**
@@ -186,6 +192,7 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Tela_inicial_cliente tic = new Tela_inicial_cliente();
+        tic.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         tic.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

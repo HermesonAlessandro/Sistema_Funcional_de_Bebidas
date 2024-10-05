@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
-
 import DAO.ClienteDAO;
 import Modelo.Cliente;
 import Modelo.Sessao;
@@ -23,6 +22,7 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {
      */
     public Tela_excluir_cliente() {
         initComponents();
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         ListarCliente();
         jTable1.getSelectionModel().addListSelectionListener(event ->{
            if(!event.getValueIsAdjusting()){
@@ -32,6 +32,10 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {
                }
            }
         });
+    }
+    
+    public void setSaudacao(String saudacao, String dataHora) {
+        jLabel2.setText(saudacao + " - " + dataHora);
     }
 
     /**
@@ -181,7 +185,7 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {
                 }
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) selecionada!");
+            JOptionPane.showMessageDialog(null, "Nenhum cliente selecionado!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
