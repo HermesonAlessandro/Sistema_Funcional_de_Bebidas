@@ -5,6 +5,7 @@
 package Visao;
 import DAO.ClienteDAO;
 import Modelo.Cliente;
+import Modelo.Saudacao;
 import Modelo.Sessao;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -92,6 +93,11 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
         jLabel6.setText("Endereço");
 
         jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Senha");
 
@@ -285,6 +291,13 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
+        tis.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+        tis.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

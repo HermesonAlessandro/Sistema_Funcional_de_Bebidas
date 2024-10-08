@@ -306,7 +306,7 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Tela_inicial_administrador tia = new Tela_inicial_administrador();
-        tia.setSaudacao(Sessao.getCumprimento(), Sessao.getDataHoraEntrada());
+        tia.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         tia.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
