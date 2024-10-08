@@ -84,7 +84,7 @@ public class SecretariaDAO {
                 }
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao buscar secretaria(o): " +e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao buscar a secretaria(o): " +e.getMessage());
         }
         return null;
     }
@@ -114,7 +114,7 @@ public class SecretariaDAO {
             pstmt.setString(1, rg);
             pstmt.executeUpdate();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao excluir secretaria(o): " +e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao excluir a secretaria(o): " +e.getMessage());
         }
     }
 }

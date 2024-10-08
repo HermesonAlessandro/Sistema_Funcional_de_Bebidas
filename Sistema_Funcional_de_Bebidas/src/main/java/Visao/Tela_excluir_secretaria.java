@@ -167,7 +167,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
                     dao.ExcluirSecretaria(RgSelecionado);
                     JOptionPane.showMessageDialog(null, "Secretaria(o) excluida com sucesso!");
                     if(Sessao.getRgUsuarioSec().equals(RgSelecionado)){
-                        JOptionPane.showMessageDialog(null, "Voce se autoexcluiu e sera redirecionado para a tela de login!");
+                        JOptionPane.showMessageDialog(null, "Voce se autoexcluiu e sera redirecionada para a tela de login!");
                         Sessao.LimparSessao();
                         Tela_login tl = new Tela_login();
                         tl.setVisible(true);
@@ -177,7 +177,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
                     ListarSecretaria();
                     List<Secretaria> secretarias = dao.ListarSecretaria();
                     if(secretarias.isEmpty()){
-                        JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) restante, voce sera deslogado!");
+                        JOptionPane.showMessageDialog(null, "Nenhuma secretaria(o) restante, voce sera deslogada!");
                         Tela_login tl = new Tela_login();
                         tl.setVisible(true);
                         dispose();
@@ -187,7 +187,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {
                 }
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Nenhum secretaria(o) selecionada!");
+            JOptionPane.showMessageDialog(null, "Nenhuma secretaria(o) selecionada!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

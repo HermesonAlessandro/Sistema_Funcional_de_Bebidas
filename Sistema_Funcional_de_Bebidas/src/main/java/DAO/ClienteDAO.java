@@ -83,7 +83,7 @@ public class ClienteDAO {
                 }
             }
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente: " +e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao buscar o cliente: " +e.getMessage());
         }
         return null;
     }
@@ -113,7 +113,7 @@ public class ClienteDAO {
             pstmt.setString(1, cpf);
             pstmt.executeUpdate();
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro ao excluir cliente: " +e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao excluir o cliente: " +e.getMessage());
         }
     }
 }
