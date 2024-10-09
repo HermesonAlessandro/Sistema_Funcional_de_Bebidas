@@ -82,7 +82,7 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {
 
         jLabel6.setText("T_de_item");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Direto ao Cliente", "Revenda", " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Direto ao Cliente", "Revenda" }));
 
         jLabel7.setText("Q_estoque");
 
