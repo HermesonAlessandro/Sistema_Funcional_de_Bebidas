@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import DAO.BebidaDAO;
+import Modelo.Bebida;
 import Modelo.Sessao;
+import java.sql.SQLException;
+import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,6 +64,8 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {
 
         jLabel2.setText("Cod");
 
+        jTextField1.setEditable(false);
+
         jLabel3.setText("Descricao");
 
         jLabel4.setText("Marca");
@@ -84,6 +91,11 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {
         jTextField5.setText("R$ ");
 
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +224,48 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() ||
+           jComboBox1.getSelectedItem() == null || jComboBox2.getSelectedItem() == null ||
+           jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
+        }else{
+            Bebida bebida = new Bebida();
+            bebida.setDescricao(jTextField2.getText());
+            bebida.setMarca(jTextField3.getText());
+            bebida.setGp_mercadoria(jComboBox1.getSelectedItem().toString());
+            bebida.setT_do_item(jComboBox2.getSelectedItem().toString());
+            bebida.setQ_estoque(Integer.parseInt(jTextField4.getText()));
+            
+            String valorUnitarioStr = jTextField5.getText().replace("R$", "").trim().replace(",", ".");
+            bebida.setV_unitario(Double.parseDouble(valorUnitarioStr));
+            
+            String CodigodeBarras = GerarCodigodeBarras();
+            bebida.setCod_de_barras(CodigodeBarras);
+            
+            try{
+                BebidaDAO dao = new BebidaDAO();
+                if(dao.DescricaoExiste(bebida.getDescricao())){
+                     JOptionPane.showMessageDialog(null, "Descricao da bebida ja existe. Tente novamente!");
+                }else{
+                    dao.CadastrarBebida(bebida);
+                    JOptionPane.showMessageDialog(null, "Bebida cadastrada com sucesso! codigo de barras gerado: " + CodigodeBarras);
+                }
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar uma bebida: " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private String GerarCodigodeBarras(){
+        Random random = new Random();
+        StringBuilder CodigodeBarras = new StringBuilder();
+        for(int i = 0; i < 13; i++){
+            int cod_digito = random.nextInt(10);
+            CodigodeBarras.append(cod_digito);
+        }
+        return CodigodeBarras.toString();
+    }
     /**
      * @param args the command line arguments
      */
