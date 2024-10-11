@@ -53,7 +53,31 @@ public class BebidaDAO {
         return false;
     }
     
-    public List<Bebida> ListarBebida(){
+    public List<Bebida> ListarBebidaSec(){
+        List<Bebida> bebidas = new ArrayList<>();
+        String sql = "SELECT * FROM bebida";
+        try(Connection conn = ConexaoDAO.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery()){
+            while(rs.next()){
+                Bebida bebida = new Bebida();
+                bebida.setCod(rs.getInt("cod"));
+                bebida.setCod_de_barras(rs.getString("cod_de_barras"));
+                bebida.setDescricao(rs.getString("descricao"));
+                bebida.setMarca(rs.getString("marca"));
+                bebida.setGp_mercadoria(rs.getString("gp_mercadoria"));
+                bebida.setT_do_item(rs.getString("t_do_item"));
+                bebida.setQ_estoque(rs.getInt("q_estoque"));
+                bebida.setV_unitario(rs.getDouble("v_unitario"));
+                bebidas.add(bebida);
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao listar as bebidas: " +e.getMessage());
+        }
+        return bebidas;
+    }
+    
+    public List<Bebida> ListarBebidaCli(){
         List<Bebida> bebidas = new ArrayList<>();
         String sql = "SELECT * FROM bebida";
         try(Connection conn = ConexaoDAO.getConnection();
