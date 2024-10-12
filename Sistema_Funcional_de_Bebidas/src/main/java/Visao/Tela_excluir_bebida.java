@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
-
 import DAO.BebidaDAO;
 import Modelo.Bebida;
+import Modelo.Sessao;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -23,6 +23,11 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {
     public Tela_excluir_bebida() {
         initComponents();
         ListarBebida();
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+    }
+    
+    public void setSaudacao(String saudacao, String dataHora) {
+        jLabel2.setText(saudacao + " - " + dataHora);
     }
 
     /**
@@ -34,14 +39,22 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Excluir Bebida");
@@ -85,6 +98,8 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel2.setText("jLabel2");
+
         jButton1.setText("Excluir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,47 +107,54 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Voltar");
-
-        jLabel2.setText("jLabel2");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -142,17 +164,17 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {
         int selectedRow = jTable1.getSelectedRow();
         if(selectedRow != -1){
             int cod = Integer.parseInt(jTable1.getValueAt(selectedRow, 0).toString());
-            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir esta bebida?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir esta bebida?", "Confirmaçao", JOptionPane.YES_NO_OPTION);
             if(confirmacao == JOptionPane.YES_NO_OPTION){
                 try{
                     BebidaDAO dao = new BebidaDAO();
                     dao.ExcluirBebida(cod);
-                    JOptionPane.showMessageDialog(null, "Bebida excluída com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Bebida excluida com sucesso!");
                     ListarBebida();
                     if(jTable1.getRowCount() == 0){
                         JOptionPane.showMessageDialog(null, "Voce excluiu todas as bebidas, voce sera redirecionado...");
-                        Tela_ajuste_bebida tab = new Tela_ajuste_bebida();
-                        tab.setVisible(true);
+                        Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
+                        tis.setVisible(true);
                         dispose();
                     }
                 }catch(SQLException e){
@@ -163,6 +185,13 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhuma bebida selecionada!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
+        tis.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+        tis.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private void ListarBebida(){
         BebidaDAO dao = new BebidaDAO();
@@ -223,6 +252,7 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
