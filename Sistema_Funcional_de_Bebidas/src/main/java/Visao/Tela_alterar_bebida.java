@@ -262,13 +262,16 @@ private Bebida bebida;
             bebida.setQ_estoque(Integer.parseInt(jTextField5.getText()));
             bebida.setV_unitario(Double.parseDouble(jTextField6.getText()));
             
-            String valorUnitarioStr = jTextField5.getText().replace("R$", "").trim().replace(",", ".");
+            String valorUnitarioStr = jTextField6.getText().replace("R$", "").trim().replace(",", ".");
             bebida.setV_unitario(Double.parseDouble(valorUnitarioStr));
             
             try{
                 BebidaDAO dao = new BebidaDAO();
                 dao.AlterarBebida(bebida);
                 JOptionPane.showMessageDialog(null, "Bebida atualizada com sucesso!");
+                Tela_ajuste_bebida tab = new Tela_ajuste_bebida();
+                tab.setVisible(true);
+                dispose();
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "Nao foi possivel atualizar a bebida: " +e.getMessage());
             }

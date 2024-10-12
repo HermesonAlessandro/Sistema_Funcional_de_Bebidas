@@ -127,4 +127,15 @@ public class BebidaDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public void ExcluirBebida(int cod) throws SQLException{
+        String sql = "DELETE FROM bebida WHERE cod = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setInt(1, cod);
+            pstmt.executeUpdate();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir uma bebida: " +e.getMessage());
+        }
+    }
 }
