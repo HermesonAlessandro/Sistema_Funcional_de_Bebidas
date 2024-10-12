@@ -7,6 +7,7 @@ import DAO.BebidaDAO;
 import Modelo.Bebida;
 import Modelo.Sessao;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -92,6 +93,11 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
                 "Cod", "Cod_de_barras", "Descriçao", "Marca", "Gp_mercadoria", "T_de_item", "Q_estoque", "V_unitario"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setText("Para alterar bebida vá para a aba chamada \"Alterar\" em seguida clique em \"Alterar/BEB\"");
@@ -191,9 +197,13 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Tela_alterar_bebida tab = new Tela_alterar_bebida();
-        tab.setVisible(true);
-        dispose();
+        if(BebidaSelecionada != null){
+            Tela_alterar_bebida tab = new Tela_alterar_bebida(BebidaSelecionada);
+            tab.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, selecione uma bebida para alterar!");
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -201,7 +211,21 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
         teb.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-    
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int selectedRow = jTable1.getSelectedRow();
+        if(selectedRow != -1){
+            int cod = (int) jTable1.getValueAt(selectedRow, 0);
+            BebidaDAO dao = new BebidaDAO();
+            BebidaSelecionada = dao.BuscarBebidaPorCod(cod);
+            if(BebidaSelecionada != null){
+                JOptionPane.showMessageDialog(null, "Bebida selecionada: "+BebidaSelecionada.getDescricao());
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao selecionar uma bebida!");
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+    private Bebida BebidaSelecionada;
     private void ListarBebida(){
         BebidaDAO dao = new BebidaDAO();
         List<Bebida> bebidas = dao.ListarBebidaSec();

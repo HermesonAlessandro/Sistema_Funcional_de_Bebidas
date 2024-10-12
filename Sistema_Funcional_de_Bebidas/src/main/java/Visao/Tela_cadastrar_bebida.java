@@ -66,7 +66,7 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {
 
         jTextField1.setEditable(false);
 
-        jLabel3.setText("Descricao");
+        jLabel3.setText("Descriçao");
 
         jLabel4.setText("Marca");
 
