@@ -51,6 +51,11 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Comprar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Comprar Bebida");
@@ -158,6 +163,13 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
         tic.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Tela_pedido tp = new Tela_pedido();
+        tp.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+        tp.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void ListarBebida(){
         BebidaDAO dao = new BebidaDAO();

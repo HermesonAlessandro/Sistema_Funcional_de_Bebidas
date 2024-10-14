@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import Modelo.Sessao;
 
 /**
  *
@@ -15,6 +16,11 @@ public class Tela_pedido extends javax.swing.JFrame {
      */
     public Tela_pedido() {
         initComponents();
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+    }
+    
+    public void setSaudacao(String saudacao, String dataHora) {
+        jLabel18.setText(saudacao + " - " + dataHora);
     }
 
     /**
@@ -70,71 +76,55 @@ public class Tela_pedido extends javax.swing.JFrame {
 
         jLabel2.setText("Id");
 
-        jTextField1.setText("jTextField1");
-
         jLabel3.setText("Cpf do cliente");
-
-        jTextField2.setText("jTextField2");
 
         jLabel4.setText("Nome do cliente");
 
-        jTextField3.setText("jTextField3");
-
         jLabel5.setText("Endereço do cliente");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Telefone do cliente");
 
-        jTextField5.setText("jTextField5");
-
         jLabel7.setText("Email do cliente");
-
-        jTextField6.setText("jTextField6");
 
         jLabel8.setText("Descrição da bebida");
 
-        jTextField7.setText("jTextField7");
-
         jLabel9.setText("Codigo de barras do cliente");
-
-        jTextField8.setText("jTextField8");
 
         jLabel10.setText("Marca da bebida");
 
-        jTextField9.setText("jTextField9");
-
         jLabel11.setText("Grupo mercadoria da bebida");
-
-        jTextField10.setText("jTextField10");
 
         jLabel12.setText("Tipo do item da bebida");
 
-        jTextField11.setText("jTextField11");
-
         jLabel13.setText("Quantidade de estoque da bebida");
-
-        jTextField13.setText("jTextField13");
 
         jLabel14.setText("Quantidade adquirida do pedido");
 
-        jTextField12.setText("jTextField12");
-
         jLabel15.setText("Valor unitario da bebida");
-
-        jTextField14.setText("jTextField14");
 
         jLabel16.setText("Valor total do pedido");
 
-        jTextField15.setText("jTextField15");
-
         jLabel17.setText("Codigo da bebida");
 
-        jTextField16.setText("jTextField16");
-
         jButton1.setText("Comprar/confirmar/extrato");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("jLabel18");
 
@@ -302,6 +292,21 @@ public class Tela_pedido extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Tela_comprar_bebida tcb = new Tela_comprar_bebida();
+        tcb.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+        tcb.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
