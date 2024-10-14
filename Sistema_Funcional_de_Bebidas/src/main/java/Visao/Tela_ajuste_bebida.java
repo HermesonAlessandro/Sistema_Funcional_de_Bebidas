@@ -6,7 +6,10 @@ package Visao;
 import DAO.BebidaDAO;
 import Modelo.Bebida;
 import Modelo.Sessao;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -245,6 +248,9 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         model.setRowCount(0);
         
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(Locale.US);
+        DecimalFormat df = new DecimalFormat("#.00", symbols);
+        
         for(Bebida bebida : bebidas){
             model.addRow(new Object[]{
                 bebida.getCod(),
@@ -254,7 +260,7 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
                 bebida.getGp_mercadoria(),
                 bebida.getT_do_item(),
                 bebida.getQ_estoque(),
-                bebida.getV_unitario(),
+                df.format(bebida.getV_unitario()),
             });
         }
     }

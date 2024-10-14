@@ -7,6 +7,9 @@ import DAO.BebidaDAO;
 import Modelo.Bebida;
 import Modelo.Sessao;
 import java.sql.SQLException;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -238,7 +241,15 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {
             bebida.setQ_estoque(Integer.parseInt(jTextField4.getText()));
             
             String valorUnitarioStr = jTextField5.getText().replace("R$", "").trim().replace(",", ".");
-            bebida.setV_unitario(Double.parseDouble(valorUnitarioStr));
+            NumberFormat nf = NumberFormat.getInstance(Locale.US);
+            
+            try{
+                Number number = nf.parse(valorUnitarioStr);
+                bebida.setV_unitario(number.doubleValue());
+            }catch(ParseException e){
+                JOptionPane.showMessageDialog(null, "Erro ao formatar o valor unitario da bebida: " +e.getMessage());
+                return;
+            }
             
             String CodigodeBarras = GerarCodigodeBarras();
             bebida.setCod_de_barras(CodigodeBarras);

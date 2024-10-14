@@ -7,6 +7,9 @@ import DAO.BebidaDAO;
 import Modelo.Bebida;
 import Modelo.Sessao;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -298,7 +301,9 @@ private Bebida bebida;
         jComboBox1.setSelectedItem(bebida.getGp_mercadoria());
         jComboBox2.setSelectedItem(bebida.getT_do_item());
         jTextField5.setText(String.valueOf(bebida.getQ_estoque()));
-        jTextField6.setText(String.valueOf(bebida.getV_unitario()));
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(Locale.US);
+        DecimalFormat df = new DecimalFormat("#.00", symbols);
+        jTextField6.setText(df.format(bebida.getV_unitario()));
     }
     /**
      * @param args the command line arguments
