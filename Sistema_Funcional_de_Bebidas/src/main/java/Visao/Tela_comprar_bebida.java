@@ -10,6 +10,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.List;
 import java.util.Locale;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -97,6 +98,11 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
                 "Cod", "Cod_de_barras", "Descriçao", "Marca", "Gp_mercadoria", "T_de_item", "Q_estoque", "V_unitario"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setText("jLabel2");
@@ -170,7 +176,21 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
         tp.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int selectedRow = jTable1.getSelectedRow();
+        if(selectedRow != -1){
+            int cod = (int) jTable1.getValueAt(selectedRow, 0);
+            BebidaDAO dao = new BebidaDAO();
+            BebidaSelecionada = dao.BuscarBebidaPorCod(cod);
+            if(BebidaSelecionada != null){
+                JOptionPane.showMessageDialog(null, "Bebida selecionada: "+BebidaSelecionada.getDescricao());
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao selecionar uma bebida!");
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+    private Bebida BebidaSelecionada;
     private void ListarBebida(){
         BebidaDAO dao = new BebidaDAO();
         List<Bebida> bebidas = dao.ListarBebidaCli();

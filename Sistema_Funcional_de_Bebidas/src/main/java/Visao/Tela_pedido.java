@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import Modelo.Cliente;
 import Modelo.Sessao;
 
 /**
@@ -10,17 +11,24 @@ import Modelo.Sessao;
  * @author Hermeson Alessandro
  */
 public class Tela_pedido extends javax.swing.JFrame {
+private  Cliente cliente;
 
     /**
      * Creates new form Tela_pedido
      */
     public Tela_pedido() {
         initComponents();
-        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
     }
     
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel8.setText(saudacao + " - " + dataHora);
+    }
+    
+    public Tela_pedido(Cliente cliente){
+        initComponents();
+        this.cliente = cliente;
+        setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+        PreencherCampos();
     }
 
     /**
@@ -191,7 +199,10 @@ public class Tela_pedido extends javax.swing.JFrame {
         tp1.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    private void PreencherCampos(){
+        
+    }
     /**
      * @param args the command line arguments
      */
