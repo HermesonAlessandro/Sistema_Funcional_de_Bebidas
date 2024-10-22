@@ -15,7 +15,7 @@ public class Pedido {
     private String endereco_cliente;
     private long telefone_cliente;
     private String email_cliente;
-    private String descricao_cliente;
+    private String descricao_bebida;
     private String cod_de_barras_bebida;
     private String marca_bebida;
     private String gp_mercadoria_bebida;
@@ -37,7 +37,7 @@ public class Pedido {
         this.endereco_cliente = endereco_cliente;
         this.telefone_cliente = telefone_cliente;
         this.email_cliente = email_cliente;
-        this.descricao_cliente = descricao_cliente;
+        this.descricao_bebida = descricao_bebida;
         this.cod_de_barras_bebida = cod_de_barras_bebida;
         this.marca_bebida = marca_bebida;
         this.gp_mercadoria_bebida = gp_mercadoria_bebida;
@@ -97,12 +97,12 @@ public class Pedido {
         this.email_cliente = email_cliente;
     }
 
-    public String getDescricao_cliente() {
-        return descricao_cliente;
+    public String getDescricao_bebida() {
+        return descricao_bebida;
     }
 
-    public void setDescricao_cliente(String descricao_cliente) {
-        this.descricao_cliente = descricao_cliente;
+    public void setDescricao_bebida(String descricao_bebida) {
+        this.descricao_bebida = descricao_bebida;
     }
 
     public String getCod_de_barras_bebida() {
