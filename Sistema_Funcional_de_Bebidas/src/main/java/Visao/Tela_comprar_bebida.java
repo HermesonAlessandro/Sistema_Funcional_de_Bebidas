@@ -4,8 +4,14 @@
  */
 package Visao;
 import DAO.BebidaDAO;
+import DAO.ConexaoDAO;
 import Modelo.Bebida;
+import Modelo.Cliente;
 import Modelo.Sessao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.List;
@@ -171,10 +177,31 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tela_pedido tp = new Tela_pedido();
-        tp.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
-        tp.setVisible(true);
-        dispose();
+        if(BebidaSelecionada != null){
+            try{
+                Connection conn = ConexaoDAO.getConnection();
+                String sql = "SELECT cpf, nome, endereco, telefone, email FROM cliente WHERE cpf = ?";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, Sessao.getCpfUsuarioCli());
+                ResultSet rs = pstmt.executeQuery();
+                
+                Cliente pegardadoscliente = new Cliente();
+                if(rs.next()){
+                    pegardadoscliente.setCpf(rs.getString("cpf"));
+                    pegardadoscliente.setNome(rs.getString("nome"));
+                    pegardadoscliente.setEndereco(rs.getString("endereco"));
+                    pegardadoscliente.setTelefone(rs.getLong("telefone"));
+                    pegardadoscliente.setEmail(rs.getString("email"));
+                }
+                Tela_confirmacao_pedido tcp = new Tela_confirmacao_pedido();
+                tcp.setVisible(true);
+                dispose();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "Erro ao buscar os dados do cliente: " +e.getMessage());
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhuma bebida selecionada!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
