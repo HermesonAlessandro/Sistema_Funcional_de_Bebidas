@@ -193,7 +193,7 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
                     pegardadoscliente.setTelefone(rs.getLong("telefone"));
                     pegardadoscliente.setEmail(rs.getString("email"));
                 }
-                Tela_confirmacao_pedido tcp = new Tela_confirmacao_pedido();
+                Tela_confirmacao_pedido tcp = new Tela_confirmacao_pedido(pegardadoscliente, BebidaSelecionada);
                 tcp.setVisible(true);
                 dispose();
             }catch(SQLException e){
