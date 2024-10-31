@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import DAO.PedidoDAO;
 import Modelo.Bebida;
 import Modelo.Cliente;
+import Modelo.Pedido;
 import Modelo.Sessao;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
@@ -142,6 +145,11 @@ private Bebida bebida;
         jLabel17.setText("jLabel17");
 
         jButton1.setText("Confirmar pedido");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -316,6 +324,62 @@ private Bebida bebida;
         tcb.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() ||
+           jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty() ||
+           jTextField8.getText().isEmpty() || jTextField9.getText().isEmpty() || jTextField10.getText().isEmpty() ||
+           jTextField11.getText().isEmpty() || jTextField12.getText().isEmpty() || jTextField13.getText().isEmpty() ||
+           jTextField14.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
+        }else{
+            Cliente cliente = new Cliente();
+            cliente.setCpf(jTextField1.getText());
+            cliente.setNome(jTextField2.getText());
+            cliente.setEndereco(jTextField3.getText());
+            cliente.setTelefone(Long.parseLong(jTextField4.getText()));
+            cliente.setEmail(jTextField5.getText());
+            
+            Bebida bebida = new Bebida();
+            bebida.setDescricao(jTextField6.getText());
+            bebida.setCod_de_barras(jTextField7.getText());
+            bebida.setMarca(jTextField8.getText());
+            bebida.setGp_mercadoria(jTextField9.getText());
+            bebida.setT_do_item(jTextField10.getText());
+            bebida.setQ_estoque(Integer.parseInt(jTextField11.getText()));
+            bebida.setV_unitario(Double.parseDouble(jTextField13.getText().replace(",", ".")));
+            bebida.setCod(Integer.parseInt(jTextField14.getText()));
+            
+            int quantidade = Integer.parseInt(jTextField12.getText());
+            double valorUnitario = bebida.getV_unitario();
+            double valorTotal = quantidade * valorUnitario;
+            
+            Pedido pedido = new Pedido();
+            pedido.setFk_cpf_cliente(cliente.getCpf());
+            pedido.setNome_cliente(cliente.getNome());
+            pedido.setEndereco_cliente(cliente.getEndereco());
+            pedido.setTelefone_cliente(cliente.getTelefone());
+            pedido.setEmail_cliente(cliente.getEmail());
+            pedido.setDescricao_bebida(bebida.getDescricao());
+            pedido.setCod_de_barras_bebida(bebida.getCod_de_barras());
+            pedido.setMarca_bebida(bebida.getMarca());
+            pedido.setGp_mercadoria_bebida(bebida.getGp_mercadoria());
+            pedido.setT_do_item_bebida(bebida.getT_do_item());
+            pedido.setQ_estoque_bebida(bebida.getQ_estoque());
+            pedido.setQ_adquirida_do_pedido(quantidade);
+            pedido.setV_unitario_bebida(valorUnitario);
+            pedido.setV_total_pedido(valorTotal);
+            pedido.setFk_cod_bebida(bebida.getCod());
+            
+            try{
+                PedidoDAO dao = new PedidoDAO();
+                dao.CadastrarPedido(pedido);
+                JOptionPane.showMessageDialog(null, "Pedido cadastrado com sucesso! \nValor Total: " + String.format("%.2f", valorTotal));
+            }catch(SQLException e ){
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar o pedido: " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void PreencherCamposCliente(){
         jTextField1.setText(String.valueOf(cliente.getCpf()));
