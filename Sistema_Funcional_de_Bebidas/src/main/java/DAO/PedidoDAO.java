@@ -16,8 +16,10 @@ import java.sql.SQLException;
 public class PedidoDAO {
     public void CadastrarPedido(Pedido pedido) throws SQLException{
         String sql = "INSERT INTO pedido (fk_cpf_cliente, nome_cliente, endereco_cliente, telefone_cliente, email_cliente, descricao_bebida, cod_de_barras_bebida, marca_bebida, gp_mercadoria_bebida, t_do_item_bebida, q_estoque_bebida, q_adquirida_do_pedido, v_unitario_bebida, v_total_pedido, fk_cod_bebida) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql1 = "UPDATE bebida SET q_estoque = q_estoque - ? WHERE cod = ?";
         try(Connection conn = ConexaoDAO.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            PreparedStatement pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstmt1 = conn.prepareStatement(sql1)){
             pstmt.setString(1, pedido.getFk_cpf_cliente());
             pstmt.setString(2, pedido.getNome_cliente());
             pstmt.setString(3, pedido.getEndereco_cliente());
@@ -34,13 +36,16 @@ public class PedidoDAO {
             pstmt.setDouble(14, pedido.getV_total_pedido());
             pstmt.setInt(15, pedido.getFk_cod_bebida());
             
-            pstmt.execute();
+            pstmt.executeUpdate();
             
             try(ResultSet generatedkeys = pstmt.getGeneratedKeys()){
                 if(generatedkeys.next()){
                     pedido.setId(generatedkeys.getInt(1));
                 }
             }
+            pstmt1.setInt(1, pedido.getQ_adquirida_do_pedido());
+            pstmt1.setInt(2, pedido.getFk_cod_bebida());
+            pstmt1.executeUpdate();
         }
     }
 }
