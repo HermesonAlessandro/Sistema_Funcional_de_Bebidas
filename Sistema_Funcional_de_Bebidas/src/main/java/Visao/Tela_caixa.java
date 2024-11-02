@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import DAO.CaixaDAO;
 import DAO.ConexaoDAO;
+import Modelo.Caixa;
 import Modelo.Pedido;
 import Modelo.Sessao;
 import java.sql.Connection;
@@ -92,6 +94,11 @@ private Pedido pedidoId;
         jLabel4.setText("Valor total do pedido");
 
         jButton1.setText("Confirmar Pedido");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,6 +201,42 @@ private Pedido pedidoId;
         tic.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String pagamento = jComboBox1.getSelectedItem().toString();
+        int pedidoId = Integer.parseInt(jTextField1.getText());
+        
+        try{
+            Connection conn = ConexaoDAO.getConnection();
+            if(pagamento.equals("Pago")){
+                CaixaDAO dao = new CaixaDAO();
+                Caixa caixa = new Caixa();
+                caixa.setId_pedido(pedidoId);
+                caixa.setNome_produto_pedido(jTextField2.getText());
+                caixa.setValor_total_pedido(Double.parseDouble(jTextField3.getText().replace(",", ".")));
+                caixa.setPagamento("Pago");
+                dao.CadastrarCaixa(caixa);
+                JOptionPane.showMessageDialog(null, "Pagamento confirmado, estoque atualizado e registro no caixa criado!");
+            }else{
+                JOptionPane.showMessageDialog(null, "Pagamento não confirmado. A quantidade adquirida será devolvida ao estoque!");
+                String sql1 = "UPDATE bebida SET q_estoque = q_estoque + (SELECT q_adquirida_do_pedido FROM pedido WHERE id = ?) WHERE cod = (SELECT fk_cod_bebida FROM pedido WHERE id = ?)";
+                try(PreparedStatement pstmt1 = conn.prepareStatement(sql1)){
+                    pstmt1.setInt(1, pedidoId);
+                    pstmt1.setInt(2, pedidoId);
+                    pstmt1.executeUpdate();
+                }
+                CaixaDAO dao = new CaixaDAO();
+                Caixa caixa = new Caixa();
+                caixa.setId_pedido(pedidoId); 
+                caixa.setNome_produto_pedido(jTextField2.getText()); 
+                caixa.setValor_total_pedido(Double.parseDouble(jTextField3.getText().replace(",", "."))); 
+                caixa.setPagamento("Não pago");
+                dao.CadastrarCaixa(caixa);
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar o estoque ou registrar no caixa: "+e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void BuscarDadosDoPedido(int pedidoId){
         try{
