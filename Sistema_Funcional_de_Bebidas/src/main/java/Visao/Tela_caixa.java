@@ -182,6 +182,7 @@ private Pedido pedidoId;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Tela_confirmacao_pedido tcp = new Tela_confirmacao_pedido();
+        tcp.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         tcp.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -189,6 +190,7 @@ private Pedido pedidoId;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JOptionPane.showMessageDialog(null, "Pedido cancelado, Voltando para o menu do cliente!");
         Tela_inicial_cliente tic = new Tela_inicial_cliente();
+        tic.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         tic.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed

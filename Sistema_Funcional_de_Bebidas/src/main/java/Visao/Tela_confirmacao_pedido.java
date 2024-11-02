@@ -380,8 +380,7 @@ private Bebida bebida;
                 PedidoDAO dao = new PedidoDAO();
                 dao.CadastrarPedido(pedido);
                 int pedidoId = pedido.getId();
-                JOptionPane.showMessageDialog(null, "Pedido cadastrado com sucesso! \nValor Total: " + String.format("%.2f", valorTotal));
-                JOptionPane.showMessageDialog(null, "Atualizando o estoque!");
+                JOptionPane.showMessageDialog(null, "Valor Total: " + String.format("%.2f", valorTotal));
                 Tela_caixa tc = new Tela_caixa(pedidoId);
                 tc.setVisible(true);
                 dispose();
@@ -394,6 +393,7 @@ private Bebida bebida;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JOptionPane.showMessageDialog(null, "Pedido cancelado, Voltando para o menu do cliente!");
         Tela_inicial_cliente tic = new Tela_inicial_cliente();
+        tic.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
         tic.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
