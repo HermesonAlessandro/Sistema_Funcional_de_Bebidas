@@ -20,7 +20,6 @@ public class Extrato {
     private String ext_marca_bebida;
     private String ext_gp_mercadoria_bebida;
     private String ext_t_do_item_bebida;
-    private int ext_q_estoque_bebida;
     private int ext_q_adquirida_do_pedido;
     private double ext_v_unitario_bebida;
     private double ext_v_total_pedido;
@@ -31,7 +30,7 @@ public class Extrato {
         
     }
 
-    public Extrato(int ext_id_pedido, String ext_fk_cpf_cliente, String ext_nome_cliente, String ext_endereco_cliente, long ext_telefone_cliente, String ext_email_cliente, String ext_descricao_bebida, String ext_cod_de_barras_bebida, String ext_marca_bebida, String ext_gp_mercadoria_bebida, String ext_t_do_item_bebida, int ext_q_estoque_bebida, int ext_q_adquirida_do_pedido, double ext_v_unitario_bebida, double ext_v_total_pedido, int ext_fk_cod_bebida, String ext_status_pagamento) {
+    public Extrato(int ext_id_pedido, String ext_fk_cpf_cliente, String ext_nome_cliente, String ext_endereco_cliente, long ext_telefone_cliente, String ext_email_cliente, String ext_descricao_bebida, String ext_cod_de_barras_bebida, String ext_marca_bebida, String ext_gp_mercadoria_bebida, String ext_t_do_item_bebida, int ext_q_adquirida_do_pedido, double ext_v_unitario_bebida, double ext_v_total_pedido, int ext_fk_cod_bebida, String ext_status_pagamento) {
         this.ext_id_pedido = ext_id_pedido;
         this.ext_fk_cpf_cliente = ext_fk_cpf_cliente;
         this.ext_nome_cliente = ext_nome_cliente;
@@ -43,7 +42,6 @@ public class Extrato {
         this.ext_marca_bebida = ext_marca_bebida;
         this.ext_gp_mercadoria_bebida = ext_gp_mercadoria_bebida;
         this.ext_t_do_item_bebida = ext_t_do_item_bebida;
-        this.ext_q_estoque_bebida = ext_q_estoque_bebida;
         this.ext_q_adquirida_do_pedido = ext_q_adquirida_do_pedido;
         this.ext_v_unitario_bebida = ext_v_unitario_bebida;
         this.ext_v_total_pedido = ext_v_total_pedido;
@@ -137,14 +135,6 @@ public class Extrato {
 
     public void setExt_t_do_item_bebida(String ext_t_do_item_bebida) {
         this.ext_t_do_item_bebida = ext_t_do_item_bebida;
-    }
-
-    public int getExt_q_estoque_bebida() {
-        return ext_q_estoque_bebida;
-    }
-
-    public void setExt_q_estoque_bebida(int ext_q_estoque_bebida) {
-        this.ext_q_estoque_bebida = ext_q_estoque_bebida;
     }
 
     public int getExt_q_adquirida_do_pedido() {

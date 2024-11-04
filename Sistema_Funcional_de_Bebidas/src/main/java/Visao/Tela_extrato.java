@@ -4,6 +4,8 @@
  */
 package Visao;
 import DAO.ConexaoDAO;
+import DAO.ExtratoDAO;
+import Modelo.Extrato;
 import Modelo.Sessao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -325,7 +327,31 @@ private int pedidoId;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        try{
+            Extrato extrato = new Extrato();
+            extrato.setExt_id_pedido(Integer.parseInt(jLabel3.getText()));
+            extrato.setExt_fk_cpf_cliente(jLabel5.getText());
+            extrato.setExt_nome_cliente(jLabel7.getText());
+            extrato.setExt_endereco_cliente(jLabel9.getText());
+            extrato.setExt_telefone_cliente(Long.parseLong(jLabel11.getText()));
+            extrato.setExt_email_cliente(jLabel13.getText());
+            extrato.setExt_descricao_bebida(jLabel15.getText());
+            extrato.setExt_cod_de_barras_bebida(jLabel17.getText());
+            extrato.setExt_marca_bebida(jLabel19.getText());
+            extrato.setExt_gp_mercadoria_bebida(jLabel21.getText());
+            extrato.setExt_t_do_item_bebida(jLabel23.getText());
+            extrato.setExt_q_adquirida_do_pedido(Integer.parseInt(jLabel27.getText()));
+            extrato.setExt_v_unitario_bebida(Double.parseDouble(jLabel29.getText().replace(",", ".")));
+            extrato.setExt_v_total_pedido(Double.parseDouble(jLabel31.getText().replace(",", ".")));
+            extrato.setExt_fk_cod_bebida(Integer.parseInt(jLabel33.getText()));
+            extrato.setExt_status_pagamento(jLabel35.getText());
+            
+            ExtratoDAO dao = new ExtratoDAO();
+            dao.CadastrarExtrato(extrato);
+            JOptionPane.showMessageDialog(null, "Extrato cadastrado com sucesso!");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar o extrato: " + e.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void BuscarDadosdoPedidoeBebida(int PedidoId){
