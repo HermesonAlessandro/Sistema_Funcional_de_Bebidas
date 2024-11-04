@@ -3,27 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Visao;
+import DAO.ConexaoDAO;
 import Modelo.Sessao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hermeson Alessandro
  */
 public class Tela_extrato extends javax.swing.JFrame {
+private int pedidoId;
 
     /**
      * Creates new form Tela_extrato
      */
     public Tela_extrato() {
+        initComponents(); 
+    }
+    
+    public Tela_extrato(int pedidoId){
         initComponents();
+        this.pedidoId = pedidoId;
+        BuscarDadosdoPedidoeBebida(pedidoId);
         setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
-        
     }
     
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel36.setText(saudacao + " - " + dataHora);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,8 +68,6 @@ public class Tela_extrato extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -120,10 +130,6 @@ public class Tela_extrato extends javax.swing.JFrame {
 
         jLabel23.setText("jLabel23");
 
-        jLabel24.setText("Estoque");
-
-        jLabel25.setText("jLabel25");
-
         jLabel26.setText("Quantidade adquirida");
 
         jLabel27.setText("jLabel27");
@@ -145,6 +151,11 @@ public class Tela_extrato extends javax.swing.JFrame {
         jLabel35.setText("jLabel35");
 
         jButton1.setText("Salvar/Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel36.setText("jLabel36");
 
@@ -195,10 +206,6 @@ public class Tela_extrato extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -266,7 +273,11 @@ public class Tela_extrato extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel13)))
+                            .addComponent(jLabel13))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel27)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
@@ -286,23 +297,19 @@ public class Tela_extrato extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(jLabel23))
+                            .addComponent(jLabel23)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel29))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel25))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel29))
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel33))
+                    .addComponent(jLabel31))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
@@ -317,6 +324,48 @@ public class Tela_extrato extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void BuscarDadosdoPedidoeBebida(int PedidoId){
+        try{
+            Connection conn = ConexaoDAO.getConnection();
+            String sql = "SELECT p.*, b.*, c.pagamento " +
+                         "FROM pedido p " +
+                         "JOIN bebida b ON p.fk_cod_bebida = b.cod " +
+                         "JOIN caixa c ON p.id = c.id_pedido " +
+                         "WHERE p.id = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, pedidoId);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if(rs.next()){
+                jLabel3.setText(rs.getString("id"));
+                jLabel5.setText(rs.getString("fk_cpf_cliente"));
+                jLabel7.setText(rs.getString("nome_cliente"));
+                jLabel9.setText(rs.getString("endereco_cliente"));
+                jLabel11.setText(String.valueOf(rs.getLong("telefone_cliente")));
+                jLabel13.setText(rs.getString("email_cliente"));
+                jLabel27.setText(String.valueOf(rs.getInt("q_adquirida_do_pedido")));
+                jLabel31.setText(String.format("%.2f", rs.getDouble("v_total_pedido")));
+                
+                jLabel35.setText(rs.getString("pagamento"));
+                
+                jLabel15.setText(rs.getString("descricao_bebida"));
+                jLabel17.setText(rs.getString("cod_de_barras"));
+                jLabel19.setText(rs.getString("marca"));
+                jLabel21.setText(rs.getString("gp_mercadoria"));
+                jLabel23.setText(rs.getString("t_do_item"));
+                jLabel29.setText(String.format("%.2f", rs.getDouble("v_unitario")));
+                jLabel33.setText(rs.getString("cod"));
+            }else{
+                JOptionPane.showMessageDialog(null, "Nenhum dado encontrado para o pedido e bebida especificados!");
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao buscar os dados do pedido e bebida: " + e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -370,8 +419,6 @@ public class Tela_extrato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;

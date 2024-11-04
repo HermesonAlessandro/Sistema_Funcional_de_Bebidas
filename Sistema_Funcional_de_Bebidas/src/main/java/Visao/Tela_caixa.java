@@ -217,6 +217,9 @@ private Pedido pedidoId;
                 caixa.setPagamento("Pago");
                 dao.CadastrarCaixa(caixa);
                 JOptionPane.showMessageDialog(null, "Pagamento confirmado, estoque atualizado e registro no caixa criado!");
+                Tela_extrato te = new Tela_extrato(pedidoId);
+                te.setVisible(true);
+                dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Pagamento não confirmado. A quantidade adquirida será devolvida ao estoque!");
                 String sql1 = "UPDATE bebida SET q_estoque = q_estoque + (SELECT q_adquirida_do_pedido FROM pedido WHERE id = ?) WHERE cod = (SELECT fk_cod_bebida FROM pedido WHERE id = ?)";
@@ -232,6 +235,9 @@ private Pedido pedidoId;
                 caixa.setValor_total_pedido(Double.parseDouble(jTextField3.getText().replace(",", "."))); 
                 caixa.setPagamento("Não pago");
                 dao.CadastrarCaixa(caixa);
+                Tela_extrato te = new Tela_extrato(pedidoId);
+                te.setVisible(true);
+                dispose();
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro ao atualizar o estoque ou registrar no caixa: "+e.getMessage());
