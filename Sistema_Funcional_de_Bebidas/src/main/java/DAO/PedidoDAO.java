@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
+import Modelo.Bebida;
 import Modelo.Pedido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,6 +47,16 @@ public class PedidoDAO {
             pstmt1.setInt(1, pedido.getQ_adquirida_do_pedido());
             pstmt1.setInt(2, pedido.getFk_cod_bebida());
             pstmt1.executeUpdate();
+        }
+    }
+    
+    public void AtualizarEsqtoque(Bebida bebida) throws SQLException{
+        String sql = "UPDATE bebida SET q_estoque = ? WHERE cod = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setInt(1, bebida.getQ_estoque());
+            pstmt.setInt(2, bebida.getCod());
+            pstmt.executeUpdate();
         }
     }
 }

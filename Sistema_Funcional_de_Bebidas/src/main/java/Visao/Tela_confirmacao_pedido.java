@@ -351,11 +351,16 @@ private Bebida bebida;
             bebida.setMarca(jTextField8.getText());
             bebida.setGp_mercadoria(jTextField9.getText());
             bebida.setT_do_item(jTextField10.getText());
-            bebida.setQ_estoque(Integer.parseInt(jTextField11.getText()));
+            int qEstoque = Integer.parseInt(jTextField11.getText());
+            bebida.setQ_estoque(qEstoque);
             bebida.setV_unitario(Double.parseDouble(jTextField13.getText().replace(",", ".")));
             bebida.setCod(Integer.parseInt(jTextField14.getText()));
 
             int quantidade = Integer.parseInt(jTextField12.getText());
+            if(quantidade > qEstoque){
+                JOptionPane.showMessageDialog(null, "Quantidade insuficiente em estoque!");
+                return;
+            }
             double valorUnitario = bebida.getV_unitario();
             double valorTotal = quantidade * valorUnitario;
 
@@ -379,6 +384,14 @@ private Bebida bebida;
             try{
                 PedidoDAO dao = new PedidoDAO();
                 dao.CadastrarPedido(pedido);
+                bebida.setQ_estoque(bebida.getQ_estoque() - quantidade);
+                dao.AtualizarEsqtoque(bebida);
+                
+                if(bebida.getQ_estoque() == 0){
+                    jButton1.setEnabled(false);
+                    JOptionPane.showMessageDialog(null, "Produto esgotado!");
+                }
+       
                 int pedidoId = pedido.getId();
                 JOptionPane.showMessageDialog(null, "Valor Total: " + String.format("%.2f", valorTotal));
                 Tela_caixa tc = new Tela_caixa(pedidoId);

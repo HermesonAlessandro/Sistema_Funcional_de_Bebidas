@@ -211,7 +211,12 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
             BebidaDAO dao = new BebidaDAO();
             BebidaSelecionada = dao.BuscarBebidaPorCod(cod);
             if(BebidaSelecionada != null){
-                JOptionPane.showMessageDialog(null, "Bebida selecionada: "+BebidaSelecionada.getDescricao());
+                if(BebidaSelecionada.getQ_estoque() > 0){
+                    JOptionPane.showMessageDialog(null, "Bebida selecionada: "+BebidaSelecionada.getDescricao());
+                }else{
+                    JOptionPane.showMessageDialog(null, "Esta bebida está esgotada e não pode ser selecionada!");
+                    BebidaSelecionada = null;
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao selecionar uma bebida!");
             }
