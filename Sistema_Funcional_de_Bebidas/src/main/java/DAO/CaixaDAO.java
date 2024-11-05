@@ -25,4 +25,13 @@ public class CaixaDAO {
             pstmt.execute();
         }
     }
+    
+    public void ExcluirCaixa(int pedidoId) throws SQLException{
+        String sql = "DELETE FROM caixa WHERE id_pedido = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setInt(1, pedidoId);
+            pstmt.executeUpdate();
+        }
+    }
 }

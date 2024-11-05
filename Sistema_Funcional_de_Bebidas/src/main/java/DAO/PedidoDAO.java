@@ -50,12 +50,21 @@ public class PedidoDAO {
         }
     }
     
-    public void AtualizarEsqtoque(Bebida bebida) throws SQLException{
+    public void AtualizarEstoque(Bebida bebida) throws SQLException{
         String sql = "UPDATE bebida SET q_estoque = ? WHERE cod = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
             pstmt.setInt(1, bebida.getQ_estoque());
             pstmt.setInt(2, bebida.getCod());
+            pstmt.executeUpdate();
+        }
+    }
+    
+    public void ExcluirPedido(int pedidoId) throws SQLException{
+        String sql = "DELETE FROM pedido WHERE id = ?";
+        try(Connection conn = ConexaoDAO.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setInt(1, pedidoId);
             pstmt.executeUpdate();
         }
     }

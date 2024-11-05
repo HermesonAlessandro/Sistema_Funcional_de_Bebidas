@@ -84,6 +84,10 @@ private Pedido pedidoId;
 
         jLabel6.setText("jLabel6");
 
+        jTextField3.setEditable(false);
+
+        jTextField1.setEditable(false);
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Caixa");
 
@@ -99,6 +103,8 @@ private Pedido pedidoId;
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jTextField2.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

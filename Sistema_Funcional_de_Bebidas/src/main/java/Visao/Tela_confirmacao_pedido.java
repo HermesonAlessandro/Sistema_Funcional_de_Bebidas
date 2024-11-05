@@ -385,7 +385,7 @@ private Bebida bebida;
                 PedidoDAO dao = new PedidoDAO();
                 dao.CadastrarPedido(pedido);
                 bebida.setQ_estoque(bebida.getQ_estoque() - quantidade);
-                dao.AtualizarEsqtoque(bebida);
+                dao.AtualizarEstoque(bebida);
                 
                 if(bebida.getQ_estoque() == 0){
                     jButton1.setEnabled(false);
