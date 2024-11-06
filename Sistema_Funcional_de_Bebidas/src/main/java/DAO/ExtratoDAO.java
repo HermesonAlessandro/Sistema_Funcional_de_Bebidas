@@ -6,7 +6,11 @@ package DAO;
 import Modelo.Extrato;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,5 +40,37 @@ public class ExtratoDAO {
             
             pstmt.execute();
         }
+    }
+    
+    public List<Extrato> ListarExtrato(){
+        List<Extrato> extratos = new ArrayList<>();
+        String sql = "SELECT * FROM extrato";
+        try(Connection conn = ConexaoDAO.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery()){
+            while(rs.next()){
+                Extrato extrato = new Extrato();
+                extrato.setExt_id_pedido(rs.getInt("ext_id_pedido"));
+                extrato.setExt_fk_cpf_cliente(rs.getString("ext_fk_cpf_cliente"));
+                extrato.setExt_nome_cliente(rs.getString("ext_nome_cliente"));
+                extrato.setExt_endereco_cliente(rs.getString("ext_endereco_cliente"));
+                extrato.setExt_telefone_cliente(rs.getLong("ext_telefone_cliente"));
+                extrato.setExt_email_cliente(rs.getString("ext_email_cliente"));
+                extrato.setExt_descricao_bebida(rs.getString("ext_descricao_bebida"));
+                extrato.setExt_cod_de_barras_bebida(rs.getString("ext_cod_de_barras_bebida"));
+                extrato.setExt_marca_bebida(rs.getString("ext_marca_bebida"));
+                extrato.setExt_gp_mercadoria_bebida(rs.getString("ext_gp_mercadoria_bebida"));
+                extrato.setExt_t_do_item_bebida(rs.getString("ext_t_do_item_bebida"));
+                extrato.setExt_q_adquirida_do_pedido(rs.getInt("ext_q_adquirida_do_pedido"));
+                extrato.setExt_v_unitario_bebida(rs.getDouble("ext_v_unitario_bebida"));
+                extrato.setExt_v_total_pedido(rs.getDouble("ext_v_total_pedido"));
+                extrato.setExt_fk_cod_bebida(rs.getInt("ext_fk_cod_bebida"));
+                extrato.setExt_status_pagamento(rs.getString("ext_status_pagamento"));
+                extratos.add(extrato);
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro ao listar os pedidos: " +e.getMessage());
+        }
+        return extratos;
     }
 }

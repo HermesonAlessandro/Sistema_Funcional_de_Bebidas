@@ -53,7 +53,7 @@ public class BebidaDAO {
         return false;
     }
     
-    private List<Bebida> ListarBebida(){
+    public List<Bebida> ListarBebida(){
         List<Bebida> bebidas = new ArrayList<>();
         String sql = "SELECT * FROM bebida";
         try(Connection conn = ConexaoDAO.getConnection();
