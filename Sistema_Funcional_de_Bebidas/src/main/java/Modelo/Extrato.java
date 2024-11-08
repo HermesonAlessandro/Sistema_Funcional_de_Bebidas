@@ -177,3 +177,6 @@ public class Extrato {
         this.ext_status_pagamento = ext_status_pagamento;
     }
 }
+//Tenho a classe Extrato que representa uma extrato com atributos basicos como id do pedido, nome do cliente, descrição da bebida e etc.
+//possui construtores para inicializar objetos dessa classe.
+//metodos getters e setters para acessar e modificar os campos privados da classe.

@@ -113,3 +113,7 @@ public class Administrador {
         this.sexo = sexo;
     }
 }
+//Tenho a classe Administrador que representa um administrador com atributos basicos como codigo, nome, telefone e etc.
+//possui construtores para inicializar objetos dessa classe.
+//metodos getters e setters para acessar e modificar os campos privados da classe.
+//Uma validação basica de email e senha utilizada na tela de login mais para frente do codigo.

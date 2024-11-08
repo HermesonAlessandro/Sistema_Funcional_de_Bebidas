@@ -226,6 +226,13 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
+    /*
+    Este código busca um cliente selecionado em uma tabela (jTable1). Ele obtém o
+    código do cliente da linha selecionada, usa esse código para buscar o
+    cliente no banco de dados, e exibe uma mensagem com o nome do cliente,
+    caso encontrado. Se nenhum cliente for encontrado, exibe uma mensagem de erro.
+    */
+    
     private Cliente ClienteSelecionado;
     private void ListarCliente(){
         ClienteDAO dao = new ClienteDAO();
@@ -247,6 +254,13 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
             });
         }
     }
+    /*
+    O método ListarCliente busca uma lista de clientes do banco de dados
+    usando ClienteDAO, limpa a tabela jTable1 e preenche-a com os dados dos
+    clientes. Cada cliente é adicionado à tabela como uma nova linha com
+    suas informações.
+    */
+    
     /**
      * @param args the command line arguments
      */

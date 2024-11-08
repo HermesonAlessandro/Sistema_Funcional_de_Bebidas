@@ -57,3 +57,6 @@ public class Caixa {
         this.pagamento = pagamento;
     }
 }
+//Tenho a classe Caixa que representa um caixa com atributos basicos como id do pedido, nome do produto, pagamento e etc.
+//possui construtores para inicializar objetos dessa classe.
+//metodos getters e setters para acessar e modificar os campos privados da classe.

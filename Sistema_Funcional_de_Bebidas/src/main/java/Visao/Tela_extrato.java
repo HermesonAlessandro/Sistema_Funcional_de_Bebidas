@@ -438,6 +438,16 @@ private int pedidoId;
             JOptionPane.showMessageDialog(null, "Erro ao buscar os dados do pedido e bebida: " + e.getMessage());
         }
     }
+    /*
+    O método jButton1ActionPerformed cria um extrato de pedido, verifica o status do
+    pagamento e, dependendo do status, exclui os dados correspondentes do caixa e do
+    pedido, ou exibe uma mensagem de sucesso.
+    
+    O método BuscarDadosdoPedidoeBebida busca dados de um pedido específico e da
+    bebida correspondente, preenchendo labels com as informações obtidas do banco de
+    dados.
+    */
+    
     /**
      * @param args the command line arguments
      */

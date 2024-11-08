@@ -83,3 +83,8 @@ public class Sessao {
         cpfUsuarioCli = null;
     }
 }
+//Tenho a classe Sessão que representa uma sessao com atributos basicos como nome de usuario, data e hora, tipo de usuario e etc.
+//possui construtores para inicializar objetos dessa classe.
+//metodos getters e setters para acessar e modificar os campos privados da classe.
+//Possui um metodo aonde vai limpar esses campos estaticos 0 para int e null para String.
+//Em resumo essa classe gerencia as informações de sessão e usa o metodo estatico de limpar quando necessário.

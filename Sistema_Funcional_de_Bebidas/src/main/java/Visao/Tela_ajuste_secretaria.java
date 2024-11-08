@@ -225,6 +225,13 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
+    /*
+    Este código busca uma secretaria selecionada em uma tabela (jTable1). Ele obtém o
+    código da secretaria da linha selecionada, usa esse código para buscar o
+    secretaria no banco de dados, e exibe uma mensagem com o nome da secretaria,
+    caso encontrado. Se nenhuma secretaria for encontrada, exibe uma mensagem de erro.
+    */
+    
     private Secretaria SecretariaSelecionada;
     private void ListarSecretaria(){
         SecretariaDAO dao = new SecretariaDAO();
@@ -246,6 +253,13 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
             });
         }
     }
+    
+    /*
+    O método ListarSecretaria busca uma lista de secretarias do banco de dados
+    usando SecretariaDAO, limpa a tabela jTable1 e preenche-a com os dados das
+    secretarias. Cada secretaria é adicionada à tabela como uma nova linha com
+    suas informações.
+    */
     /**
      * @param args the command line arguments
      */

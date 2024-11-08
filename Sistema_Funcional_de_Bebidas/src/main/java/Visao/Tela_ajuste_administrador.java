@@ -226,7 +226,13 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTable2MouseClicked
-
+    /*
+    Este código busca um administrador selecionado em uma tabela (jTable2). Ele obtém o
+    código do administrador da linha selecionada, usa esse código para buscar o
+    administrador no banco de dados, e exibe uma mensagem com o nome do administrador,
+    caso encontrado. Se nenhum administrador for encontrado, exibe uma mensagem de erro.
+    */
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Tela_inicial_administrador tia = new Tela_inicial_administrador();
         tia.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
@@ -254,6 +260,13 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {
             });
         }
     }
+    /*
+    O método ListarAdministrador busca uma lista de administradores do banco de dados
+    usando AdministradorDAO, limpa a tabela jTable2 e preenche-a com os dados dos
+    administradores. Cada administrador é adicionado à tabela como uma nova linha com
+    suas informações.
+    */
+    
     /**
      * @param args the command line arguments
      */

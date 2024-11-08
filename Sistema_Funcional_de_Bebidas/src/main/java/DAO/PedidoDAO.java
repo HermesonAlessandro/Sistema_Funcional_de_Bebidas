@@ -49,6 +49,14 @@ public class PedidoDAO {
             pstmt1.executeUpdate();
         }
     }
+    /*
+    O método CadastrarPedido insere um novo pedido no banco de dados e atualiza o
+    estoque da bebida correspondente. Ele utiliza uma conexão com o banco de dados para
+    executar as instruções SQL de inserção e atualização, define os valores dos parâmetros
+    com os dados do objeto Pedido, e lida com chaves geradas automaticamente para
+    atribuir o ID do pedido.
+    */
+    
     
     public void AtualizarEstoque(Bebida bebida) throws SQLException{
         String sql = "UPDATE bebida SET q_estoque = ? WHERE cod = ?";
@@ -59,6 +67,12 @@ public class PedidoDAO {
             pstmt.executeUpdate();
         }
     }
+    /*
+    O método AtualizarEstoque atualiza a quantidade em estoque de uma bebida no
+    banco de dados com base no código fornecido. Ele utiliza uma conexão com o banco de
+    dados para executar a consulta SQL, define os valores dos parâmetros com os dados do
+    objeto Bebida, e executa a atualização no banco de dados.
+    */
     
     public void ExcluirPedido(int pedidoId) throws SQLException{
         String sql = "DELETE FROM pedido WHERE id = ?";
@@ -69,3 +83,9 @@ public class PedidoDAO {
         }
     }
 }
+/*
+O método ExcluirPedido da classe exclui um pedido no banco de dados com base no ID
+fornecido. Ele utiliza uma conexão com o banco de dados para executar a consulta SQL e
+define o valor do parâmetro com o ID do pedido. Em caso de erro, uma exceção SQL é
+lançada.
+*/

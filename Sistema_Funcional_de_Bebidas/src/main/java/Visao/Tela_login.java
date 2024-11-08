@@ -245,7 +245,16 @@ public class Tela_login extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    Validação de Campos: Verifica se os campos de email e senha estão preenchidos.
+    Verificação do Tipo de Usuário: Dependendo do tipo de usuário selecionado
+    (Administrador, Secretaria, Cliente), verifica as credenciais correspondentes e, se
+    bem-sucedido, inicia a sessão e exibe a tela inicial apropriada.
+    Manejo de Sessão: Armazena informações relevantes na sessão (Sessao) e atualiza
+    a saudação e hora de entrada.
+    Feedback ao Usuário: Exibe mensagens de sucesso ou erro conforme necessário.
+    */
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Tela_cadastro_administrador tca = new Tela_cadastro_administrador();
         tca.setVisible(true);

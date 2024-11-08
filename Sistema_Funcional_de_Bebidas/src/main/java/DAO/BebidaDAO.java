@@ -38,6 +38,10 @@ public class BebidaDAO {
             }
         }
     }
+    //A classe BebidaDAO permite a inserção de uma nova bebida no banco de dados.
+    //O metodo Cadastrarbebida tem a função de prepara e executar  a intrução SQL.
+    //Para inserção de dados da bebida.
+    //depois recupera a chave primária gerada para definir ao codigo da bebida no objeto instanciado logo acima.
     
     public boolean DescricaoExiste(String descricao) throws SQLException{
         String sql = "SELECT COUNT(*) FROM bebida WHERE descricao = ?";
@@ -52,6 +56,11 @@ public class BebidaDAO {
         }
         return false;
     }
+    //Metodo da classe BebidaDAO que permite ver se a descrição ja existe na tabela bebida do banco de dados.
+    //Ele executa um sql  que conta o numero de registro com a descrição fornecida.
+    //Retorna verdadeiro se a conexão for maior que 0.
+    //Indicando que a descricão ja existe.
+    //Caso o contrario ele retorna false.
     
     public List<Bebida> ListarBebida(){
         List<Bebida> bebidas = new ArrayList<>();
@@ -76,14 +85,20 @@ public class BebidaDAO {
         }
         return bebidas;
     }
+    //Metodo da classe Bebida tem a função de consultar no banco de dados para obter todas as informações das bebidas e retorna a lista de objetos bebida.
+    //Ele utiliza mais uma vez a conexão com o banco de dados para executar a consulta.
+    //Cria um objeto bebida com os dados retornados e adiciona a uma lista.
+    //Em caso de erro ele exibe uma mensagem dando erro, logo apos finalizando informando o tipo de erro.
     
     public List<Bebida> ListarBebidaSec(){
         return ListarBebida();
     }
+    //ListarBebidaSec é essencialmente aliases para o método ListarBebida.
     
     public List<Bebida> ListarBebidaCli(){
         return ListarBebida();
     }
+    //ListarBebidaCli é essencialmente aliases para o método ListarBebida.
     
     public Bebida BuscarBebidaPorCod(int cod){
         String sql = "SELECT * FROM bebida WHERE cod = ?";
@@ -110,7 +125,12 @@ public class BebidaDAO {
         }
         return null;
     }
-    
+    //Metodo da classe BebidaDAO busca o administrador no banco de dados pelo codigo.
+    //Ele utiliza mais uma vez uma conexão com banco de dados.
+    //Para executar o SQL.
+    //cria e preenche o objeto bebida com os dados obtidos e retorna o encontrado.
+    //Em caso de erro retorna o erro e retorna null, dando indice que nenhum bebida foi encontrado.
+   
     public void AlterarBebida(Bebida bebida) throws SQLException{
         String sql = "UPDATE bebida SET cod_de_barras = ?, descricao = ?, marca = ?, gp_mercadoria = ?, t_do_item = ?, q_estoque = ?, v_unitario = ? WHERE cod = ?";
         try(Connection conn = ConexaoDAO.getConnection();
@@ -127,6 +147,10 @@ public class BebidaDAO {
             pstmt.executeUpdate();
         }
     }
+    //Metodo da classe BebidDAO que atualiza as informações de uma bebida existente no banco de dados.
+    //com base no cod.
+    //Ele utiliza a conexão com banco de dados, para executar a consulta SQL.
+    //define os dados/valores dos paramentros com os dados do objeto bebida.
     
     public void ExcluirBebida(int cod) throws SQLException{
         String sql = "DELETE FROM bebida WHERE cod = ?";
@@ -139,3 +163,7 @@ public class BebidaDAO {
         }
     }
 }
+//Metodo da classe BebidaDAO que tem como objetivo excluir uma bebida do banco de dados.
+//Ele utiliza uma conexão com o banco de dados.
+//para executar um sql e define o valor do parametro com o codigo da bebida.
+//Em caso de erro  exibe uma mensagem com o problema ocorrido.

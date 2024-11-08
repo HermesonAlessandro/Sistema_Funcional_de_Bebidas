@@ -36,6 +36,9 @@ public class SecretariaDAO {
             pstmt.execute();
         }
     }
+    //A classe SecretariaDAO permite a inserção de um nova xecretaria no banco de dados.
+    //O metodo CadastrarSecretaria tem a função de prepara e executar  a intrução SQL.
+    //Para inserção de dados da secretaria.
     
     public List<Secretaria> ListarSecretaria(){
         List<Secretaria> secretarias = new ArrayList<>();
@@ -61,6 +64,10 @@ public class SecretariaDAO {
         }
         return secretarias;
     }
+    //Metodo da classe SecretariaDAO tem a função de consultar no banco de dados para obter todas as informações das secretarias e retorna a lista de objetos secretaria.
+    //Ele utiliza mais uma vez a conexão com o banco de dados para executar a consulta.
+    //Cria um objeto administrador com os dados retornados e adiciona a uma lista.
+    //Em caso de erro ele exibe uma mensagem dando erro, logo apos finalizando informando o tipo de erro.
     
     public Secretaria BuscarSecretariaPorRg(String rg){
         String sql = "SELECT * FROM secretaria WHERE rg = ?";
@@ -88,6 +95,11 @@ public class SecretariaDAO {
         }
         return null;
     }
+    //Metodo da classe SecretariaDAO busca uma secretaria no banco de dados pelo rg.
+    //Ele utiliza mais uma vez uma conexão com banco de dados.
+    //Para executar o SQL.
+    //cria e preenche o objeto secretaria com os dados obtidos e retorna o encontrado.
+    //Em caso de erro retorna o erro e retorna null, dando indice que nenhuma secretaria foi encontrada.
     
     public void AlterarSecretaria(Secretaria secretaria) throws SQLException{
         String sql = "UPDATE secretaria SET nome = ?, d_nasc = ?, sexo = ?, endereco = ?, telefone = ?, email = ?, senha = ?, fk_cod_adm = ? WHERE rg = ?";
@@ -106,6 +118,10 @@ public class SecretariaDAO {
             pstmt.executeUpdate();
         }
     }
+    //Metodo da classe SecretariaDAO que atualiza as informações de uma secretaria existente no banco de dados.
+    //com base no rg.
+    //Ele utiliza a conexão com banco de dados, para executar a consulta SQL.
+    //define os dados/valores dos paramentros com os dados do objeto secretaria.
     
     public void ExcluirSecretaria(String rg) throws SQLException{
         String sql = "DELETE FROM secretaria WHERE rg = ?";
@@ -118,3 +134,8 @@ public class SecretariaDAO {
         }
     }
 }
+//Metodo da classe SecretariaDAO que tem como objetivo excluir uma secretaria do banco de dados.
+//Ele utiliza uma conexão com o banco de dados.
+//para executar um sql e define o valor do parametro com o rg da secretaria.
+//Em caso de erro  exibe uma mensagem com o problema ocorrido.
+

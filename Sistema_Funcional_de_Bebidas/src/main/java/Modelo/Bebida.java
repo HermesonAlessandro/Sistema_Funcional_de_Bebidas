@@ -97,3 +97,6 @@ public class Bebida {
         this.v_unitario = v_unitario;
     }
 }
+//Tenho a classe Bebida que representa uma bebida com atributos basicos como codigo, codigo de barras, marca e etc.
+//possui construtores para inicializar objetos dessa classe.
+//metodos getters e setters para acessar e modificar os campos privados da classe.

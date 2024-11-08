@@ -8,7 +8,7 @@ package Visao;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_apresentacao extends javax.swing.JFrame {
+public class Tela_apresentacao extends javax.swing.JFrame {//Tela_de_apresentação
 
     /**
      * Creates new form Tela_apresentacao

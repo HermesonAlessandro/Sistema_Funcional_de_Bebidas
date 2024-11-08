@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_cadastrar_bebida extends javax.swing.JFrame {
+public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastro
 
     /**
      * Creates new form Tela_cadastrar_bebida

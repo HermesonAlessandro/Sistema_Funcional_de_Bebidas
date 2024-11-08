@@ -41,3 +41,9 @@ public class SecretariaDTO {
         return null;
     }
 }
+//A classe SecretariaDTO tem como principal objetivo verificar a existência de uma secretaria no banco de dados.
+//Atraves do email e senha
+//Ele vai utilizar a classe ConexaoDAO para estabelecer conexão com banco de dados
+//Execute uma consulta SQL para buscar os dados.
+//Se os dados forem encontrados eles são mapeados para o objeto secretaria que então vai ser retornado.
+//Caso ao contrario o valor vai ser null.

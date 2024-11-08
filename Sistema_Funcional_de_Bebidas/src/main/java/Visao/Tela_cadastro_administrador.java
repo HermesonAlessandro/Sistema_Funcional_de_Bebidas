@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_cadastro_administrador extends javax.swing.JFrame {
+public class Tela_cadastro_administrador extends javax.swing.JFrame {//Tela de Cadastro
 
     /**
      * Creates new form Tela_cadastro_administrador

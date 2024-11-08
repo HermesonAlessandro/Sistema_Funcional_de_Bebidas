@@ -8,7 +8,7 @@ package Visao;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_colaboradores extends javax.swing.JFrame {
+public class Tela_colaboradores extends javax.swing.JFrame {//Tela de colaboradores
 
     /**
      * Creates new form Tela_colaboradores

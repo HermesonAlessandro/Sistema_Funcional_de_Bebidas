@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_listar_estoque extends javax.swing.JFrame {
+public class Tela_listar_estoque extends javax.swing.JFrame {//Tela de listagem
 
     /**
      * Creates new form Tela_listar_estoque

@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_alterar_secretaria extends javax.swing.JFrame {
+public class Tela_alterar_secretaria extends javax.swing.JFrame {//Atualiza, carrega e limpa Campos
 private Secretaria secretaria;
 
     /**

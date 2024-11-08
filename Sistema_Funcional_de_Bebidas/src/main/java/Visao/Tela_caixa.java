@@ -249,6 +249,13 @@ private Pedido pedidoId;
             JOptionPane.showMessageDialog(null, "Erro ao atualizar o estoque ou registrar no caixa: "+e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+    /*
+    O método jButton1ActionPerformed processa o pagamento de um pedido, atualiza o
+    estoque de acordo com o pagamento (confirmado ou não), e registra a transação no caixa.
+    Ele exibe mensagens de confirmação ou erro conforme necessário e abre uma nova tela
+    de extrato enquanto fecha a atual. Em resumo, ele automatiza a lógica de gerenciamento
+    de pedidos e estoque, e registra as informações no sistema de caixa.
+    */
     
     private void BuscarDadosDoPedido(int pedidoId){
         try{
@@ -267,6 +274,13 @@ private Pedido pedidoId;
             JOptionPane.showMessageDialog(null, "Erro ao buscar os dados do pedido: " +e.getMessage());
         }
     }
+    /*
+    O método BuscarDadosDoPedido busca os dados de um pedido específico no banco de
+    dados usando o ID do pedido. Ele preenche campos de texto com o ID do pedido, a
+    descrição da bebida e o valor total do pedido, exibindo uma mensagem de erro em caso
+    de falha na busca.
+    */
+    
     /**
      * @param args the command line arguments
      */

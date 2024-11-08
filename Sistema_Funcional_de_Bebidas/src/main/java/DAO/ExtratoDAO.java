@@ -41,6 +41,9 @@ public class ExtratoDAO {
             pstmt.execute();
         }
     }
+    //A classe ExtratoDAO permite a inserção de um novo extrato no banco de dados.
+    //O metodo CadastrarExtrato tem a função de prepara e executar  a intrução SQL.
+    //Para inserção de dados do extrato.
     
     public List<Extrato> ListarExtrato(){
         List<Extrato> extratos = new ArrayList<>();
@@ -74,3 +77,7 @@ public class ExtratoDAO {
         return extratos;
     }
 }
+//Metodo da classe ExtratoDAO tem a função de consultar no banco de dados para obter todas as informações dos extratos e retorna a lista de objetos extrato.
+//Ele utiliza mais uma vez a conexão com o banco de dados para executar a consulta.
+//Cria um objeto extrato com os dados retornados e adiciona a uma lista.
+//Em caso de erro ele exibe uma mensagem dando erro, logo apos finalizando informando o tipo de erro.

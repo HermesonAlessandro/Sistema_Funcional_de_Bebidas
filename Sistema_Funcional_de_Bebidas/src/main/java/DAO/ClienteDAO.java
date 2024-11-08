@@ -35,6 +35,9 @@ public class ClienteDAO {
             pstmt.execute();
         }
     }
+    //A classe ClienteDAO permite a inserção de um novo cliente no banco de dados.
+    //O metodo CadastrarCliente tem a função de prepara e executar  a intrução SQL.
+    //Para inserção de dados do cliente.
     
     public List<Cliente> ListarCliente(){
         List<Cliente> clientes = new ArrayList<>();
@@ -60,6 +63,10 @@ public class ClienteDAO {
         }
         return clientes;
     }
+    //Metodo da classe ClienteDAO tem a função de consultar no banco de dados para obter todas as informações dos clentes e retorna a lista de objetos cliente.
+    //Ele utiliza mais uma vez a conexão com o banco de dados para executar a consulta.
+    //Cria um objeto cliente com os dados retornados e adiciona a uma lista.
+    //Em caso de erro ele exibe uma mensagem dando erro, logo apos finalizando informando o tipo de erro.
     
     public Cliente BuscarClientePorCpf(String cpf){
         String sql = "SELECT * FROM cliente WHERE cpf = ?";
@@ -87,6 +94,11 @@ public class ClienteDAO {
         }
         return null;
     }
+    //Metodo da classe ClienteDAO busca um cliente no banco de dados pelo cpf.
+    //Ele utiliza mais uma vez uma conexão com banco de dados.
+    //Para executar o SQL.
+    //cria e preenche o objeto cliente com os dados obtidos e retorna o encontrado.
+    //Em caso de erro retorna o erro e retorna null, dando indice que nenhum cliente foi encontrado.
     
     public void AlterarCliente(Cliente cliente) throws SQLException{
         String sql = "UPDATE cliente SET nome = ?, d_nasc = ?, sexo = ?, endereco = ?, telefone = ?, email = ?, senha = ?, fk_rg_sec = ? WHERE cpf = ?";
@@ -105,6 +117,10 @@ public class ClienteDAO {
             pstmt.executeUpdate();
         }
     }
+    //Metodo da classe ClienteDAO que atualiza as informações de um cliente existente no banco de dados.
+    //com base no cpf.
+    //Ele utiliza a conexão com banco de dados, para executar a consulta SQL.
+    //define os dados/valores dos paramentros com os dados do objeto cliente.
     
     public void ExcluirCliente(String cpf) throws SQLException{
         String sql = "DELETE FROM cliente WHERE cpf = ?";
@@ -117,3 +133,8 @@ public class ClienteDAO {
         }
     }
 }
+//Metodo da classe ClienteDAO que tem como objetivo excluir um cliente do banco de dados.
+//Ele utiliza uma conexão com o banco de dados.
+//para executar um sql e define o valor do parametro com o cpf do cliente.
+//Em caso de erro  exibe uma mensagem com o problema ocorrido.
+

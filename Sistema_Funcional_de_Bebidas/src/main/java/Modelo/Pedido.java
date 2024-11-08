@@ -177,3 +177,6 @@ public class Pedido {
         this.fk_cod_bebida = fk_cod_bebida;
     }
 }
+//Tenho a classe Pedido que representa um pedido com atributos basicos como id do pedido, nome do cliente, valor total e etc.
+//possui construtores para inicializar objetos dessa classe.
+//metodos getters e setters para acessar e modificar os campos privados da classe.

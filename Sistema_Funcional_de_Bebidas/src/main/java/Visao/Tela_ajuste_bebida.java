@@ -214,7 +214,7 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, selecione uma bebida para alterar!");
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         Tela_excluir_bebida teb = new Tela_excluir_bebida();
         teb.setVisible(true);
@@ -241,6 +241,13 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
+    /*
+    Este código busca uma bebida selecionada em uma tabela (jTable1). Ele obtém o
+    código da bebida da linha selecionada, usa esse código para buscar o
+    bebida no banco de dados, e exibe uma mensagem com o nome da bebida,
+    caso encontrado. Se nenhuma bebida for encontrado, exibe uma mensagem de erro.
+    */
+    
     private Bebida BebidaSelecionada;
     private void ListarBebida(){
         BebidaDAO dao = new BebidaDAO();
@@ -264,6 +271,13 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {
             });
         }
     }
+    /*
+    O método ListarBebida busca uma lista de bebida do banco de dados
+    usando BebidaDAO, limpa a tabela jTable1 e preenche-a com os dados das
+    bebidas. Cada bebida é adicionada à tabela como uma nova linha com
+    suas informações.
+    */
+    
     /**
      * @param args the command line arguments
      */

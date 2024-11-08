@@ -402,7 +402,15 @@ private Bebida bebida;
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    O método jButton1ActionPerformed verifica se todos os campos estão preenchidos e se
+    a quantidade desejada está disponível em estoque. Se essas condições forem satisfeitas,
+    ele cria instâncias dos objetos Cliente, Bebida e Pedido, e realiza o cadastro do
+    pedido no banco de dados, atualizando o estoque da bebida. Se o estoque se esgotar,
+    desabilita o botão jButton1 e exibe uma mensagem informando que o produto está
+    esgotado. Em caso de erro, exibe uma mensagem de erro apropriada.
+    */ 
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JOptionPane.showMessageDialog(null, "Pedido cancelado, Voltando para o menu do cliente!");
         Tela_inicial_cliente tic = new Tela_inicial_cliente();

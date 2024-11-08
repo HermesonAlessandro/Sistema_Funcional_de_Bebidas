@@ -203,7 +203,15 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhuma bebida selecionada!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    O método jButton1ActionPerformed verifica se uma bebida foi selecionada e, em
+    seguida, busca os dados do cliente correspondente no banco de dados. Se os dados
+    forem encontrados, cria uma nova tela de confirmação de pedido com as informações do
+    cliente e da bebida selecionada. Caso contrário, exibe uma mensagem de erro. Este
+    método garante que todas as informações necessárias estejam disponíveis antes de
+    avançar para a confirmação do pedido.
+    */
+    
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int selectedRow = jTable1.getSelectedRow();
         if(selectedRow != -1){
@@ -222,6 +230,13 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
+    /*
+    Este código busca uma bebida selecionada em uma tabela (jTable1). Ele obtém o
+    código da bebida da linha selecionada, usa esse código para buscar o
+    bebida no banco de dados, e exibe uma mensagem com o nome da bebida,
+    caso encontrado. Se nenhuma bebida for encontrada, exibe uma mensagem de erro.
+    s*/
+    
     private Bebida BebidaSelecionada;
     private void ListarBebida(){
         BebidaDAO dao = new BebidaDAO();
@@ -245,6 +260,13 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
             });
         }
     }
+    
+    /*
+    O método ListarBebida busca uma lista de bebias do banco de dados
+    usando BebidaDAO, limpa a tabela jTable1 e preenche-a com os dados das
+    bebidas. Cada secretaria é adicionada à tabela como uma nova linha com
+    suas informações.
+    */
     /**
      * @param args the command line arguments
      */

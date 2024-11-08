@@ -39,6 +39,10 @@ public class AdministradorDAO {
             }
         }
     }
+    //A classe AdministradorDAO permite a inserção de um novo administrador no banco de dados.
+    //O metodo CadastrarAdministrador tem a função de prepara e executar  a intrução SQL.
+    //Para inserção de dados do administrador.
+    //depois recupera a chave primária gerada para definir ao codigo do administrador no objeto instanciado logo acima.
     
     public List<Administrador> ListarAdministrador(){
         List<Administrador> administradores = new ArrayList<>();
@@ -64,6 +68,10 @@ public class AdministradorDAO {
         }
         return administradores;
     }
+    //Metodo da classe AdministradorDAO tem a função de consultar no banco de dados para obter todas as informações dos administradores e retorna a lista de objetos administrador.
+    //Ele utiliza mais uma vez a conexão com o banco de dados para executar a consulta.
+    //Cria um objeto administrador com os dados retornados e adiciona a uma lista.
+    //Em caso de erro ele exibe uma mensagem dando erro, logo apos finalizando informando o tipo de erro.
     
     public Administrador BuscarAdministradorPorCod(int cod){
         String sql = "SELECT * FROM administrador WHERE cod = ?";
@@ -91,6 +99,11 @@ public class AdministradorDAO {
         }
         return null;
     }
+    //Metodo da classe AdministradorDAO busca o administrador no banco de dados pelo codigo.
+    //Ele utiliza mais uma vez uma conexão com banco de dados.
+    //Para executar o SQL.
+    //cria e preenche o objeto administrador com os dados obtidos e retorna o encontrado.
+    //Em caso de erro retorna o erro e retorna null, dando indice que nenhum administrador foi encontrado.
     
     public void AlterarAdministrador(Administrador administrador) throws SQLException{
         String sql = "UPDATE administrador SET nome = ?, telefone = ?, categoria_tel = ?, endereco = ?, bairro = ?, email = ?, senha = ?, sexo = ? WHERE cod = ?";
@@ -109,6 +122,10 @@ public class AdministradorDAO {
             pstmt.executeUpdate();
         }
     }
+    //Metodo da classe AdministradorDAO que atualiza as informações de um administrador existente no banco de dados.
+    //com base no codigo.
+    //Ele utiliza a conexão com banco de dados, para executar a consulta SQL.
+    //define os dados/valores dos paramentros com os dados do objeto Administrador.
     
     public void ExcluirAdministrador(int cod) throws SQLException{
         String sql = "DELETE FROM administrador WHERE cod = ?";
@@ -121,3 +138,7 @@ public class AdministradorDAO {
         }
     }
 }
+//Metodo da classe AdministradorDAO que tem como objetivo excluir um administrador do banco de dados.
+//Ele utiliza uma conexão com o banco de dados.
+//para executar um sql e define o valor do parametro com o codigo do administrador.
+//Em caso de erro  exibe uma mensagem com o problema ocorrido.

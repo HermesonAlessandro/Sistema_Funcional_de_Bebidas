@@ -25,6 +25,9 @@ public class CaixaDAO {
             pstmt.execute();
         }
     }
+    //A classe CaixaDAO permite a inserção de um novo caixa no banco de dados.
+    //O metodo CadastrarCaixa tem a função de prepara e executar  a intrução SQL.
+    //Para inserção de dados do caixa.
     
     public void ExcluirCaixa(int pedidoId) throws SQLException{
         String sql = "DELETE FROM caixa WHERE id_pedido = ?";
@@ -35,3 +38,7 @@ public class CaixaDAO {
         }
     }
 }
+//Metodo da classe CaixaDAO que tem como objetivo excluir um caixa do banco de dados.
+//Ele utiliza uma conexão com o banco de dados.
+//para executar um sql e define o valor do parametro com o id_pedido do caixa.
+//Em caso de erro  exibe uma mensagem com o problema ocorrido.

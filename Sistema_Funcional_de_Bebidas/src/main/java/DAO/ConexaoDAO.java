@@ -28,3 +28,6 @@ public class ConexaoDAO {
         return conexao;
     }
 }
+//A classe ConexaoDAO gerencia a conexão do banco de dados postgresql.
+//O metodo getconnection estabele conexão utilizando a url do banco de dados, nome de usuario e senha.
+//ele trata possivel exceções exibindo mensagens apropiadas e retorna o estabelecimento de conexaoDAO.

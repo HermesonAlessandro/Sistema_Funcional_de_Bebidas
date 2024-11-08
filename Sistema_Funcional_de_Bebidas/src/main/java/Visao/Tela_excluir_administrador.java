@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_excluir_administrador extends javax.swing.JFrame {
+public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de exclusão
 
     /**
      * Creates new form Tela_excluir_administrador
