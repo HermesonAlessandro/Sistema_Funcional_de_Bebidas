@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_ajuste_secretaria extends javax.swing.JFrame {
+public class Tela_ajuste_secretaria extends javax.swing.JFrame {////Tela para cuidar dos ajustes da secretaria.
 
     /**
      * Creates new form Tela_ajuste_secretaria
@@ -29,6 +29,10 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel4.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Quando a tela Tela_ajuste_secretaria é instanciada.
+    Ela inicializa seus componentes, lista as secretarias e define uma saudação que inclui a data e hora do login ativo.
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -198,7 +202,12 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, selecione uma secretaria(o) para alterar!");
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    /*
+    Quando o item de menu é clicado, o código verifica se uma secreataria está selecionada.
+    Se estiver, abre uma nova tela (Tela_alterar_secretaria) com a secretaria selecionada e fecha a janela atual.
+    Se não houver uma secretaria selecionada, exibe uma mensagem de alerta para o usuário.
+    */
+    
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         Tela_excluir_secretaria tes = new Tela_excluir_secretaria();
         tes.setVisible(true);

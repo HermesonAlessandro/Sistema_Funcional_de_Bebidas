@@ -30,7 +30,12 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastr
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel9.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Quando a nova instância da Tela_cadastrar_bebida é criada, ela inicializa todos os componentes da interface.
+    Define uma mensagem de saudação com a data e hora do login ativo do usuário.
+    O metodo setSaudacao é usada para formatar e definir essa mensagem no componentes jlabel9.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -267,6 +272,14 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastr
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+    /*
+    Esse método verifica se todos os campos estão preenchidos.
+    Cria um objeto Bebida com os valores fornecidos.
+    Formata o valor unitario.
+    Gera um codigo de barras.
+    Tenta cadastrar a nova bebida no banco de dados.
+    Se tudo ocorrer bem, exibe uma mensagem de sucesso. Caso contrario, trata os erros adequadamente fornecendo feedback ao usuario.
+    */
     
     private String GerarCodigodeBarras(){
         Random random = new Random();
@@ -277,6 +290,11 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastr
         }
         return CodigodeBarras.toString();
     }
+    /*
+    Em resumo esse metodo gera um código de barras de 13 digitos.
+    Onde cada digito é um numero aleatório entre 0 a 9.
+    Esse código é construido utilizando um StringBuilder e ao final em uma String e retornado.
+    */
     /**
      * @param args the command line arguments
      */

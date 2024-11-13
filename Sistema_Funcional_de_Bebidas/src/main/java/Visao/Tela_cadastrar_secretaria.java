@@ -29,7 +29,12 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {//Tela de Cad
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel11.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Quando a nova instância da Tela_cadastrar_secretaria é criada, ela inicializa todos os componentes da interface.
+    Define uma mensagem de saudação com a data e hora do login ativo do usuário.
+    O metodo setSaudacao é usada para formatar e definir essa mensagem no componentes jlabel11.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -303,7 +308,14 @@ public class Tela_cadastrar_secretaria extends javax.swing.JFrame {//Tela de Cad
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    O metodo verifica se todos os campos estão preenchidos.
+    Valida e formata os dados da secretaria.
+    Salva ela no banco de dados.
+    E fornece um feedback ao usuário.
+    Se ocorrer um erro durante o processos as exceções conseguirão tratar isso adequadamente.
+    */
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Tela_inicial_administrador tia = new Tela_inicial_administrador();
         tia.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());

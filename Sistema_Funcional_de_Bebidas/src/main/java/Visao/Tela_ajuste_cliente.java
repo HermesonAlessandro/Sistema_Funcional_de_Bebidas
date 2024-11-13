@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_ajuste_cliente extends javax.swing.JFrame {
+public class Tela_ajuste_cliente extends javax.swing.JFrame {//Tela para cuidar dos ajustes do cliente.
 
     /**
      * Creates new form Tela_ajuste_cliente
@@ -28,6 +28,10 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel4.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Quando a tela Tela_ajuste_cliente é instanciada.
+    Ela inicializa seus componentes, lista os clientes e define uma saudação que inclui a data e hora do login ativo.
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -206,7 +210,12 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, selecione um cliente para alterar!");
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    /*
+    Quando o item de menu é clicado, o código verifica se um cliente está selecionado.
+    Se estiver, abre uma nova tela (Tela_alterar_cliente) com o cliente selecionado e fecha a janela atual.
+    Se não houver um cliente selecionado, exibe uma mensagem de alerta para o usuário.
+    */
+    
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         Tela_excluir_cliente tec = new Tela_excluir_cliente();
         tec.setVisible(true);

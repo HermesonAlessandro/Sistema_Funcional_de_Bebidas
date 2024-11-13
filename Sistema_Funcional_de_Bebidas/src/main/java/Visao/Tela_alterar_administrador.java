@@ -33,6 +33,12 @@ private Administrador administrador;
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Tela_alterar_administrador é instanciada.
+    Ela inicializa seus componentes, armazena o administrador passado como parametro.
+    Preenche os campos da interface com as informações desse administrador.
+    Define uma saudação que inclui a data e hora do login ativo.
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -268,7 +274,12 @@ private Administrador administrador;
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /*
+    O método jButton2ActionPerformed valida os campos da interface.
+    Atualiza os dados do administrador, e trata possiveis erros durante o processo.
+    Fornecendo feedback ao usuário. Caso tudo ocorra bem, a tela atual é fechada e a tela de ajustes do administrador é aberta.
+    */
+   
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jTextField2.setText("");
         jTextField3.setText("");
@@ -279,7 +290,11 @@ private Administrador administrador;
         jPasswordField1.setText("");
         jComboBox1.setSelectedItem(0);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /*
+    Esse metodo é responsável por realizar a limpeza dos campos.
+    Ou seja aonde tiver String vai ser substituida por "" e aonde tiver inteiro vai ser 0 ou seja nada.
+    */
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Tela_ajuste_administrador taa = new Tela_ajuste_administrador();
         taa.setVisible(true);
@@ -296,6 +311,10 @@ private Administrador administrador;
         jPasswordField1.setText(administrador.getSenha());
         jComboBox1.setSelectedItem(administrador.getSexo());
     }
+    /*
+    Esse metodo preenche todos os campos da interface com os dados atuais do objeto administrador.
+    Permitindo que o usuário visualize e se necessario, edite as informações do administrador.
+    */
     /**
      * @param args the command line arguments
      */

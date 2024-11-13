@@ -9,7 +9,7 @@ import Modelo.Sessao;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_inicial_cliente extends javax.swing.JFrame {//Tela inicial
+public class Tela_inicial_cliente extends javax.swing.JFrame {//Tela inicial do cliente.
 private String cumprimento;
 private String dataHora;
 

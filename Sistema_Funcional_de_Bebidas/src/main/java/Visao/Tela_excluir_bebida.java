@@ -32,6 +32,11 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {//Tela de exclusão
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Quando uma nova instância da tela Tela_excluir_bebida é criada ela inicializar todos os componentes da interface.
+    Lista todas as bebidas disponíveis e define uma mensagem de saudação com a data e hora do login ativo do usuário.
+    O metodo SetSaudacao é utilizado para formatar e definir essa mensagem no componente Jlabel2.
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -188,7 +193,13 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {//Tela de exclusão
             JOptionPane.showMessageDialog(null, "Nenhuma bebida selecionada!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    O metodo verifica se uma bebida foi selecionada na tabela.
+    Solicita a confirmação do usuário para a exclusão.
+    Tenta excluir a bebida e atualiza a lista de bebidas.
+    Se todas as bebidas forem excluídas, redireciona o usuario para a tela inicial.
+    Caso ocorra erros ele consegue trata-los  e fornece feedback ao usuário em cada etapa do processo.
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
         tis.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
@@ -218,6 +229,11 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {//Tela de exclusão
             });
         }
     }
+    /*
+    O método de listarBebida é usada para preencher a tabela jTable1 com os dados de todas as bebidas.
+    Ele obtém a lista de bebidas do banco de dados, limpa a tabela e adiciona uma nova linha para cada bebida na lista.
+    formatando os valores numéricos adequadamento.
+    */
     /**
      * @param args the command line arguments
      */

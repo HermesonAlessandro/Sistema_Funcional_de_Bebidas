@@ -30,7 +30,13 @@ public class Tela_listar_bebida extends javax.swing.JFrame {//Tela de listagem
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Quando uma nova instância da tela Tela_listar_bebida é criada ela inicializa todos os componentes da interface.
+    Lista todas as bebidas disponíveis.
+    Define uma mensagem de saudação com a data e hora do login ativo do usuário.
+    O metodo setSaudacao é utilizado para formatar e definir essa mensagem no componente jLabel2.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -203,6 +209,12 @@ public class Tela_listar_bebida extends javax.swing.JFrame {//Tela de listagem
             });
         }
     }
+    /*
+    O metodo de ListarBebida é utilizado para preencher a tabela jTable1 com os dados de todas as bebidas.
+    Ele obtém a lista de bebidas do banco de dados.
+    Limpa a tabela e  adiciona uma nova linha para cada bebida na lista.
+    Formata os valores numéricos adequadamente.
+    */
     /**
      * @param args the command line arguments
      */

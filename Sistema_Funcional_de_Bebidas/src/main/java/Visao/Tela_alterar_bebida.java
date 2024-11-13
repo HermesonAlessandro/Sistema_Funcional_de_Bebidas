@@ -36,7 +36,13 @@ private Bebida bebida;
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel10.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Tela_alterar_bebida é instanciada.
+    Ela inicializa seus componentes, armazena a bebida passada como parametro.
+    Preenche os campos da interface com as informações dessa bebida.
+    Define uma saudação que inclui a data e hora do login ativo.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -254,7 +260,11 @@ private Bebida bebida;
         jTextField5.setText("");
         jTextField6.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /*
+    Esse metodo é responsável por realizar a limpeza dos campos.
+    Ou seja aonde tiver String vai ser substituida por "" e aonde tiver inteiro vai ser 0 ou seja nada.
+    */
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Tela_ajuste_bebida tab = new Tela_ajuste_bebida();
         tab.setVisible(true);
@@ -292,6 +302,13 @@ private Bebida bebida;
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+    /*
+    Esse metodo verifica se todos campos obrigatórios estão preeenchidos.
+    Cria um objeto Bebida com os dados dos campos.
+    Atualiza a bebida no banco de dados.
+    Fornece um feedback ao usuario.
+    Trata eventuais erros que possam ocorrer durante o processo.
+    */
     
     private void PreencherCampos(){
         jTextField1.setText(String.valueOf(bebida.getCod()));
@@ -305,6 +322,11 @@ private Bebida bebida;
         DecimalFormat df = new DecimalFormat("#.00", symbols);
         jTextField6.setText(df.format(bebida.getV_unitario()));
     }
+    /*
+    O metodo de PreencherCampos é responsavel por preencher os campos da interface com os dados da bebida.
+    Permite o usuario visualizar e editar esses dados.
+    Cada campo da interface é preenchido com o valor correspodente do objeto Bebida.
+    */
     /**
      * @param args the command line arguments
      */

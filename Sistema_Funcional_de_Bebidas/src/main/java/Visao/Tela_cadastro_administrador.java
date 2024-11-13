@@ -274,7 +274,15 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {//Tela de C
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    Esse método verifica se todos os componentes obrigatórios estão preenchidos.
+    Valida os dados do administrador.
+    Cria um novo objeto Administrador.
+    Salva no banco de dados.
+    Fornece feedback ao usuario.
+    Se ocorrerem erros durante o processo, as exceções são tratadas adequadamente.
+    */
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Tela_login tl = new Tela_login();
         tl.setVisible(true);

@@ -36,7 +36,13 @@ private Cliente cliente;
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel11.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Tela_alterar_cliente é instanciada.
+    Ela inicializa seus componentes, armazena o cliente passado como parametro.
+    Preenche os campos da interface com as informações desse cliente.
+    Define uma saudação que inclui a data e hora do login ativo.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -270,7 +276,11 @@ private Cliente cliente;
         jPasswordField1.setText("");
         jTextField8.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /*
+    Esse metodo é responsável por realizar a limpeza dos campos.
+    Ou seja aonde tiver String vai ser substituida por "" e aonde tiver inteiro vai ser 0 ou seja nada.
+    */
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() 
            || jComboBox1.getSelectedItem() == null || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()
@@ -334,7 +344,14 @@ private Cliente cliente;
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    Em geral esse método verifica se todos os campos obrigatórios estão preenchidos.
+    Valida e formata os dados.
+    Atualiza as informações do cliente no banco de dados.
+    Fornece feedback ao usuário.
+    Trata eventuais erros que possam ocorrer durante o processo.
+    */
+    
     private void PreencherCampos(){
         DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         jTextField1.setText(String.valueOf(cliente.getCpf()));
@@ -347,6 +364,10 @@ private Cliente cliente;
         jPasswordField1.setText(cliente.getSenha());
         jTextField8.setText(cliente.getFk_rg_sec());
     }
+    /*
+    O metodo de PreencherCampos é reponsável por preencher os campos da interface gráfica com os dados do cliente.
+    Permitindo que o usuario visualize, edite, as informações do cliente.
+    */
     /**
      * @param args the command line arguments
      */

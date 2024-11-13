@@ -37,7 +37,14 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {//Tela de exclusã
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Quando uma nova instância da tela Tela_excluir_cliente é criada, ela inicializa todos os componentes da interface.
+    Define uma saudação com a data e hora do login ativo do usuário.
+    Lista todos os clientes na tabela jtable1.
+    Adiciona um ouvinte de eventos à tabela para monitorar a seleção de linhas.
+    Quando uma linha é selecionada, o valor da primeira coluna da linha selecionada é armazena na variavel cpfSelecionado.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -188,7 +195,15 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {//Tela de exclusã
             JOptionPane.showMessageDialog(null, "Nenhum cliente selecionado!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    O método verifica sem um cliente foi selecionado.
+    Solicita confirmação do usuário para a exclusão.
+    Tenta excluir o cliente e atualiza a lista de clientes.
+    Se o cliente excluído for usuário atualmente logado.
+    Limpa a sessão e redireciona para a tela de login.
+    O método trata possíveis erros e fornece feedback ao usuário em cada etapa do processo.
+    */
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Tela_ajuste_cliente tac = new Tela_ajuste_cliente();
         tac.setVisible(true);
@@ -215,7 +230,13 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {//Tela de exclusã
             });
         }
     }
-    
+    /*
+    O método ListarCliente é utilizado para preencher a tabela jTable1 com os dados de todos os clientes.
+    Ele obtém a lista de clientes do banco de dados.
+    Limpa a tabela.
+    Adiciona uma nova linha para cada cliente na lista.
+    A variavel CpfSelecionado é usada para armazenar o cpf do cliente atualmente selecionado na tabela.
+    */
     private String CpfSelecionado = "-1";
     /**
      * @param args the command line arguments

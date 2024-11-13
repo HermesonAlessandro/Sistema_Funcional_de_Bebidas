@@ -60,7 +60,7 @@ public class BebidaDAO {
     //Ele executa um sql  que conta o numero de registro com a descrição fornecida.
     //Retorna verdadeiro se a conexão for maior que 0.
     //Indicando que a descricão ja existe.
-    //Caso o contrario ele retorna false.
+    //Caso o contrario ele retorna falso.
     
     public List<Bebida> ListarBebida(){
         List<Bebida> bebidas = new ArrayList<>();

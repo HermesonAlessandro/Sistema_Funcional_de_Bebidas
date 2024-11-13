@@ -37,6 +37,13 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {//Tela de exclu
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Quando uma nova instância da tela Tela_excluir_secretaria é criada, ela inicializa todos os componentes da interface.
+    Define uma saudação com a data e hora do login ativo do usuário.
+    Lista todos as secretarias na tabela jtable2.
+    Adiciona um ouvinte de eventos à tabela para monitorar a seleção de linhas.
+    Quando uma linha é selecionada, o valor da primeira coluna da linha selecionada é armazena na variavel rgSelecionado.
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -190,7 +197,15 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {//Tela de exclu
             JOptionPane.showMessageDialog(null, "Nenhuma secretaria(o) selecionada!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    O método verifica se uma secretaria foi selecionada.
+    Solicita confirmação do usuário para a exclusão.
+    Tenta excluir a secretaria e atualiza a lista de secretarias.
+    Se a secretária exclúida for o usuário atualmente logado, limpa a sessão.
+    Redireciona para a tela de login.
+    O método trata possiveis erros e fornece feedback ao usuário em cada equipe do processo.
+    */
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();  
         tas.setVisible(true);
@@ -217,6 +232,12 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {//Tela de exclu
             });
         }
     }
+    /*
+    O método de ListarSecretaria é utilizado para preencher a tabela jTable2 com os dados de todas as secretarias.
+    Ele obtém a lista de secretárias do banco de dados.
+    Limpa a tabela e adiciona uma nova linha para cada secretaria na lista.
+    A variável Rgselecionado é usada para armazenar o rg da secretaria atualmente selecionada na tabela.
+    */
     
     private String RgSelecionado = "-1";
     /**

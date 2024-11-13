@@ -30,6 +30,11 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel11.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Quando a nova instância da Tela_cadastrar_cliente é criada, ela inicializa todos os componentes da interface.
+    Define uma mensagem de saudação com a data e hora do login ativo do usuário.
+    O metodo setSaudacao é usada para formatar e definir essa mensagem no componentes jlabel11.
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -291,7 +296,15 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    Esse método verifica se todos os campos estão preenchidos.
+    Valida e formata os dados do cliente.
+    Cria um objeto Cliente.
+    Salva no banco de dados.
+    Fornece feedback ao usuário.
+    Se ocorrer erro durante o processo as exceções são tratadas adequadamente.
+    */
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
         tis.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());

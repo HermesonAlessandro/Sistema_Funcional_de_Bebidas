@@ -37,7 +37,14 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de ex
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Quando uma nova instância da tela Tela_excluir_administrador é criada, ela inicializa todos os componentes da interface.
+    Define uma saudação com a data e hora do login ativo do usuário.
+    Lista todos os administradores na tabela jtable2.
+    Adiciona um ouvinte de eventos à tabela para monitorar a seleção de linhas.
+    Quando uma linha é selecionada, o valor da primeira coluna da linha selecionada é armazena na variavel codSelecionado.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,7 +202,15 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de ex
             JOptionPane.showMessageDialog(null, "Nenhum administrador(a) selecionado!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    O método verifica se um administrador foi selecionado.
+    Solicita a confirmação do usuário para a exclusão.
+    Tenta excluir e atualiza a lista de administradores.
+    Se o administrador for excluido for o usuario naquele momento logado.
+    Limpa a sessão e redireciona para a tela de login.
+    Trata possíveis erros e fornece feedback ao usuário em cada etapa do processo.
+    */
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Tela_ajuste_administrador taa = new Tela_ajuste_administrador();
         taa.setVisible(true);
@@ -222,7 +237,11 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de ex
             });
         }
     }
-    
+    /*
+    O método de ListarAdministrador é usado para preencher a tabela jtable2 com os dados de todos os administradores.
+    Ele obtem a lista de administradores do banco de dados, limpa a tabela e adiciona uma nova linha para cada Administrador na liata.
+    A variável codSelecionado é usado para armazenar o código do administrador atualmente selecionado na tabela.
+    */
     private int CodSelecionado = -1;
     /**
      * @param args the command line arguments

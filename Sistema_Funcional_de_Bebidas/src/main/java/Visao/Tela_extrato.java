@@ -39,6 +39,13 @@ private int pedidoId;
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel36.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Quando uma nova instância da tela Tela_extrato é criada ela inicializa todos os componentes da interface.
+    Armazena o pedidoId.
+    Busca e carrega os dados do pedido e da bebida.
+    Define uma mensagem de saudação com a data e hora do login ativo do usuário.
+    O método setSaudacao é utilizado para formatar e definir essa mensagem no componente jLabel36.
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.

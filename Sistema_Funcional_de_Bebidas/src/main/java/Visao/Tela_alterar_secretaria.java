@@ -36,6 +36,12 @@ private Secretaria secretaria;
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel11.setText(saudacao + " - " + dataHora);
     }
+    /*
+    Tela_alterar_secretaria é instanciada.
+    Ela inicializa seus componentes, armazena a secretaria passada como parametro.
+    Preenche os campos da interface com as informações dessa secretaria.
+    Define uma saudação que inclui a data e hora do login ativo.
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -276,7 +282,11 @@ private Secretaria secretaria;
         jPasswordField2.setText("");
         jTextField8.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /*
+    Esse metodo é responsável por realizar a limpeza dos campos.
+    Ou seja aonde tiver String vai ser substituida por "" e aonde tiver inteiro vai ser 0 ou seja nada.
+    */
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
             || jTextField4.getText().isEmpty() || jComboBox1.getSelectedItem() == null
@@ -340,7 +350,16 @@ private Secretaria secretaria;
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /*
+    Em resumo esse método verifica se todos os campos obrigatórios estão preenchidos.
+    Se estiverem ele valida e formata os dados.
+    Cria uma instância da Secretaria.
+    Define seus atributos.
+    Atualiza as informações no banco de dados.
+    Fornece feedbacks ao usuário.
+    Tratando eventuias erros que possam ocorrer durante o processo.
+    */
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Tela_ajuste_secretaria tas = new Tela_ajuste_secretaria();
         tas.setVisible(true);
@@ -359,6 +378,10 @@ private Secretaria secretaria;
         jPasswordField2.setText(secretaria.getSenha());
         jTextField8.setText(String.valueOf(secretaria.getFk_cod_adm()));
     }
+    /*
+    O metodo de PreencherCampos é reponsável por preencher os campos da interface gráfica com os dados da secretaria.
+    Permitindo que o usuario visualize, edite, as informações da secretaria.
+    */
     /**
      * @param args the command line arguments
      */

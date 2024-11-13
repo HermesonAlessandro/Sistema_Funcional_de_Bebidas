@@ -39,7 +39,14 @@ private Bebida bebida;
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel17.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Quando uma nova instância da tela Tela_confirmacao_pedido é criada ela inicializa todos os componentes da interface.
+    Armazena os objetos Cliente e Bebida.
+    Preenche os campos da interface com as informações desses objetos.
+    E define uma mensagem de saudação com  a data e hora do login ativo do usuário.
+    O metodo setSaudacao é utilizado para formatar e definir essa mensagem no componente jlabel17.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -426,6 +433,11 @@ private Bebida bebida;
         jTextField4.setText(String.valueOf(cliente.getTelefone()));
         jTextField5.setText(cliente.getEmail());
     }
+    /*
+    O método de PreencherCamposCliente pega os dados do objeto Cliente e os insere nos campos da interface.
+    Permite que o usuario visualize e, se necessario, edite as informações do cliente.
+    Cada campo da interface é preenchido com valor correspondente do objeto Cliente.
+    */
     
     private void PreencherCamposBebida(){
         DecimalFormat df = new DecimalFormat("#.00");
@@ -438,6 +450,11 @@ private Bebida bebida;
         jTextField13.setText(df.format(bebida.getV_unitario()));
         jTextField14.setText(String.valueOf(bebida.getCod()));
     }
+    /*
+    O metodo de preencherCamposBebidas é utilizado para preencher os campos da interface com os dados da bebida.
+    Permite ao usuário visualizar e se, necessário, editar essas informações.
+    Cada campo da interface é preenchido com o valor correspondente do objeto Bebida.
+    */
     /**
      * @param args the command line arguments
      */

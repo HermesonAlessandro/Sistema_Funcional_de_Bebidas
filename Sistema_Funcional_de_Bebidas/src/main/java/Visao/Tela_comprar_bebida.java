@@ -37,7 +37,12 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
     public void setSaudacao(String saudacao, String dataHora) {
         jLabel2.setText(saudacao + " - " + dataHora);
     }
-
+    /*
+    Quando uma nova instância da Tela_comprar_bebida é criada ela inicializar todos os componentes da interface.
+    Lista todas as bebidas disponiveis e define uma mensagem de saudação que inclui a data e hora do login ativo do usuário.
+    O método setSaudacao é usado para formatar e definir essa mensagem no componente jlabel2.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

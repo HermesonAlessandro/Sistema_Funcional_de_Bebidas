@@ -9,7 +9,7 @@ import Modelo.Sessao;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_inicial_secretaria extends javax.swing.JFrame {//Tela inicial
+public class Tela_inicial_secretaria extends javax.swing.JFrame {//Tela inicial da secretaria.
 private String cumprimento;
 private String dataHora;
 

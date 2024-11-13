@@ -21,7 +21,6 @@ public class ConexaoDAO {
         Connection conexao = null;
         try{
             conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
-            JOptionPane.showMessageDialog(null, "Conexao estabelecida com sucesso!");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro ao se conectar ao banco de dados: "+e.getMessage());
         }
@@ -30,4 +29,4 @@ public class ConexaoDAO {
 }
 //A classe ConexaoDAO gerencia a conexão do banco de dados postgresql.
 //O metodo getconnection estabele conexão utilizando a url do banco de dados, nome de usuario e senha.
-//ele trata possivel exceções exibindo mensagens apropiadas e retorna o estabelecimento de conexaoDAO.
+//ele trata possivel exceções exibindo mensagens apropiadas. Caso ocorra tudo como esperado o banco de dados é conectado.
