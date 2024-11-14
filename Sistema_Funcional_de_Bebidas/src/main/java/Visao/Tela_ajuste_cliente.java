@@ -29,7 +29,7 @@ public class Tela_ajuste_cliente extends javax.swing.JFrame {//Tela para cuidar 
         jLabel4.setText(saudacao + " - " + dataHora);
     }
     /*
-    Quando a tela Tela_ajuste_cliente é instanciada.
+    Quando a tela Tela_ajuste_cliente é instânciada.
     Ela inicializa seus componentes, lista os clientes e define uma saudação que inclui a data e hora do login ativo.
     */
 

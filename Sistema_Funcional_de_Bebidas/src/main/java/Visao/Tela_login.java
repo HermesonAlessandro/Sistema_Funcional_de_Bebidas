@@ -19,7 +19,7 @@ import Modelo.Sessao;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_login extends javax.swing.JFrame { // ela de login do sistema.
+public class Tela_login extends javax.swing.JFrame { //Tela de login de todo sistema.
 
     /**
      * Creates new form Tela_login

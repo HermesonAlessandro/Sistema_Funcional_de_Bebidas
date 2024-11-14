@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author Hermeson Alessandro
  */
 public class ExtratoDAO {
-    public void CadastrarExtrato(Extrato extrato) throws SQLException{
+    public void CadastrarExtrato(Extrato extrato) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "INSERT INTO extrato (ext_id_pedido, ext_fk_cpf_cliente, ext_nome_cliente, ext_endereco_cliente, ext_telefone_cliente, ext_email_cliente, ext_descricao_bebida, ext_cod_de_barras_bebida, ext_marca_bebida, ext_gp_mercadoria_bebida, ext_t_do_item_bebida, ext_q_adquirida_do_pedido, ext_v_unitario_bebida, ext_v_total_pedido, ext_fk_cod_bebida, ext_status_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareCall(sql)){

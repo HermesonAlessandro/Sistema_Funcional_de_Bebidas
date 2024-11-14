@@ -15,11 +15,11 @@ import java.sql.SQLException;
  * @author Hermeson Alessandro
  */
 public class PedidoDAO {
-    public void CadastrarPedido(Pedido pedido) throws SQLException{
+    public void CadastrarPedido(Pedido pedido) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "INSERT INTO pedido (fk_cpf_cliente, nome_cliente, endereco_cliente, telefone_cliente, email_cliente, descricao_bebida, cod_de_barras_bebida, marca_bebida, gp_mercadoria_bebida, t_do_item_bebida, q_estoque_bebida, q_adquirida_do_pedido, v_unitario_bebida, v_total_pedido, fk_cod_bebida) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sql1 = "UPDATE bebida SET q_estoque = q_estoque - ? WHERE cod = ?";
         try(Connection conn = ConexaoDAO.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);//Prepara uma instrução SQL e captura as chaves geradas automaticamente.
             PreparedStatement pstmt1 = conn.prepareStatement(sql1)){
             pstmt.setString(1, pedido.getFk_cpf_cliente());
             pstmt.setString(2, pedido.getNome_cliente());
@@ -58,7 +58,7 @@ public class PedidoDAO {
     */
     
     
-    public void AtualizarEstoque(Bebida bebida) throws SQLException{
+    public void AtualizarEstoque(Bebida bebida) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "UPDATE bebida SET q_estoque = ? WHERE cod = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -74,7 +74,7 @@ public class PedidoDAO {
     objeto Bebida, e executa a atualização no banco de dados.
     */
     
-    public void ExcluirPedido(int pedidoId) throws SQLException{
+    public void ExcluirPedido(int pedidoId) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "DELETE FROM pedido WHERE id = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){

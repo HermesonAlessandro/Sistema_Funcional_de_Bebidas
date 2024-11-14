@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Hermeson Alessandro
  */
 public class ClienteDAO {
-    public void CadastrarCliente(Cliente cliente) throws SQLException{
+    public void CadastrarCliente(Cliente cliente) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "INSERT INTO cliente (cpf, nome, d_nasc, sexo, endereco, telefone, email, senha, fk_rg_sec) VALUES (?, ?, ?, ?, ?, ?, ?, ? ,?)";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareCall(sql)){
@@ -100,7 +100,7 @@ public class ClienteDAO {
     //cria e preenche o objeto cliente com os dados obtidos e retorna o encontrado.
     //Em caso de erro retorna o erro e retorna null, dando indice que nenhum cliente foi encontrado.
     
-    public void AlterarCliente(Cliente cliente) throws SQLException{
+    public void AlterarCliente(Cliente cliente) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "UPDATE cliente SET nome = ?, d_nasc = ?, sexo = ?, endereco = ?, telefone = ?, email = ?, senha = ?, fk_rg_sec = ? WHERE cpf = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -122,7 +122,7 @@ public class ClienteDAO {
     //Ele utiliza a conexão com banco de dados, para executar a consulta SQL.
     //define os dados/valores dos paramentros com os dados do objeto cliente.
     
-    public void ExcluirCliente(String cpf) throws SQLException{
+    public void ExcluirCliente(String cpf) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "DELETE FROM cliente WHERE cpf = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){

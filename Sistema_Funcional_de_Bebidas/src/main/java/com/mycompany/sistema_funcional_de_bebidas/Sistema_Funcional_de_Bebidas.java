@@ -11,7 +11,7 @@ import Visao.Tela_colaboradores;
  * @author Hermeson Alessandro
  */
 
-public class Sistema_Funcional_de_Bebidas { //Tela de execução do projeto
+public class Sistema_Funcional_de_Bebidas { //Tela(primeira que vai aparecer quando o projeto for executado).
 
     public static void main(String[] args) {
         Tela_colaboradores tc = new Tela_colaboradores();

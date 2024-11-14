@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author Hermeson Alessandro
  */
 public class ClienteDTO {
-    public Cliente VerificarCliente(String email, String senha) throws SQLException{
+    public Cliente VerificarCliente(String email, String senha) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "SELECT * FROM cliente WHERE email = ? AND senha = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){

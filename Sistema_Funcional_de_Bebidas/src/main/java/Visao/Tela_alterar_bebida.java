@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_alterar_bebida extends javax.swing.JFrame {//Atualiza, carrega e limpa Campos
+public class Tela_alterar_bebida extends javax.swing.JFrame {//Atualiza, carrega e limpa os Campos.
 private Bebida bebida;
 
     /**
@@ -289,6 +289,15 @@ private Bebida bebida;
 
             String valorUnitarioStr = jTextField6.getText().replace("R$", "").trim().replace(",", ".");
             bebida.setV_unitario(Double.parseDouble(valorUnitarioStr));
+            //Capturar e formatar um valor monetário, removendo o símbolo de moeda e ajustando o formato de decimal.
+            //Criar um formatador numérico que segue as convenções dos Estados Unidos, permitindo manipulação e conversão consistentes de números.
+            
+            /*
+            Capturando um valor monetário de um campo de texto.
+            Limpando e formatando esse valor para remover símbolos de moeda e ajustar o formato decimal.
+            Convertendo o valor formatado para um número Double.
+            Definindo esse valor em um atributo do objeto bebida.
+            */
 
             try{
                 BebidaDAO dao = new BebidaDAO();

@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_comprar_bebida extends javax.swing.JFrame {
+public class Tela_comprar_bebida extends javax.swing.JFrame {//Tela da comprar da bebida.
 
     /**
      * Creates new form Tela_comprar_bebida
@@ -240,7 +240,7 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
     código da bebida da linha selecionada, usa esse código para buscar o
     bebida no banco de dados, e exibe uma mensagem com o nome da bebida,
     caso encontrado. Se nenhuma bebida for encontrada, exibe uma mensagem de erro.
-    s*/
+    */
     
     private Bebida BebidaSelecionada;
     private void ListarBebida(){
@@ -251,6 +251,8 @@ public class Tela_comprar_bebida extends javax.swing.JFrame {
         
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(Locale.US);
         DecimalFormat df = new DecimalFormat("#.00", symbols);
+        //Capturar e formatar um valor monetário, removendo o símbolo de moeda e ajustando o formato de decimal.
+        //Criar um formatador numérico que segue as convenções dos Estados Unidos, permitindo manipulação e conversão consistentes de números.
         
         for(Bebida bebida : bebidas){
             model.addRow(new Object[]{

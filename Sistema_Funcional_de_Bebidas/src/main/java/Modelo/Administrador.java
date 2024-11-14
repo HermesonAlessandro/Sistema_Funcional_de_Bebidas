@@ -92,14 +92,14 @@ public class Administrador {
             throw new IllegalArgumentException("Email invalido!");
         }
         this.email = email;
-    }
+    }//Garante que o email sempre será um valor válido, se um email inválido for fornecido ele imediatamente sinaliza o erro lançando uma exceção.
 
     public String getSenha() {
         if(senha == null || senha.length() < 8){
             throw new IllegalArgumentException("Senha deve ter no minimo 8 caracteres!");
         }
         return senha;
-    }
+    }//Retorna a senha e garante que a senha atenda a um critério mínimo de segurança antes de retorná-la.
 
     public void setSenha(String senha) {
         this.senha = senha;

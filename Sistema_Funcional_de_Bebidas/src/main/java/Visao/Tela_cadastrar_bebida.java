@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastro
+public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastro do administrador.
 
     /**
      * Creates new form Tela_cadastrar_bebida
@@ -247,10 +247,17 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastr
             
             String valorUnitarioStr = jTextField5.getText().replace("R$", "").trim().replace(",", ".");
             NumberFormat nf = NumberFormat.getInstance(Locale.US);
+            //Capturar e formatar um valor monetário, removendo o símbolo de moeda e ajustando o formato de decimal.
+            //Criar um formatador numérico que segue as convenções dos Estados Unidos, permitindo manipulação e conversão consistentes de números.
             
             try{
                 Number number = nf.parse(valorUnitarioStr);
                 bebida.setV_unitario(number.doubleValue());
+                /*
+                Usa o NumberFormat para converter uma string formatada (valorUnitarioStr) em um objeto Number.
+                Converte o objeto Number para um tipo primitivo double.
+                Define o valor unitário (v_unitario) do objeto bebida com o valor convertido.
+                */
             }catch(ParseException e){
                 JOptionPane.showMessageDialog(null, "Erro ao formatar o valor unitario da bebida: " +e.getMessage());
                 return;
@@ -258,6 +265,7 @@ public class Tela_cadastrar_bebida extends javax.swing.JFrame {//Tela de Cadastr
             
             String CodigodeBarras = GerarCodigodeBarras();
             bebida.setCod_de_barras(CodigodeBarras);
+            //Usado para gerar um código de barras.
             
             try{
                 BebidaDAO dao = new BebidaDAO();

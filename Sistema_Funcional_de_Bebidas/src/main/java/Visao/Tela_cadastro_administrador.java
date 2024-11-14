@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_cadastro_administrador extends javax.swing.JFrame {//Tela de Cadastro
+public class Tela_cadastro_administrador extends javax.swing.JFrame {//Tela de Cadastro do administrador.
 
     /**
      * Creates new form Tela_cadastro_administrador
@@ -245,10 +245,10 @@ public class Tela_cadastro_administrador extends javax.swing.JFrame {//Tela de C
                 String telefone = jTextField3.getText();
                 if(!telefone.matches("\\d+")){
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
-                }
+                }//Faz a verificação para ver se tem apenas dígitos.
                 if(telefone.length() != 11){
                     throw new IllegalArgumentException("Numero deve conter exatamente 11 dígitos");
-                }
+                }//Faz a verificação para ver se tem apenas 11 dígitos.
                 Administrador administrador = new Administrador();
                 administrador.setNome(jTextField2.getText());
                 administrador.setTelefone(Long.parseLong(telefone));

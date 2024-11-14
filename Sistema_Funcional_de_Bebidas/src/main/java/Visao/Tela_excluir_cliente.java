@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_excluir_cliente extends javax.swing.JFrame {//Tela de exclusão
+public class Tela_excluir_cliente extends javax.swing.JFrame {//Tela de exclusão do cliente.
 
     /**
      * Creates new form Tela_excluir_cliente
@@ -237,7 +237,7 @@ public class Tela_excluir_cliente extends javax.swing.JFrame {//Tela de exclusã
     Adiciona uma nova linha para cada cliente na lista.
     A variavel CpfSelecionado é usada para armazenar o cpf do cliente atualmente selecionado na tabela.
     */
-    private String CpfSelecionado = "-1";
+    private String CpfSelecionado = "-1";//Variável de instância.
     /**
      * @param args the command line arguments
      */

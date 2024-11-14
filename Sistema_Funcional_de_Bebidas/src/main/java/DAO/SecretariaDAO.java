@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author Hermeson Alessandro
  */
 public class SecretariaDAO {
-    public void CadastrarSecretaria(Secretaria secretaria) throws SQLException{
+    public void CadastrarSecretaria(Secretaria secretaria) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "INSERT INTO secretaria (rg, nome, d_nasc, sexo, endereco, telefone, email, senha, fk_cod_adm) VALUES (?, ?, ?, ?, ?, ?, ?, ? ,?)";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareCall(sql)){
@@ -36,7 +36,7 @@ public class SecretariaDAO {
             pstmt.execute();
         }
     }
-    //A classe SecretariaDAO permite a inserção de um nova xecretaria no banco de dados.
+    //A classe SecretariaDAO permite a inserção de um nova secretaria no banco de dados.
     //O metodo CadastrarSecretaria tem a função de prepara e executar  a intrução SQL.
     //Para inserção de dados da secretaria.
     
@@ -101,7 +101,7 @@ public class SecretariaDAO {
     //cria e preenche o objeto secretaria com os dados obtidos e retorna o encontrado.
     //Em caso de erro retorna o erro e retorna null, dando indice que nenhuma secretaria foi encontrada.
     
-    public void AlterarSecretaria(Secretaria secretaria) throws SQLException{
+    public void AlterarSecretaria(Secretaria secretaria) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "UPDATE secretaria SET nome = ?, d_nasc = ?, sexo = ?, endereco = ?, telefone = ?, email = ?, senha = ?, fk_cod_adm = ? WHERE rg = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -123,7 +123,7 @@ public class SecretariaDAO {
     //Ele utiliza a conexão com banco de dados, para executar a consulta SQL.
     //define os dados/valores dos paramentros com os dados do objeto secretaria.
     
-    public void ExcluirSecretaria(String rg) throws SQLException{
+    public void ExcluirSecretaria(String rg) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "DELETE FROM secretaria WHERE rg = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){

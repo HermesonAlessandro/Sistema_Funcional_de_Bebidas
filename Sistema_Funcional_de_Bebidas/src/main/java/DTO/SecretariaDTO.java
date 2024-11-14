@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author Hermeson Alessandro
  */
 public class SecretariaDTO {
-    public Secretaria VerificarSecretaria(String email, String senha) throws SQLException{
+    public Secretaria VerificarSecretaria(String email, String senha) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "SELECT * FROM secretaria WHERE email = ? AND senha = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){

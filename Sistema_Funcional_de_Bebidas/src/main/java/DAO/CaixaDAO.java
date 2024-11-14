@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Hermeson Alessandro
  */
 public class CaixaDAO {
-    public void CadastrarCaixa(Caixa caixa) throws SQLException{
+    public void CadastrarCaixa(Caixa caixa) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "INSERT INTO caixa (id_pedido, nome_produto_pedido, valor_total_pedido, pagamento) VALUES (?, ?, ?, ?)";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareCall(sql)){
@@ -29,7 +29,7 @@ public class CaixaDAO {
     //O metodo CadastrarCaixa tem a função de prepara e executar  a intrução SQL.
     //Para inserção de dados do caixa.
     
-    public void ExcluirCaixa(int pedidoId) throws SQLException{
+    public void ExcluirCaixa(int pedidoId) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "DELETE FROM caixa WHERE id_pedido = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){

@@ -30,7 +30,7 @@ public class Tela_ajuste_administrador extends javax.swing.JFrame {//Tela para c
         jLabel4.setText(saudacao + " - " + dataHora);
     }
     /*
-    Quando a tela Tela_ajuste_administrador é instanciada.
+    Quando a tela Tela_ajuste_administrador é instânciada.
     Ela inicializa seus componentes, lista os administradores e define uma saudação que inclui a data e hora do login ativo.
     */
 

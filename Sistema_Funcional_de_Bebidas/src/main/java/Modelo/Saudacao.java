@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Saudacao {
     public static String getCumprimento(String nomeUsuario){
-        LocalDateTime agora = LocalDateTime.now();
+        LocalDateTime agora = LocalDateTime.now();//Instância da classe LocalDateTime que representa a data e hora atual.
         String cumprimento;
         if(agora.getHour() < 12){
             cumprimento = "Bom dia";
@@ -28,8 +28,8 @@ public class Saudacao {
      //Retorna uma saudação juntamente com o nome de usuario.
     
     public static String getDataHoraAtual(){
-        LocalDateTime agora = LocalDateTime.now();
-        DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime agora = LocalDateTime.now();//Instância da classe LocalDateTime que representa a data e hora atual.
+        DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");//Formato da data e hora.
         return agora.format(formatar);
     }
 }
@@ -39,4 +39,4 @@ public class Saudacao {
 
 //A classe Saudação oferece um suporte para gerar uma saudação apropiada com base na hora do dia.
 //e pra obter a data e hora atual formatadas.
-//utilizando a classe LocalDateTime para manipulação  de data e hora e DateTimeFormatter para a formatação da saida.
+//utilizando a classe LocalDateTime para manipulação  de data e hora e DateTimeFormatter para a formatação da saída.

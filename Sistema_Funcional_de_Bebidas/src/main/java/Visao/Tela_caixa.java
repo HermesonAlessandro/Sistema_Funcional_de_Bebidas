@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_caixa extends javax.swing.JFrame {
+public class Tela_caixa extends javax.swing.JFrame {//Tela do caixa.
 private Pedido pedidoId;
 
     /**
@@ -225,6 +225,12 @@ private Pedido pedidoId;
                 caixa.setId_pedido(pedidoId);
                 caixa.setNome_produto_pedido(jTextField2.getText());
                 caixa.setValor_total_pedido(Double.parseDouble(jTextField3.getText().replace(",", ".")));
+                /*
+                Obtém o texto de um campo de texto (jTextField3).
+                Substitui a vírgula por um ponto para assegurar a correta formatação numérica.
+                Converte a string formatada em um valor Double.
+                Define o valor total do pedido no objeto caixa com o valor numérico convertido.
+                */
                 caixa.setPagamento("Pago");
                 dao.CadastrarCaixa(caixa);
                 JOptionPane.showMessageDialog(null, "Pagamento confirmado, estoque atualizado e registro no caixa criado!");
@@ -234,6 +240,11 @@ private Pedido pedidoId;
             }else{
                 JOptionPane.showMessageDialog(null, "Pagamento não confirmado. A quantidade adquirida será devolvida ao estoque!");
                 String sql1 = "UPDATE bebida SET q_estoque = q_estoque + (SELECT q_adquirida_do_pedido FROM pedido WHERE id = ?) WHERE cod = (SELECT fk_cod_bebida FROM pedido WHERE id = ?)";
+                /*
+                Atualiza a quantidade em estoque (q_estoque) na tabela bebida.
+                Adiciona a quantidade adquirida (q_adquirida_do_pedido) de um pedido específico (pedido) ao estoque atual.
+                Garante que a atualização é aplicada somente à bebida cujo código (cod) corresponde ao código da bebida relacionado ao pedido.
+                */
                 try(PreparedStatement pstmt1 = conn.prepareStatement(sql1)){
                     pstmt1.setInt(1, pedidoId);
                     pstmt1.setInt(2, pedidoId);
@@ -244,6 +255,12 @@ private Pedido pedidoId;
                 caixa.setId_pedido(pedidoId); 
                 caixa.setNome_produto_pedido(jTextField2.getText()); 
                 caixa.setValor_total_pedido(Double.parseDouble(jTextField3.getText().replace(",", "."))); 
+                /*
+                Obtém o texto de um campo de texto (jTextField3).
+                Substitui a vírgula por um ponto para assegurar a correta formatação numérica.
+                Converte a string formatada em um valor Double.
+                Define o valor total do pedido no objeto caixa com o valor numérico convertido.
+                */
                 caixa.setPagamento("Não pago");
                 dao.CadastrarCaixa(caixa);
                 Tela_extrato te = new Tela_extrato(pedidoId);
@@ -273,8 +290,9 @@ private Pedido pedidoId;
             if(rs.next()){
                 jTextField1.setText(rs.getString("id"));
                 jTextField2.setText(rs.getString("descricao_bebida"));
-                jTextField3.setText(String.format("%.2f", rs.getDouble("v_total_pedido")));
-            }
+                jTextField3.setText(String.format("%.2f", rs.getDouble("v_total_pedido")));//Obtém o valor da coluna "v_total_pedido" do ResultSet como um double.
+                                                                                           //Formata o valor para uma string com duas casas decimais.
+            }                                                                              //Atualiza o texto do campo de texto jTextField3 para exibir o valor formatado.
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro ao buscar os dados do pedido: " +e.getMessage());
         }

@@ -30,7 +30,7 @@ public class Tela_ajuste_secretaria extends javax.swing.JFrame {////Tela para cu
         jLabel4.setText(saudacao + " - " + dataHora);
     }
     /*
-    Quando a tela Tela_ajuste_secretaria é instanciada.
+    Quando a tela Tela_ajuste_secretaria é instânciada.
     Ela inicializa seus componentes, lista as secretarias e define uma saudação que inclui a data e hora do login ativo.
     */
 

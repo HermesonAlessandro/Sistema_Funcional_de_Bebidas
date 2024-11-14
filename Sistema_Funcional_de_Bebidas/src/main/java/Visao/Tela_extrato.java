@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_extrato extends javax.swing.JFrame {
+public class Tela_extrato extends javax.swing.JFrame {//Tela de extrato.
 private int pedidoId;
 
     /**
@@ -372,20 +372,26 @@ private int pedidoId;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             Extrato extrato = new Extrato();
-            extrato.setExt_id_pedido(Integer.parseInt(jLabel3.getText()));
+            extrato.setExt_id_pedido(Integer.parseInt(jLabel3.getText()));//Converte um String para um valor númerico.
             extrato.setExt_fk_cpf_cliente(jLabel5.getText());
             extrato.setExt_nome_cliente(jLabel7.getText());
             extrato.setExt_endereco_cliente(jLabel9.getText());
-            extrato.setExt_telefone_cliente(Long.parseLong(jLabel11.getText()));
+            extrato.setExt_telefone_cliente(Long.parseLong(jLabel11.getText()));//Converte um String para um valor tipo long.
             extrato.setExt_email_cliente(jLabel13.getText());
             extrato.setExt_descricao_bebida(jLabel15.getText());
             extrato.setExt_cod_de_barras_bebida(jLabel17.getText());
             extrato.setExt_marca_bebida(jLabel19.getText());
             extrato.setExt_gp_mercadoria_bebida(jLabel21.getText());
             extrato.setExt_t_do_item_bebida(jLabel23.getText());
-            extrato.setExt_q_adquirida_do_pedido(Integer.parseInt(jLabel27.getText()));
+            extrato.setExt_q_adquirida_do_pedido(Integer.parseInt(jLabel27.getText()));//Converte um String para um valor tipo númerico.
             extrato.setExt_v_unitario_bebida(Double.parseDouble(jLabel29.getText().replace(",", ".")));
             extrato.setExt_v_total_pedido(Double.parseDouble(jLabel31.getText().replace(",", ".")));
+            /*
+            Obtêm o texto dos labels jLabel29 e jLabel31.
+            Substituem as vírgulas por pontos nos textos obtidos.
+            Convertem os textos formatados em valores Double.
+            Definem esses valores nos atributos Ext_v_unitario_bebida e Ext_v_total_pedido do objeto extrato.
+            */
             extrato.setExt_fk_cod_bebida(Integer.parseInt(jLabel33.getText()));
             extrato.setExt_status_pagamento(jLabel35.getText());
 
@@ -415,6 +421,11 @@ private int pedidoId;
                          "JOIN bebida b ON p.fk_cod_bebida = b.cod " +
                          "JOIN caixa c ON p.id = c.id_pedido " +
                          "WHERE p.id = ?";
+            /*
+            Seleciona todas as colunas das tabelas pedido (p) e bebida (b), além da coluna pagamento da tabela caixa (c).
+            Realiza junções entre as tabelas pedido, bebida e caixa com base em suas chaves estrangeiras e relações.
+            Filtra os resultados para retornar apenas os dados relativos a um pedido específico.
+            */
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, pedidoId);
             ResultSet rs = pstmt.executeQuery();
@@ -424,10 +435,15 @@ private int pedidoId;
                 jLabel5.setText(rs.getString("fk_cpf_cliente"));
                 jLabel7.setText(rs.getString("nome_cliente"));
                 jLabel9.setText(rs.getString("endereco_cliente"));
-                jLabel11.setText(String.valueOf(rs.getLong("telefone_cliente")));
+                jLabel11.setText(String.valueOf(rs.getLong("telefone_cliente")));//Converte de um long para uma String.
                 jLabel13.setText(rs.getString("email_cliente"));
-                jLabel27.setText(String.valueOf(rs.getInt("q_adquirida_do_pedido")));
+                jLabel27.setText(String.valueOf(rs.getInt("q_adquirida_do_pedido")));//Converte de inteiro para uma String.
                 jLabel31.setText(String.format("%.2f", rs.getDouble("v_total_pedido")));
+                /*
+                Obtém o valor da coluna "v_total_pedido" do ResultSet como um double.
+                Formata o valor para uma string com duas casas decimais.
+                Atualiza o texto do label jLabel31 para exibir o valor formatado.
+                */
                 
                 jLabel35.setText(rs.getString("pagamento"));
                 
@@ -437,6 +453,11 @@ private int pedidoId;
                 jLabel21.setText(rs.getString("gp_mercadoria"));
                 jLabel23.setText(rs.getString("t_do_item"));
                 jLabel29.setText(String.format("%.2f", rs.getDouble("v_unitario")));
+                /*
+                Obtém o valor da coluna "v_total_pedido" do ResultSet como um double.
+                Formata o valor para uma string com duas casas decimais.
+                Atualiza o texto do label jLabel29 para exibir o valor formatado.
+                */
                 jLabel33.setText(rs.getString("cod"));
             }else{
                 JOptionPane.showMessageDialog(null, "Nenhum dado encontrado para o pedido e bebida especificados!");

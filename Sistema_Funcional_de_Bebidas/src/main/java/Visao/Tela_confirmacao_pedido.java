@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_confirmacao_pedido extends javax.swing.JFrame {
+public class Tela_confirmacao_pedido extends javax.swing.JFrame {//Tela de confirmação da bebida.
 private Cliente cliente;
 private Bebida bebida;
 
@@ -362,6 +362,8 @@ private Bebida bebida;
             bebida.setQ_estoque(qEstoque);
             bebida.setV_unitario(Double.parseDouble(jTextField13.getText().replace(",", ".")));
             bebida.setCod(Integer.parseInt(jTextField14.getText()));
+            //Capturar e formatar um valor monetário, removendo o símbolo de moeda e ajustando o formato de decimal.
+            //Criar um formatador numérico que segue as convenções dos Estados Unidos, permitindo manipulação e conversão consistentes de números.
 
             int quantidade = Integer.parseInt(jTextField12.getText());
             if(quantidade > qEstoque){
@@ -400,7 +402,7 @@ private Bebida bebida;
                 }
        
                 int pedidoId = pedido.getId();
-                JOptionPane.showMessageDialog(null, "Valor Total: " + String.format("%.2f", valorTotal));
+                JOptionPane.showMessageDialog(null, "Valor Total: " + String.format("%.2f", valorTotal));//Faz a formatação em duas casas decimais.
                 Tela_caixa tc = new Tela_caixa(pedidoId);
                 tc.setVisible(true);
                 dispose();

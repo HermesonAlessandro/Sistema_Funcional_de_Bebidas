@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_listar_bebida extends javax.swing.JFrame {//Tela de listagem
+public class Tela_listar_bebida extends javax.swing.JFrame {//Tela de listagem das bebidas.
 
     /**
      * Creates new form Tela_listar_bebida
@@ -195,6 +195,8 @@ public class Tela_listar_bebida extends javax.swing.JFrame {//Tela de listagem
         
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(Locale.US);
         DecimalFormat df = new DecimalFormat("#.00", symbols);
+        //Capturar e formatar um valor monetário, removendo o símbolo de moeda e ajustando o formato de decimal.
+        //Criar um formatador numérico que segue as convenções dos Estados Unidos, permitindo manipulação e conversão consistentes de números.
         
         for(Bebida bebida : bebidas){
             model.addRow(new Object[]{

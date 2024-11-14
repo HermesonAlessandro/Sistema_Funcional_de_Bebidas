@@ -9,7 +9,7 @@ import Modelo.Sessao;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_inicial_secretaria extends javax.swing.JFrame {//Tela inicial da secretaria.
+public class Tela_inicial_secretaria extends javax.swing.JFrame {//Tela inicial contendo as opções da secretaria.
 private String cumprimento;
 private String dataHora;
 
@@ -25,7 +25,11 @@ private String dataHora;
         this.dataHora = dataHora;
         jLabel2.setText(cumprimento + " - " + dataHora);
     }
-
+    /*
+    Construtor: O método initComponents() é chamado para configurar a interface gráfica quando um objeto da classe Tela_inicial_administrador é criado.
+    Método setSaudacao: Permite definir uma saudação e uma data/hora, armazenando esses valores na classe e atualizando o texto de jLabel2 para exibir essas informações.
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -8,7 +8,7 @@ package Imagem;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_ajuste extends javax.swing.JFrame {//Basicamente uma tela para servir como backup podemos dizer.
+public class Tela_ajuste extends javax.swing.JFrame {//Basicamente uma tela para servir como backup e conserto podemos dizer.
 
     /**
      * Creates new form Tela_ajuste

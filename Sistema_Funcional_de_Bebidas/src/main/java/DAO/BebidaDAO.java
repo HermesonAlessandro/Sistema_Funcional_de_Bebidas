@@ -17,10 +17,10 @@ import javax.swing.JOptionPane;
  * @author Hermeson Alessandro
  */
 public class BebidaDAO {
-    public void CadastrarBebida(Bebida bebida) throws SQLException{
+    public void CadastrarBebida(Bebida bebida) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "INSERT INTO bebida (cod_de_barras, descricao, marca, gp_mercadoria, t_do_item, q_estoque, v_unitario) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try(Connection conn = ConexaoDAO.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)){
+            PreparedStatement pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)){//Prepara uma instrução SQL e captura as chaves geradas automaticamente.
             pstmt.setString(1, bebida.getCod_de_barras());
             pstmt.setString(2, bebida.getDescricao());
             pstmt.setString(3, bebida.getMarca());
@@ -43,7 +43,7 @@ public class BebidaDAO {
     //Para inserção de dados da bebida.
     //depois recupera a chave primária gerada para definir ao codigo da bebida no objeto instanciado logo acima.
     
-    public boolean DescricaoExiste(String descricao) throws SQLException{
+    public boolean DescricaoExiste(String descricao) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "SELECT COUNT(*) FROM bebida WHERE descricao = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -56,7 +56,7 @@ public class BebidaDAO {
         }
         return false;
     }
-    //Metodo da classe BebidaDAO que permite ver se a descrição ja existe na tabela bebida do banco de dados.
+    //Metodo da classe BebidaDAO que permite ver se a descrição já existe na tabela bebida do banco de dados.
     //Ele executa um sql  que conta o numero de registro com a descrição fornecida.
     //Retorna verdadeiro se a conexão for maior que 0.
     //Indicando que a descricão ja existe.
@@ -93,12 +93,12 @@ public class BebidaDAO {
     public List<Bebida> ListarBebidaSec(){
         return ListarBebida();
     }
-    //ListarBebidaSec é essencialmente aliases para o método ListarBebida.
+    //ListarBebidaSec é essencialmente aliases(atalho/apelido) para o método ListarBebida.
     
     public List<Bebida> ListarBebidaCli(){
         return ListarBebida();
     }
-    //ListarBebidaCli é essencialmente aliases para o método ListarBebida.
+    //ListarBebidaCli é essencialmente aliases(atalho/apelido) para o método ListarBebida.
     
     public Bebida BuscarBebidaPorCod(int cod){
         String sql = "SELECT * FROM bebida WHERE cod = ?";
@@ -131,7 +131,7 @@ public class BebidaDAO {
     //cria e preenche o objeto bebida com os dados obtidos e retorna o encontrado.
     //Em caso de erro retorna o erro e retorna null, dando indice que nenhum bebida foi encontrado.
    
-    public void AlterarBebida(Bebida bebida) throws SQLException{
+    public void AlterarBebida(Bebida bebida) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "UPDATE bebida SET cod_de_barras = ?, descricao = ?, marca = ?, gp_mercadoria = ?, t_do_item = ?, q_estoque = ?, v_unitario = ? WHERE cod = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -152,7 +152,7 @@ public class BebidaDAO {
     //Ele utiliza a conexão com banco de dados, para executar a consulta SQL.
     //define os dados/valores dos paramentros com os dados do objeto bebida.
     
-    public void ExcluirBebida(int cod) throws SQLException{
+    public void ExcluirBebida(int cod) throws SQLException{//Método que pode lançar uma exceção SQL.
         String sql = "DELETE FROM bebida WHERE cod = ?";
         try(Connection conn = ConexaoDAO.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){

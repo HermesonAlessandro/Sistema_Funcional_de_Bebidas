@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_alterar_administrador extends javax.swing.JFrame {//Atualiza, carrega e limpa Campos
+public class Tela_alterar_administrador extends javax.swing.JFrame {//Atualiza, carrega e limpa os Campos.
 private Administrador administrador;
 
     /**
@@ -34,7 +34,7 @@ private Administrador administrador;
         jLabel2.setText(saudacao + " - " + dataHora);
     }
     /*
-    Tela_alterar_administrador é instanciada.
+    Tela_alterar_administrador é instânciada.
     Ela inicializa seus componentes, armazena o administrador passado como parametro.
     Preenche os campos da interface com as informações desse administrador.
     Define uma saudação que inclui a data e hora do login ativo.
@@ -247,9 +247,9 @@ private Administrador administrador;
         }else{
             try{
                 String telefone = jTextField3.getText();
-                if(!telefone.matches("\\d+")){
+                if(!telefone.matches("\\d+")){//Usa o método matches da classe String para verificar se o texto corresponde à expressão regular "\\d+".
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
-                }
+                }//Garante que o valor do campo de texto jTextField3 contenha apenas dígitos.
                 administrador.setNome(jTextField2.getText());
                 administrador.setTelefone(Long.parseLong(telefone));
                 administrador.setCategoria_tel((String)jComboBox2.getSelectedItem());
@@ -276,7 +276,7 @@ private Administrador administrador;
     }//GEN-LAST:event_jButton2ActionPerformed
     /*
     O método jButton2ActionPerformed valida os campos da interface.
-    Atualiza os dados do administrador, e trata possiveis erros durante o processo.
+    Atualiza os dados do administrador, e trata possíveis erros durante o processo.
     Fornecendo feedback ao usuário. Caso tudo ocorra bem, a tela atual é fechada e a tela de ajustes do administrador é aberta.
     */
    
@@ -313,7 +313,7 @@ private Administrador administrador;
     }
     /*
     Esse metodo preenche todos os campos da interface com os dados atuais do objeto administrador.
-    Permitindo que o usuário visualize e se necessario, edite as informações do administrador.
+    Permitindo que o usuário visualize e se necessário, edite as informações do administrador.
     */
     /**
      * @param args the command line arguments

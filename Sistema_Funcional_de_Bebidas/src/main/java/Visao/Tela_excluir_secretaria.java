@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_excluir_secretaria extends javax.swing.JFrame {//Tela de exclusão
+public class Tela_excluir_secretaria extends javax.swing.JFrame {//Tela de exclusão da secretaria.
     
     /**
      * Creates new form Tela_excluir_secretaria
@@ -239,7 +239,7 @@ public class Tela_excluir_secretaria extends javax.swing.JFrame {//Tela de exclu
     A variável Rgselecionado é usada para armazenar o rg da secretaria atualmente selecionada na tabela.
     */
     
-    private String RgSelecionado = "-1";
+    private String RgSelecionado = "-1";//Variável de instância.
     /**
      * @param args the command line arguments
      */

@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
  * @author Hermeson Alessandro
  */
 public class ConexaoDAO {
-    private static final String URL = "jdbc:postgresql://localhost:5432/Sistema_Funcional_de_Bebidas";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA = "Admin123@";
+    private static final String URL = "jdbc:postgresql://localhost:5432/Sistema_Funcional_de_Bebidas";//Variavel estática e privada.
+    private static final String USUARIO = "postgres";//Variavel estática e privada.
+    private static final String SENHA = "Admin123@";//Variavel estática e privada.
     
     public static Connection getConnection(){
         Connection conexao = null;

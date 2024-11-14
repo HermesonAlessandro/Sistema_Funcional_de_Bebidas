@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_ajuste_bebida extends javax.swing.JFrame {//Tela para cuidar dos ajustes das bebidas
+public class Tela_ajuste_bebida extends javax.swing.JFrame {//Tela para cuidar dos ajustes das bebidas.
 
     /**
      * Creates new form Tela_ajuste_bebida
@@ -32,7 +32,7 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {//Tela para cuidar d
         jLabel4.setText(saudacao + " - " + dataHora);
     }
     /*
-    Quando a tela Tela_ajuste_bebida é instanciada.
+    Quando a tela Tela_ajuste_bebida é instânciada.
     Ela inicializa seus componentes, lista as bebidas e define uma saudação que inclui a data e hora do login ativo.
     */
 

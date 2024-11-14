@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_excluir_bebida extends javax.swing.JFrame {//Tela de exclusão
+public class Tela_excluir_bebida extends javax.swing.JFrame {//Tela de exclusão de bebidas.
 
     /**
      * Creates new form Tela_excluir_bebida
@@ -172,6 +172,12 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {//Tela de exclusão
         int selectedRow = jTable1.getSelectedRow();
         if(selectedRow != -1){
             int cod = Integer.parseInt(jTable1.getValueAt(selectedRow, 0).toString());
+            /*
+            Obtém o valor de uma célula específica na tabela jTable1.
+            Converte esse valor para uma string.
+            Converte a string para um inteiro.
+            Atribui o valor inteiro à variável cod.
+            */
             int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir esta bebida?", "Confirmaçao", JOptionPane.YES_NO_OPTION);
             if(confirmacao == JOptionPane.YES_NO_OPTION){
                 try{
@@ -215,6 +221,8 @@ public class Tela_excluir_bebida extends javax.swing.JFrame {//Tela de exclusão
         
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(Locale.US);
         DecimalFormat df = new DecimalFormat("#.00", symbols);
+        //Capturar e formatar um valor monetário, removendo o símbolo de moeda e ajustando o formato de decimal.
+        //Criar um formatador numérico que segue as convenções dos Estados Unidos, permitindo manipulação e conversão consistentes de números.
         
         for(Bebida bebida : bebidas){
             model.addRow(new Object[]{

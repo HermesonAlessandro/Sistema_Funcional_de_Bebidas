@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_alterar_secretaria extends javax.swing.JFrame {//Atualiza, carrega e limpa Campos
+public class Tela_alterar_secretaria extends javax.swing.JFrame {//Atualiza, carrega e limpa os Campos.
 private Secretaria secretaria;
 
     /**
@@ -283,7 +283,7 @@ private Secretaria secretaria;
         jTextField8.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
     /*
-    Esse metodo é responsável por realizar a limpeza dos campos.
+    Esse método é responsável por realizar a limpeza dos campos.
     Ou seja aonde tiver String vai ser substituida por "" e aonde tiver inteiro vai ser 0 ou seja nada.
     */
     
@@ -299,18 +299,22 @@ private Secretaria secretaria;
                 String telefone = jTextField6.getText();
                 if(!telefone.matches("\\d+")){
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
-                }
+                }//Verifica a String informando que só pode ter dígitos.
                 if(telefone.length() != 11){
                     throw new IllegalArgumentException("Numero deve conter exatamente 11 dígitos");
-                }
+                }//Numero deve ter apenas 11 dígitos.
                 String datatexto = jTextField4.getText();
                 if (datatexto.isEmpty()) {
                     throw new DateTimeParseException("Data vazia!", datatexto, 0);
-                }
+                }//Faz a verificação da data para ver se esta vazia.
 
                 if(datatexto.matches("\\d{8}")){
                     datatexto = datatexto.substring(0, 2) + "/" + datatexto.substring(2, 4) + "/" + datatexto.substring(4, 8);
                 }
+                /*
+                Verifica se a string datatexto tem exatamente 8 dígitos.
+                Se a verificação for bem-sucedida, formata a string para o formato de data "dd/MM/yyyy".
+                */
 
                 String rg = jTextField2.getText();
                 if(!rg.matches("\\d{11}") && !rg.matches("\\d{10}-\\d")){
@@ -318,9 +322,15 @@ private Secretaria secretaria;
                 }
                 
                 rg = rg.replace("-", "");
+                /*
+                A entrada do campo de texto jTextField2 contenha um RG no formato de 11 dígitos consecutivos ou 10 dígitos seguidos por um hífen e mais um dígito.
+                Se a validação falhar, lança uma exceção informando o formato correto.
+                Se a validação for bem-sucedida e houver um hífen no RG, ele é removido.
+                */
 
                 DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate datanascimento = LocalDate.parse(datatexto,formatar);
+                //O DateTimeFormatter está configurado para interpretar essa string no formato "dd/MM/yyyy".
 
                 Secretaria secretaria = new Secretaria();
                 secretaria.setRg(jTextField2.getText());

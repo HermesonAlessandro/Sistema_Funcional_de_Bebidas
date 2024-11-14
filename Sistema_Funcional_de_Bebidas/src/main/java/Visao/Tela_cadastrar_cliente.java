@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadastro
+public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadastro do cliente.
 
     /**
      * Creates new form Tela_cadastrar_cliente
@@ -33,7 +33,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
     /*
     Quando a nova instância da Tela_cadastrar_cliente é criada, ela inicializa todos os componentes da interface.
     Define uma mensagem de saudação com a data e hora do login ativo do usuário.
-    O metodo setSaudacao é usada para formatar e definir essa mensagem no componentes jlabel11.
+    O método setSaudacao é usada para formatar e definir essa mensagem no componentes jlabel11.
     */
 
     /**
@@ -243,30 +243,40 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
                 String telefone = jTextField5.getText();
                 if(!telefone.matches("\\d+")){
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
-                }
+                }//Verifica se no campo aonde vamos digitar o numero de telefone contém apenas dígitos.
                 if(telefone.length() != 11){
                     throw new IllegalArgumentException("Numero deve conter exatamente 11 digitos");
-                }
+                }//Verifica se no campo telene possui apenas 11 dígitos.
                 String datatexto = jTextField3.getText();
                 if (datatexto.isEmpty()) {
                     throw new DateTimeParseException("Data vazia!", datatexto, 0);
-                }
+                }//Verifica se a data não está vazia.
 
                 if(datatexto.matches("\\d{8}")){
                     datatexto = datatexto.substring(0, 2) + "/" + datatexto.substring(2, 4) + "/" + datatexto.substring(4, 8);
                 }
+                /*
+                Verifica se a string datatexto tem exatamente 8 dígitos.
+                Se a verificação for bem-sucedida, formata a string para o formato de data "dd/MM/yyyy".
+                */
                 
                 String cpf = jTextField1.getText();
                 if(cpf.isEmpty()){
                     throw new IllegalArgumentException("Cpf vazio!");
-                }
+                }//Verifica se o cpf não está vazio.
                 String cpfNumerico = cpf.replaceAll("\\D", "");
                 if(cpfNumerico.length() != 11){
                     throw new IllegalArgumentException("Cpf deve conter exatamente 11 digitos!");
                 }
+                /*
+                Removem todos os caracteres não numéricos da string do CPF.
+                Validam se o CPF resultante contém exatamente 11 dígitos.
+                Lançam uma exceção se a validação falhar, informando que o CPF deve conter exatamente 11 dígitos.
+                */
                 
                 DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate datanascimento = LocalDate.parse(datatexto,formatar);
+                //O DateTimeFormatter está configurado para interpretar essa string no formato "dd/MM/yyyy".
                 
                 Cliente cliente = new Cliente();
                 cliente.setCpf(jTextField1.getText());

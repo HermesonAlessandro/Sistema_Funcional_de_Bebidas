@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_alterar_cliente extends javax.swing.JFrame {//Atualiza, carrega e limpa Campos
+public class Tela_alterar_cliente extends javax.swing.JFrame {//Atualiza, carrega e limpa os campos.
 private Cliente cliente;
 
     /**
@@ -291,30 +291,35 @@ private Cliente cliente;
                 String telefone = jTextField5.getText();
                 if(!telefone.matches("\\d+")){
                     throw new NumberFormatException("Numero deve conter apenas digitos!");
-                }
+                }//Deve conter apenas dígitos.
                 if(telefone.length() != 11){
                     throw new IllegalArgumentException("Numero deve conter exatamente 11 digitos");
-                }
+                }//Deve ser um conjunto de numeros exatamente de 11 dígitos.
                 String datatexto = jTextField3.getText();
                 if (datatexto.isEmpty()) {
                     throw new DateTimeParseException("Data vazia!", datatexto, 0);
-                }
+                }//Faz a verificação da data para ver se estar vazia.
 
                 if(datatexto.matches("\\d{8}")){
                     datatexto = datatexto.substring(0, 2) + "/" + datatexto.substring(2, 4) + "/" + datatexto.substring(4, 8);
                 }
+                /*
+                Verifica se a string datatexto tem exatamente 8 dígitos.
+                Se a verificação for bem-sucedida, formata a string para o formato de data "dd/MM/yyyy".
+                */
                 
                 String cpf = jTextField1.getText();
                 if(cpf.isEmpty()){
                     throw new IllegalArgumentException("Cpf vazio!");
-                }
+                }//Faz a verificação do cpf
                 String cpfNumerico = cpf.replaceAll("\\D", "");
                 if(cpfNumerico.length() != 11){
                     throw new IllegalArgumentException("Cpf deve conter exatamente 11 digitos!");
-                }
+                }//Faz o comprimento da String para ver se tem apenas 11 dígitos.
                 
                 DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate datanascimento = LocalDate.parse(datatexto,formatar);
+                //O DateTimeFormatter está configurado para interpretar essa string no formato "dd/MM/yyyy".
                 
                 Cliente cliente = new Cliente();
                 cliente.setCpf(jTextField1.getText());

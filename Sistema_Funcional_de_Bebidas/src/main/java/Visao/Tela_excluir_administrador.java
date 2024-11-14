@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de exclusão
+public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de exclusão do administrador.
 
     /**
      * Creates new form Tela_excluir_administrador
@@ -206,7 +206,7 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de ex
     O método verifica se um administrador foi selecionado.
     Solicita a confirmação do usuário para a exclusão.
     Tenta excluir e atualiza a lista de administradores.
-    Se o administrador for excluido for o usuario naquele momento logado.
+    Se o administrador for excluído for o usuario naquele momento logado.
     Limpa a sessão e redireciona para a tela de login.
     Trata possíveis erros e fornece feedback ao usuário em cada etapa do processo.
     */
@@ -239,10 +239,10 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de ex
     }
     /*
     O método de ListarAdministrador é usado para preencher a tabela jtable2 com os dados de todos os administradores.
-    Ele obtem a lista de administradores do banco de dados, limpa a tabela e adiciona uma nova linha para cada Administrador na liata.
+    Ele obtem a lista de administradores do banco de dados, limpa a tabela e adiciona uma nova linha para cada Administrador na lista.
     A variável codSelecionado é usado para armazenar o código do administrador atualmente selecionado na tabela.
     */
-    private int CodSelecionado = -1;
+    private int CodSelecionado = -1;//Variável de instância. 
     /**
      * @param args the command line arguments
      */
