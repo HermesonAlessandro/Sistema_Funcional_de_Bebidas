@@ -8,12 +8,12 @@ package Imagem;
  *
  * @author Hermeson Alessandro
  */
-public class Tela_ajuste extends javax.swing.JFrame {//Basicamente uma tela para servir como backup e conserto podemos dizer.
+public class Tela_ajuste3 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Tela_ajuste
+     * Creates new form Tela_ajuste3
      */
-    public Tela_ajuste() {
+    public Tela_ajuste3() {
         initComponents();
     }
 
@@ -32,11 +32,11 @@ public class Tela_ajuste extends javax.swing.JFrame {//Basicamente uma tela para
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -59,20 +59,20 @@ public class Tela_ajuste extends javax.swing.JFrame {//Basicamente uma tela para
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_ajuste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_ajuste3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_ajuste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_ajuste3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_ajuste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_ajuste3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_ajuste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_ajuste3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_ajuste().setVisible(true);
+                new Tela_ajuste3().setVisible(true);
             }
         });
     }
