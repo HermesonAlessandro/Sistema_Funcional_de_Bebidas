@@ -36,7 +36,7 @@ public class Tela_ajuste2 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGap(0, 890, Short.MAX_VALUE)
         );
 
         pack();
