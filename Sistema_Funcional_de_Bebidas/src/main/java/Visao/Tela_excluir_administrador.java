@@ -64,8 +64,8 @@ public class Tela_excluir_administrador extends javax.swing.JFrame {//Tela de ex
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela_excluir_administrador");
-        setMinimumSize(new java.awt.Dimension(675, 662));
-        setPreferredSize(new java.awt.Dimension(675, 662));
+        setMinimumSize(new java.awt.Dimension(675, 657));
+        setPreferredSize(new java.awt.Dimension(675, 659));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
