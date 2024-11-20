@@ -67,7 +67,7 @@ public class Tela_ajuste_bebida extends javax.swing.JFrame {//Tela para cuidar d
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Bebidas");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(300, 20, 165, 64);
+        jLabel1.setBounds(280, 20, 165, 64);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
