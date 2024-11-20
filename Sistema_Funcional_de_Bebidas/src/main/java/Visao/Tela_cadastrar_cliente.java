@@ -45,48 +45,95 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tela_cadastrar_cliente");
+        setMinimumSize(new java.awt.Dimension(698, 623));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Cadastrar Cliente");
-
-        jLabel7.setText("Telefone");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(170, 20, 370, 64);
 
         jLabel2.setText("Cpf");
-
-        jLabel10.setText("Fk_rg_sec");
-
-        jLabel5.setText("Sexo");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(150, 100, 30, 16);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(190, 100, 360, 22);
 
         jLabel3.setText("Nome");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(150, 140, 33, 16);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(190, 140, 360, 22);
 
-        jLabel8.setText("Email");
+        jLabel4.setText("D_nasc");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(150, 180, 50, 16);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(210, 180, 340, 22);
+
+        jLabel5.setText("Sexo");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(150, 220, 30, 16);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", "Outros" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(190, 220, 72, 22);
+
+        jLabel6.setText("Endereço");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(150, 260, 60, 16);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(210, 260, 340, 22);
+
+        jLabel7.setText("Telefone");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(150, 300, 60, 16);
+        getContentPane().add(jTextField5);
+        jTextField5.setBounds(220, 300, 330, 22);
+
+        jLabel8.setText("Email");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(150, 340, 40, 16);
+        getContentPane().add(jTextField6);
+        jTextField6.setBounds(190, 340, 360, 22);
+
+        jLabel9.setText("Senha");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(150, 380, 40, 16);
+        getContentPane().add(jPasswordField1);
+        jPasswordField1.setBounds(200, 380, 350, 22);
+
+        jLabel10.setText("Fk_rg_sec");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(150, 420, 60, 16);
+        getContentPane().add(jTextField8);
+        jTextField8.setBounds(220, 420, 330, 22);
 
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -94,8 +141,8 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel6.setText("Endereço");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(190, 480, 100, 40);
 
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -103,140 +150,26 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
                 jButton4ActionPerformed(evt);
             }
         });
-
-        jLabel9.setText("Senha");
-
-        jLabel4.setText("D_nasc");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(400, 480, 100, 40);
 
         jLabel11.setText("jLabel11");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(10, 560, 690, 16);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jPasswordField1))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField6))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField5))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField3))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField8)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(jButton1)
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel1)))
-                .addContainerGap(59, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel12.setBackground(new java.awt.Color(0, 255, 255));
+        jLabel12.setOpaque(true);
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(0, 0, 750, 650);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() 
-           || jComboBox1.getSelectedItem() == null || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()
-           || jTextField6.getText().isEmpty() || jPasswordField1.getPassword().length == 0 || jTextField8.getText().isEmpty()){
+        if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
+            || jComboBox1.getSelectedItem() == null || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()
+            || jTextField6.getText().isEmpty() || jPasswordField1.getPassword().length == 0 || jTextField8.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Campos vazios, por favor preencher todos os campos!");
         }else{
             try{
@@ -259,7 +192,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
                 Verifica se a string datatexto tem exatamente 8 dígitos.
                 Se a verificação for bem-sucedida, formata a string para o formato de data "dd/MM/yyyy".
                 */
-                
+
                 String cpf = jTextField1.getText();
                 if(cpf.isEmpty()){
                     throw new IllegalArgumentException("Cpf vazio!");
@@ -273,11 +206,11 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
                 Validam se o CPF resultante contém exatamente 11 dígitos.
                 Lançam uma exceção se a validação falhar, informando que o CPF deve conter exatamente 11 dígitos.
                 */
-                
+
                 DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate datanascimento = LocalDate.parse(datatexto,formatar);
                 //O DateTimeFormatter está configurado para interpretar essa string no formato "dd/MM/yyyy".
-                
+
                 Cliente cliente = new Cliente();
                 cliente.setCpf(jTextField1.getText());
                 cliente.setNome(jTextField2.getText());
@@ -288,7 +221,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
                 cliente.setEmail(jTextField6.getText());
                 cliente.setSenha(new String(jPasswordField1.getPassword()));
                 cliente.setFk_rg_sec(jTextField8.getText());
-                
+
                 ClienteDAO dao = new ClienteDAO();
                 dao.CadastrarCliente(cliente);
                 JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
@@ -306,6 +239,13 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
+        tis.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+        tis.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
     /*
     Esse método verifica se todos os campos estão preenchidos.
     Valida e formata os dados do cliente.
@@ -315,13 +255,6 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
     Se ocorrer erro durante o processo as exceções são tratadas adequadamente.
     */
     
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Tela_inicial_secretaria tis = new Tela_inicial_secretaria();
-        tis.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
-        tis.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -333,7 +266,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -364,6 +297,7 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -372,7 +306,6 @@ public class Tela_cadastrar_cliente extends javax.swing.JFrame {//Tela de Cadast
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
