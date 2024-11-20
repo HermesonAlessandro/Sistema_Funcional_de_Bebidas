@@ -36,7 +36,7 @@ public class Tela_ajuste extends javax.swing.JFrame {//Basicamente uma tela para
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGap(0, 645, Short.MAX_VALUE)
         );
 
         pack();
