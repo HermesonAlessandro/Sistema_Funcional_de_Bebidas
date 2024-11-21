@@ -56,94 +56,160 @@ private Bebida bebida;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel12.setText("Q_estoque da bebida");
-
-        jLabel9.setText("Marca da bebida");
-
-        jLabel16.setText("Codigo da bebida");
-
-        jLabel4.setText("Endereço do cliente");
-
-        jTextField14.setEditable(false);
-
-        jTextField5.setEditable(false);
-
-        jTextField6.setEditable(false);
-
-        jLabel11.setText("Tipo de item da bebida");
-
-        jLabel3.setText("Nome do cliente");
-
-        jTextField4.setEditable(false);
-
-        jTextField11.setEditable(false);
-
-        jTextField10.setEditable(false);
-
-        jTextField3.setEditable(false);
-
-        jLabel2.setText("Cpf do cliente");
-
-        jLabel14.setText("V_unitario da bebida");
-
-        jTextField1.setEditable(false);
-
-        jLabel7.setText("Descrição da bebida");
-
-        jTextField8.setEditable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tela_confirmacao_pedido");
+        setMinimumSize(new java.awt.Dimension(1056, 584));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Confirmação do Pedido");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(270, 20, 510, 64);
 
-        jLabel13.setText("Q_adquirida para pedido");
+        jLabel2.setText("Cpf do cliente");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(70, 110, 90, 16);
 
-        jTextField13.setEditable(false);
+        jTextField1.setEditable(false);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(170, 110, 310, 22);
+
+        jLabel3.setText("Nome do cliente");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(550, 110, 100, 16);
+
+        jTextField2.setEditable(false);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(650, 110, 330, 22);
+
+        jLabel4.setText("Endereço do cliente");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(70, 150, 120, 16);
+
+        jTextField3.setEditable(false);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(200, 150, 280, 22);
+
+        jLabel5.setText("Telefone do cliente");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(550, 150, 120, 16);
+
+        jTextField4.setEditable(false);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(670, 150, 310, 22);
+
+        jLabel6.setText("Email do cliente");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(70, 190, 110, 16);
+
+        jTextField5.setEditable(false);
+        getContentPane().add(jTextField5);
+        jTextField5.setBounds(170, 190, 310, 22);
+
+        jLabel7.setText("Descrição da bebida");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(550, 190, 120, 16);
+
+        jTextField6.setEditable(false);
+        getContentPane().add(jTextField6);
+        jTextField6.setBounds(680, 190, 300, 22);
+
+        jLabel8.setText("Codigo de barras da bebida");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(70, 230, 160, 16);
+
+        jTextField7.setEditable(false);
+        getContentPane().add(jTextField7);
+        jTextField7.setBounds(240, 230, 240, 22);
+
+        jLabel9.setText("Marca da bebida");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(550, 230, 130, 16);
+
+        jTextField8.setEditable(false);
+        getContentPane().add(jTextField8);
+        jTextField8.setBounds(650, 230, 330, 22);
 
         jLabel10.setText("Gp de mercadoria da bebida");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(70, 270, 170, 16);
 
-        jButton3.setText("Voltar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jTextField9.setEditable(false);
+        getContentPane().add(jTextField9);
+        jTextField9.setBounds(240, 270, 240, 22);
+
+        jLabel11.setText("Tipo de item da bebida");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(550, 270, 140, 16);
+
+        jTextField10.setEditable(false);
+        getContentPane().add(jTextField10);
+        jTextField10.setBounds(690, 270, 290, 22);
+
+        jLabel12.setText("Q_estoque da bebida");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(70, 310, 140, 16);
+
+        jTextField11.setEditable(false);
+        getContentPane().add(jTextField11);
+        jTextField11.setBounds(200, 310, 280, 22);
+
+        jLabel13.setText("Q_adquirida para pedido");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(550, 310, 150, 16);
+        getContentPane().add(jTextField12);
+        jTextField12.setBounds(700, 310, 280, 22);
+
+        jLabel14.setText("V_unitario da bebida");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(70, 350, 120, 16);
+
+        jTextField13.setEditable(false);
+        getContentPane().add(jTextField13);
+        jTextField13.setBounds(200, 350, 280, 22);
+
+        jLabel16.setText("Codigo da bebida");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(550, 350, 120, 16);
+
+        jTextField14.setEditable(false);
+        getContentPane().add(jTextField14);
+        jTextField14.setBounds(660, 350, 320, 22);
 
         jButton1.setText("Confirmar pedido");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -151,10 +217,8 @@ private Bebida bebida;
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jTextField7.setEditable(false);
-
-        jLabel6.setText("Email do cliente");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(250, 430, 150, 50);
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -162,180 +226,29 @@ private Bebida bebida;
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(490, 430, 90, 50);
 
-        jTextField2.setEditable(false);
-
-        jLabel8.setText("Codigo de barras da bebida");
-
-        jTextField9.setEditable(false);
-
-        jLabel5.setText("Telefone do cliente");
+        jButton3.setText("Voltar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(670, 430, 90, 50);
 
         jLabel17.setText("jLabel17");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(10, 520, 1050, 16);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField7))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField5))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField3))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField9))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField11))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField13)))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField6))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField8))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField10))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField12))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField14)))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(530, 530, 530)
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(104, 104, 104)
-                .addComponent(jButton2)
-                .addGap(118, 118, 118)
-                .addComponent(jButton3)
-                .addGap(285, 285, 285))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel15.setIcon(new javax.swing.ImageIcon("D:\\Sistema_Funcional_de_Bebidas\\Sistema_Funcional_de_Bebidas\\Sistema_Funcional_de_Bebidas\\src\\main\\java\\Imagem\\Fundo Confirmacao Pedido 1100-600.png")); // NOI18N
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(0, 0, 1060, 590);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Tela_comprar_bebida tcb = new Tela_comprar_bebida();
-        tcb.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() ||
@@ -395,12 +308,12 @@ private Bebida bebida;
                 dao.CadastrarPedido(pedido);
                 bebida.setQ_estoque(bebida.getQ_estoque() - quantidade);
                 dao.AtualizarEstoque(bebida);
-                
+
                 if(bebida.getQ_estoque() == 0){
                     jButton1.setEnabled(false);
                     JOptionPane.showMessageDialog(null, "Produto esgotado!");
                 }
-       
+
                 int pedidoId = pedido.getId();
                 JOptionPane.showMessageDialog(null, "Valor Total: " + String.format("%.2f", valorTotal));//Faz a formatação em duas casas decimais.
                 Tela_caixa tc = new Tela_caixa(pedidoId);
@@ -411,6 +324,20 @@ private Bebida bebida;
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(null, "Pedido cancelado, Voltando para o menu do cliente!");
+        Tela_inicial_cliente tic = new Tela_inicial_cliente();
+        tic.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
+        tic.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Tela_comprar_bebida tcb = new Tela_comprar_bebida();
+        tcb.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
     /*
     O método jButton1ActionPerformed verifica se todos os campos estão preenchidos e se
     a quantidade desejada está disponível em estoque. Se essas condições forem satisfeitas,
@@ -419,15 +346,7 @@ private Bebida bebida;
     desabilita o botão jButton1 e exibe uma mensagem informando que o produto está
     esgotado. Em caso de erro, exibe uma mensagem de erro apropriada.
     */ 
-    
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JOptionPane.showMessageDialog(null, "Pedido cancelado, Voltando para o menu do cliente!");
-        Tela_inicial_cliente tic = new Tela_inicial_cliente();
-        tic.setSaudacao("Login ativo desde:", Sessao.getDataHoraEntrada());
-        tic.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-    
+        
     private void PreencherCamposCliente(){
         jTextField1.setText(String.valueOf(cliente.getCpf()));
         jTextField2.setText(cliente.getNome());
@@ -468,7 +387,7 @@ private Bebida bebida;
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -502,6 +421,7 @@ private Bebida bebida;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -512,7 +432,6 @@ private Bebida bebida;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
