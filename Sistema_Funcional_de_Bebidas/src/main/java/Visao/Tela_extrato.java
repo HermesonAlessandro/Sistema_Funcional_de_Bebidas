@@ -299,8 +299,14 @@ private int pedidoId;
                 dao1.ExcluirCaixa(extrato.getExt_id_pedido());
                 dao2.ExcluirPedido(extrato.getExt_id_pedido());
                 JOptionPane.showMessageDialog(null, "Extrato cadastrado, mas pagamento não realizado. Dados deletados do caixa e do pedido!");
+                Tela_encerramento te = new Tela_encerramento();
+                te.setVisible(true);
+                dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Extrato cadastrado com sucesso!");
+                Tela_encerramento te = new Tela_encerramento();
+                te.setVisible(true);
+                dispose();
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar o extrato: "+e.getMessage());
