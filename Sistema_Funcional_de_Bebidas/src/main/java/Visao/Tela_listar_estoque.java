@@ -55,7 +55,7 @@ public class Tela_listar_estoque extends javax.swing.JFrame {//Tela de listagem 
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tela_listar_estoque");
+        setTitle("Tela_listar_pedidos");
         setMinimumSize(new java.awt.Dimension(1290, 685));
         getContentPane().setLayout(null);
 
