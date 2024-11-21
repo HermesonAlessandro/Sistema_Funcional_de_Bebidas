@@ -92,7 +92,7 @@ private int pedidoId;
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela_extrato");
@@ -254,10 +254,9 @@ private int pedidoId;
         getContentPane().add(jLabel36);
         jLabel36.setBounds(10, 490, 840, 16);
 
-        jLabel24.setBackground(new java.awt.Color(0, 255, 255));
-        jLabel24.setOpaque(true);
-        getContentPane().add(jLabel24);
-        jLabel24.setBounds(0, 0, 860, 590);
+        jLabel25.setIcon(new javax.swing.ImageIcon("D:\\Sistema_Funcional_de_Bebidas\\Sistema_Funcional_de_Bebidas\\Sistema_Funcional_de_Bebidas\\src\\main\\java\\Imagem\\Fundo Extrato 900-600.png")); // NOI18N
+        getContentPane().add(jLabel25);
+        jLabel25.setBounds(0, 0, 860, 590);
 
         pack();
         setLocationRelativeTo(null);
@@ -436,7 +435,7 @@ private int pedidoId;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
